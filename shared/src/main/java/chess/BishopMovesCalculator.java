@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public class BishopMovesCalculator implements PieceMoveCalculator{
 
-    public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position) {
+    public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position, ChessGame.TeamColor color) {
         Collection<ChessMove> validMoves = new ArrayList<>();
 
         //Up and left diagonal
@@ -16,6 +16,17 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow + 1;
             int newCol = startCol - 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
+            ChessGame.TeamColor nmpColor = board.getPiece(newMovePosition).getTeamColor();
+            if (nmpColor != null) {
+                if (nmpColor == color) {
+                    break;
+                }
+                else {
+                    ChessMove move = new ChessMove(position, newMovePosition, null);
+                    validMoves.add(move);
+                    break;
+                }
+            }
             ChessMove move = new ChessMove(position, newMovePosition, null);
             validMoves.add(move);
             startRow ++;
