@@ -1,4 +1,9 @@
 package chess;
 
-public class PieceMoveCalculator {
+import java.util.ArrayList;
+import java.util.Collection;
+
+public interface PieceMoveCalculator {
+
+    Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position);
 }
