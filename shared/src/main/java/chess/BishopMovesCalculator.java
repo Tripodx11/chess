@@ -16,9 +16,9 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow + 1;
             int newCol = startCol - 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
-            ChessGame.TeamColor nmpColor = board.getPiece(newMovePosition).getTeamColor();
-            if (nmpColor != null) {
-                if (nmpColor == color) {
+            ChessPiece newMovePiece = board.getPiece(newMovePosition);
+            if (newMovePiece != null) {
+                if (newMovePiece.getTeamColor() == color) {
                     break;
                 }
                 else {
@@ -40,6 +40,17 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow + 1;
             int newCol = startCol + 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
+            ChessPiece newMovePiece = board.getPiece(newMovePosition);
+            if (newMovePiece != null) {
+                if (newMovePiece.getTeamColor() == color) {
+                    break;
+                }
+                else {
+                    ChessMove move = new ChessMove(position, newMovePosition, null);
+                    validMoves.add(move);
+                    break;
+                }
+            }
             ChessMove move = new ChessMove(position, newMovePosition, null);
             validMoves.add(move);
             startRow ++;
@@ -53,6 +64,17 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow - 1;
             int newCol = startCol + 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
+            ChessPiece newMovePiece = board.getPiece(newMovePosition);
+            if (newMovePiece != null) {
+                if (newMovePiece.getTeamColor() == color) {
+                    break;
+                }
+                else {
+                    ChessMove move = new ChessMove(position, newMovePosition, null);
+                    validMoves.add(move);
+                    break;
+                }
+            }
             ChessMove move = new ChessMove(position, newMovePosition, null);
             validMoves.add(move);
             startRow --;
@@ -66,6 +88,17 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow - 1;
             int newCol = startCol - 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
+            ChessPiece newMovePiece = board.getPiece(newMovePosition);
+            if (newMovePiece != null) {
+                if (newMovePiece.getTeamColor() == color) {
+                    break;
+                }
+                else {
+                    ChessMove move = new ChessMove(position, newMovePosition, null);
+                    validMoves.add(move);
+                    break;
+                }
+            }
             ChessMove move = new ChessMove(position, newMovePosition, null);
             validMoves.add(move);
             startRow --;
