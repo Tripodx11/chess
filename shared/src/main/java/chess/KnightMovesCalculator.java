@@ -1,15 +1,13 @@
 package chess;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
-public class KingMovesCalculator implements PieceMoveCalculator {
+public class KnightMovesCalculator implements PieceMoveCalculator {
 
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position, ChessGame.TeamColor color) {
         Collection<ChessMove> validMoves = new ArrayList<>();
-        int[][] directions = {{1,-1}, {1,0}, {1,1}, {0,-1}, {0,1}, {-1,-1}, {-1,0}, {-1,1}};
+        int[][] directions = {{1,-2}, {2,-1}, {2,1}, {1,2}, {-1,2}, {-2,1}, {-2,-1}, {-1,-2}};
         int startRow = position.getRow();
         int startCol = position.getColumn();
 
@@ -32,5 +30,6 @@ public class KingMovesCalculator implements PieceMoveCalculator {
         }
 
         return validMoves;
+
     }
 }
