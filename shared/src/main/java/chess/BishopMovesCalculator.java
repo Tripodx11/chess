@@ -16,6 +16,8 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             int newRow = startRow + 1;
             int newCol = startCol - 1;
             ChessPosition newMovePosition = new ChessPosition(newRow, newCol);
+            //gets the piece at the new position, sees if there is a piece, then sees what color and adjusts the moves
+            //accordingly
             ChessPiece newMovePiece = board.getPiece(newMovePosition);
             if (newMovePiece != null) {
                 if (newMovePiece.getTeamColor() == color) {
@@ -27,6 +29,7 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
                     break;
                 }
             }
+            //code that runs if the position being looked at is empty on the board
             ChessMove move = new ChessMove(position, newMovePosition, null);
             validMoves.add(move);
             startRow ++;
@@ -104,7 +107,6 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
             startRow --;
             startCol --;
         }
-        System.out.println(validMoves);
 
         return validMoves;
     }
