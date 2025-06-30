@@ -2,6 +2,7 @@ package chess;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * Represents a single chess piece
@@ -44,6 +45,20 @@ public class ChessPiece {
         return pieceType;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ChessPiece that = (ChessPiece) o;
+        return color == that.color && pieceType == that.pieceType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, pieceType);
+    }
+
     /**
      * Calculates all the positions a chess piece can move to
      * Does not take into account moves that are illegal due to leaving the king in
@@ -52,32 +67,32 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
-        if (pieceType == pieceType.BISHOP) {
+        if (pieceType == PieceType.BISHOP) {
             BishopMovesCalculator bishopMoves = new BishopMovesCalculator();
             return bishopMoves.pieceMoves(board, myPosition, color);
         }
 
-        if (pieceType == pieceType.KING) {
+        if (pieceType == PieceType.KING) {
             KingMovesCalculator kingMoves = new KingMovesCalculator();
             return kingMoves.pieceMoves(board, myPosition, color);
         }
 
-        if (pieceType == pieceType.KNIGHT) {
+        if (pieceType == PieceType.KNIGHT) {
             KnightMovesCalculator knightMoves = new KnightMovesCalculator();
             return knightMoves.pieceMoves(board, myPosition, color);
         }
 
-        if (pieceType == pieceType.PAWN) {
+        if (pieceType == PieceType.PAWN) {
             PawnMovesCalculator pawnMoves = new PawnMovesCalculator();
             return pawnMoves.pieceMoves(board, myPosition, color);
         }
 
-        if (pieceType == pieceType.ROOK) {
+        if (pieceType == PieceType.ROOK) {
             RookMovesCalculator rookMoves = new RookMovesCalculator();
             return rookMoves.pieceMoves(board, myPosition, color);
         }
 
-        if (pieceType == pieceType.QUEEN) {
+        if (pieceType == PieceType.QUEEN) {
             QueenMovesCalculator queenMoves = new QueenMovesCalculator();
             return queenMoves.pieceMoves(board, myPosition, color);
         }
