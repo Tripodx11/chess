@@ -3,7 +3,7 @@ package chess;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class BishopMovesCalculator implements PieceMoveCalculator{
+public class RookMovesCalculator implements PieceMoveCalculator{
 
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position, ChessGame.TeamColor color) {
         Collection<ChessMove> validMoves = new ArrayList<>();
@@ -13,7 +13,7 @@ public class BishopMovesCalculator implements PieceMoveCalculator{
         int startCol = position.getColumn();
         int newRow = startRow;
         int newCol = startCol;
-        int [][] directions = {{1,-1}, {1,1}, {-1,1}, {-1,-1}};
+        int [][] directions = {{1,0}, {0,1}, {-1,0}, {0,-1}};
 
         for (int[] direction : directions) {
             newRow = startRow;

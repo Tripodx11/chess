@@ -72,7 +72,15 @@ public class ChessPiece {
             return pawnMoves.pieceMoves(board, myPosition, color);
         }
 
+        if (pieceType == pieceType.ROOK) {
+            RookMovesCalculator rookMoves = new RookMovesCalculator();
+            return rookMoves.pieceMoves(board, myPosition, color);
+        }
 
+        if (pieceType == pieceType.QUEEN) {
+            QueenMovesCalculator queenMoves = new QueenMovesCalculator();
+            return queenMoves.pieceMoves(board, myPosition, color);
+        }
 
         return new ArrayList<>();
     }
