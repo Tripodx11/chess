@@ -1,5 +1,7 @@
 package server;
 
+import dataaccess.SystemDataAccess;
+import handler.ClearHandler;
 import spark.*;
 
 public class Server {
@@ -14,6 +16,7 @@ public class Server {
         });
 
         // Register your endpoints and handle exceptions here.
+        Spark.delete("/db", new ClearHandler(new SystemDataAccess()));
 
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();

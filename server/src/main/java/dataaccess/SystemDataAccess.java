@@ -7,7 +7,7 @@ import model.UserData;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SystemDataAccess implements DataAccessInterface {
+public class SystemDataAccess implements DataAccess {
 
     private final Map<String, UserData> userData = new HashMap<>();
     private final Map<String, AuthData> authTokens = new HashMap<>();
