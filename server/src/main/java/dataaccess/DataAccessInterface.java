@@ -1,6 +1,6 @@
 package dataaccess;
 
-public interface DataAccess {
+public interface DataAccessInterface {
 
     public void clear() throws DataAccessException;
 }
