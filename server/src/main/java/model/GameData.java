@@ -15,4 +15,20 @@ public class GameData {
         blackUsername = blackUN;
         gameName = name;
     }
+
+    public int getGameID() {
+        return gameID;
+    }
+
+    public String getWhiteUsername() {
+        return whiteUsername;
+    }
+
+    public String getBlackUsername() {
+        return blackUsername;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
 }

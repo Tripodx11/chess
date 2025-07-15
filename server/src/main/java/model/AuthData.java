@@ -10,4 +10,11 @@ public class AuthData {
         username = un;
     }
 
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 }
