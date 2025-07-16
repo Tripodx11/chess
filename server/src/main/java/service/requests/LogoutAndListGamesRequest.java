@@ -1,10 +1,10 @@
 package service.requests;
 
-public class LogoutRequest {
+public class LogoutAndListGamesRequest {
 
     private final String authToken;
 
-    public LogoutRequest (String token) {
+    public LogoutAndListGamesRequest(String token) {
         authToken = token;
     }
 

@@ -3,7 +3,7 @@ package handler;
 import com.google.gson.Gson;
 import dataaccess.DataAccess;
 import service.LogoutService;
-import service.requests.LogoutRequest;
+import service.requests.LogoutAndListGamesRequest;
 import service.results.LogoutResult;
 import spark.Request;
 import spark.Response;
@@ -23,9 +23,9 @@ public class LogoutHandler implements Route {
 
         try {
             String authToken = request.headers("authorization");
-            LogoutRequest logoutRequest = new LogoutRequest(authToken);
+            LogoutAndListGamesRequest logoutAndListGamesRequest = new LogoutAndListGamesRequest(authToken);
             LogoutService logoutService = new LogoutService(dataAccess);
-            LogoutResult result = logoutService.logout(logoutRequest);
+            LogoutResult result = logoutService.logout(logoutAndListGamesRequest);
 
             if (result.getMessage() != null) {
                 if (result.getMessage().contains("unauthorized")) {

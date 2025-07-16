@@ -7,7 +7,7 @@ import model.AuthData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.LogoutService;
-import service.requests.LogoutRequest;
+import service.requests.LogoutAndListGamesRequest;
 import service.results.LogoutResult;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,7 +34,7 @@ public class LogoutServiceTest {
 
     @Test
     public void testLogoutSuccess() {
-        LogoutRequest request = new LogoutRequest(token);
+        LogoutAndListGamesRequest request = new LogoutAndListGamesRequest(token);
         LogoutResult result = logoutService.logout(request);
 
         assertNull(result.getMessage());
@@ -43,7 +43,7 @@ public class LogoutServiceTest {
 
     @Test
     public void testLogoutInvalidToken() {
-        LogoutRequest request = new LogoutRequest("bad token test");
+        LogoutAndListGamesRequest request = new LogoutAndListGamesRequest("bad token test");
         LogoutResult result = logoutService.logout(request);
 
         assertEquals("unauthorized", result.getMessage());
