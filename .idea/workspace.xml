@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Made a couple minor bug fixes to get Join game fully functioning">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/ListGamesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/results/ListGamesResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/ListGamesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got List games service and test running and test to pass">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/ListGamesHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/LogoutRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LogoutAndListGamesRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LogoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LogoutServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +185,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="31838000" />
+      <workItem from="1752612118027" duration="32142000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -354,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752695766473</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Got List games service and test running and test to pass">
+      <option name="closed" value="true" />
+      <created>1752697043320</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1752697043320</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,6 +380,7 @@
     <MESSAGE value="Got Join game service and test built. Test passed" />
     <MESSAGE value="Got Join game handler and server built out. Untested" />
     <MESSAGE value="Made a couple minor bug fixes to get Join game fully functioning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made a couple minor bug fixes to get Join game fully functioning" />
+    <MESSAGE value="Got List games service and test running and test to pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got List games service and test running and test to pass" />
   </component>
 </project>
