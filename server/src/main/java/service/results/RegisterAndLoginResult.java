@@ -1,18 +1,18 @@
 package service.results;
 
-public class RegisterResult {
+public class RegisterAndLoginResult {
 
     private String username;
     private String authToken;
     private String message;
 
-    public RegisterResult (String un, String auth) {
+    public RegisterAndLoginResult(String un, String auth) {
         username = un;
         authToken = auth;
         message = null;
     }
 
-    public RegisterResult (String message) {
+    public RegisterAndLoginResult(String message) {
         this.message = message;
         username = null;
         authToken = null;

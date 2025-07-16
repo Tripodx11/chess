@@ -1,11 +1,10 @@
 package ServerTests;
 
 import dataaccess.*;
-import model.*;
 import org.junit.jupiter.api.*;
 import service.*;
 import service.requests.RegisterRequest;
-import service.results.RegisterResult;
+import service.results.RegisterAndLoginResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +23,7 @@ public class RegisterServiceTest {
     public void testRegisterSuccess() throws DataAccessException {
         RegisterRequest request = new RegisterRequest("user", "pass", "test email");
 
-        RegisterResult result = service.register(request);
+        RegisterAndLoginResult result = service.register(request);
 
         assertNotNull(result);
         assertEquals("user", result.getUsername());
@@ -35,10 +34,10 @@ public class RegisterServiceTest {
     @Test
     public void testRegisterDuplicateUsername() throws DataAccessException {
         RegisterRequest request = new RegisterRequest("user", "pass", "test email");
-        RegisterResult firstResult = service.register(request);
+        RegisterAndLoginResult firstResult = service.register(request);
         assertNull(firstResult.getMessage());
 
-        RegisterResult duplicateResult = service.register(request);
+        RegisterAndLoginResult duplicateResult = service.register(request);
 
         assertNull(duplicateResult.getUsername());
         assertNull(duplicateResult.getAuthToken());
@@ -49,7 +48,7 @@ public class RegisterServiceTest {
     @Test
     public void testRegisterMissingField() throws DataAccessException {
         RegisterRequest badRequest = new RegisterRequest(null, "pass", "email@test.com");
-        RegisterResult result = service.register(badRequest);
+        RegisterAndLoginResult result = service.register(badRequest);
 
         assertNotNull(result.getMessage());
         assertEquals("bad request", result.getMessage());

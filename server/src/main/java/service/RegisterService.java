@@ -5,7 +5,7 @@ import dataaccess.DataAccessException;
 import model.AuthData;
 import model.UserData;
 import service.requests.RegisterRequest;
-import service.results.RegisterResult;
+import service.results.RegisterAndLoginResult;
 
 public class RegisterService {
 
@@ -15,17 +15,17 @@ public class RegisterService {
         dataAccess = data;
     }
 
-    public RegisterResult register(RegisterRequest request) throws DataAccessException {
+    public RegisterAndLoginResult register(RegisterRequest request) throws DataAccessException {
 
         //check for 400 error
         if (request.getUsername() == null || request.getUsername().isEmpty() || request.getPassword() == null || request.getPassword().isEmpty() || request.getEmail() == null || request.getEmail().isEmpty()) {
-            return new RegisterResult("bad request");
+            return new RegisterAndLoginResult("bad request");
         }
 
         try {
             UserData existingUser = dataAccess.getUserData(request.getUsername());
             if (existingUser != null) {
-                return new RegisterResult("already taken");
+                return new RegisterAndLoginResult("already taken");
             }
         } catch (DataAccessException e) {
             //this means the username was not found and we continue
@@ -39,9 +39,9 @@ public class RegisterService {
             AuthData authData = new AuthData(authToken, request.getUsername());
             dataAccess.addAuth(authData);
 
-            return new RegisterResult(request.getUsername(), authToken);
+            return new RegisterAndLoginResult(request.getUsername(), authToken);
         } catch (DataAccessException e) {
-            return new RegisterResult("internal issues: " + e.getMessage());
+            return new RegisterAndLoginResult("internal issues: " + e.getMessage());
         }
     }
 }

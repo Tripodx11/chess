@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Created request, result, and service for register along with an auth token gen function. Untested.">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServerTests/RegisterServiceTest.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/results/RegisterResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/RegisterResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/results/RegisterAndLoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServerTests/RegisterServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServerTests/RegisterServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +186,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="15085000" />
+      <workItem from="1752612118027" duration="16089000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -244,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752624126906</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done">
+      <option name="closed" value="true" />
+      <created>1752627659711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752627659711</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +265,7 @@
     <MESSAGE value="Finished writing the initial clear implementation for each step. Untested." />
     <MESSAGE value="Got clear fully implemented with a test file of my own" />
     <MESSAGE value="Created request, result, and service for register along with an auth token gen function. Untested." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created request, result, and service for register along with an auth token gen function. Untested." />
+    <MESSAGE value="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done" />
   </component>
 </project>

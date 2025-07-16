@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import dataaccess.DataAccess;
 import service.RegisterService;
 import service.requests.RegisterRequest;
-import service.results.RegisterResult;
+import service.results.RegisterAndLoginResult;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -24,7 +24,7 @@ public class RegisterHandler implements Route {
         try {
             RegisterRequest registerRequest = gson.fromJson(request.body(), RegisterRequest.class);
             RegisterService registerService = new RegisterService(dataAccess);
-            RegisterResult result = registerService.register(registerRequest);
+            RegisterAndLoginResult result = registerService.register(registerRequest);
 
             if (result.getMessage() != null) {
                 if (result.getMessage().contains("already taken")) {
