@@ -52,7 +52,7 @@ public class JoinGameService {
             if ("white".equalsIgnoreCase(color)) {
                 existingGameData.setWhiteUsername(existingAuthData.getUsername());
             } else if ("black".equalsIgnoreCase(color)) {
-                existingGameData.setWhiteUsername(existingAuthData.getUsername());
+                existingGameData.setBlackUsername(existingAuthData.getUsername());
             }
             return new JoinGameResult();
         } catch (Exception e) {

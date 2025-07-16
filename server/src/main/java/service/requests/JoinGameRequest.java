@@ -7,12 +7,12 @@ import java.util.Objects;
 public class JoinGameRequest {
 
     private final String authToken;
-    private final String color;
+    private final String playerColor;
     private final int gameID;
 
     public JoinGameRequest(String token, String color, int id) {
         authToken = token;
-        this.color = color;
+        playerColor = color;
         gameID = id;
     }
 
@@ -21,7 +21,7 @@ public class JoinGameRequest {
     }
 
     public String getColor() {
-        return color;
+        return playerColor;
     }
 
     public int getGameID() {

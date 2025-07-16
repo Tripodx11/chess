@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got Join game service and test built. Test passed">
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/JoinGameHandler.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got Join game handler and server built out. Untested">
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/JoinGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/JoinGameRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
     "JUnit.CreateGameServiceTest.executor": "Debug",
     "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
-    "JUnit.JoinGameServiceTest.executor": "Debug",
+    "JUnit.JoinGameServiceTest.executor": "Run",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.executor": "Debug",
@@ -184,7 +184,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="30215000" />
+      <workItem from="1752612118027" duration="30514000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -330,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752694800871</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Got Join game handler and server built out. Untested">
+      <option name="closed" value="true" />
+      <created>1752695436139</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1752695436139</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +361,7 @@
     <MESSAGE value="Create game service test built and tests passed" />
     <MESSAGE value="Got Create game handler built and added the code to the server for it. Untested" />
     <MESSAGE value="Got Join game service and test built. Test passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got Join game service and test built. Test passed" />
+    <MESSAGE value="Got Join game handler and server built out. Untested" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Join game handler and server built out. Untested" />
   </component>
 </project>
