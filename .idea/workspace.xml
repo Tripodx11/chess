@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Mid way through implementing login service funtionality">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/LoginHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that.">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LogoutRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/results/LogoutResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LogoutServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/RegisterRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServerTests/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/ClearServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServerTests/RegisterServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/RegisterServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +65,7 @@
     "JUnit.ClearServiceTest.executor": "Run",
     "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
+    "JUnit.LogoutServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
@@ -86,12 +85,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.LogoutServiceTest">
     <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ServiceTests.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,7 +105,7 @@
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ServiceTests.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,7 +121,7 @@
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ServiceTests.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,11 +132,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LogoutServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ServiceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServiceTests" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTests.LogoutServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -148,29 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterServiceTest.testRegisterSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ServiceTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ServerTests" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTests.RegisterServiceTest" />
-      <option name="METHOD_NAME" value="testRegisterSuccess" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LogoutServiceTest" />
         <item itemvalue="JUnit.LoginServiceTest" />
         <item itemvalue="JUnit.RegisterServiceTest" />
         <item itemvalue="JUnit.ClearServiceTest.testClearSuccess" />
         <item itemvalue="JUnit.ClearServiceTest" />
-        <item itemvalue="JUnit.RegisterServiceTest.testRegisterSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +189,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="17894000" />
+      <workItem from="1752612118027" duration="23962000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -265,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752628841116</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that.">
+      <option name="closed" value="true" />
+      <created>1752630495938</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1752630495938</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +286,7 @@
     <MESSAGE value="Created request, result, and service for register along with an auth token gen function. Untested." />
     <MESSAGE value="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done" />
     <MESSAGE value="Mid way through implementing login service funtionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mid way through implementing login service funtionality" />
+    <MESSAGE value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
   </component>
 </project>

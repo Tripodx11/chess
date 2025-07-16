@@ -33,17 +33,17 @@ public class LoginServiceTest {
 
     @Test
     public void testLoginSuccess() throws DataAccessException {
-        LoginRequest request = new LoginRequest("user1", "pass1");
+        LoginRequest request = new LoginRequest("user", "pass");
         RegisterAndLoginResult result = loginService.login(request);
 
         assertNull(result.getMessage()); // No error
-        assertEquals("user1", result.getUsername());
+        assertEquals("user", result.getUsername());
         assertNotNull(result.getAuthToken());
     }
 
     @Test
     public void testLoginInvalidPassword() throws DataAccessException {
-        LoginRequest request = new LoginRequest("user1", "wrongpass");
+        LoginRequest request = new LoginRequest("user", "pass1");
         RegisterAndLoginResult result = loginService.login(request);
 
         assertNull(result.getUsername());

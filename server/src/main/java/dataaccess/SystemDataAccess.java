@@ -65,4 +65,11 @@ public class SystemDataAccess implements DataAccess {
     public Map<Integer, GameData> getAllGameData() {
         return gameData;
     }
+
+
+    //remove methods
+    public void removeAuthData (String authToken) {
+        authData.remove(authToken);
+    }
+
 }

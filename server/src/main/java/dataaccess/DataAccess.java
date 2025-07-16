@@ -22,4 +22,7 @@ public interface DataAccess {
 
     //gets all game data
     public Map<Integer, GameData> getAllGameData();
+
+    //remove methods
+    public void removeAuthData (String authToken);
 }
