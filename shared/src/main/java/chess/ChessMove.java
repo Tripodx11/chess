@@ -38,11 +38,10 @@ public class ChessMove {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ChessMove chessMove = (ChessMove) o;
-        return Objects.equals(startPosition, chessMove.startPosition) && Objects.equals(endPosition, chessMove.endPosition) && promotionPiece == chessMove.promotionPiece;
+        if (!(o instanceof ChessMove m)) return false;
+        return Objects.equals(startPosition, m.startPosition)
+                && Objects.equals(endPosition, m.endPosition)
+                && promotionPiece == m.promotionPiece;
     }
 
     @Override

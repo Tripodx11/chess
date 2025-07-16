@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Tested everything against the course tests and fixed one bug and it all passed!">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/chess/SlidingMoveCalculator.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/CreateGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/CreateGameServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/JoinGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/JoinGameServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/ListGamesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ListGamesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/LoginServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LogoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/LogoutServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/RegisterServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/RegisterServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/BishopMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/BishopMovesCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPosition.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPosition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/QueenMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/QueenMovesCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/RookMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/RookMovesCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +62,9 @@
     "JUnit.CreateGameServiceTest.executor": "Debug",
     "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
     "JUnit.JoinGameServiceTest.executor": "Run",
+    "JUnit.KingMoveTests.executor": "Debug",
+    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
+    "JUnit.KnightMoveTests.executor": "Debug",
     "JUnit.ListGamesServiceTest.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
@@ -84,10 +73,13 @@
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
     "JUnit.StandardAPITests.executor": "Debug",
     "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
+    "JUnit.game in shared.executor": "Run",
+    "JUnit.piecemoves in shared.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -101,48 +93,48 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.game in shared">
-    <configuration name="ListGamesServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
+    <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="service.*" />
+          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ServiceTests" />
-      <option name="MAIN_CLASS_NAME" value="service.ListGamesServiceTest" />
+      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.KingMoveTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
+    <configuration name="KingMoveTests.kingMiddleOfBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
+          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.joinGameBadColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="joinGameBadColor" />
+      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.KingMoveTests" />
+      <option name="METHOD_NAME" value="kingMiddleOfBoard" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KnightMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.KnightMoveTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,10 +158,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.game in shared" />
+        <item itemvalue="JUnit.KnightMoveTests" />
+        <item itemvalue="JUnit.KingMoveTests" />
+        <item itemvalue="JUnit.KingMoveTests.kingMiddleOfBoard" />
         <item itemvalue="JUnit.piecemoves in shared" />
-        <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.StandardAPITests.joinGameBadColor" />
-        <item itemvalue="JUnit.ListGamesServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +182,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="36099000" />
+      <workItem from="1752612118027" duration="37034000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -376,7 +368,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752697853043</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader.">
+      <option name="closed" value="true" />
+      <created>1752701472041</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1752701472041</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +404,7 @@
     <MESSAGE value="Got List games service and test running and test to pass" />
     <MESSAGE value="Got List games handler and server built out. Untested." />
     <MESSAGE value="Tested everything against the course tests and fixed one bug and it all passed!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested everything against the course tests and fixed one bug and it all passed!" />
+    <MESSAGE value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
   </component>
 </project>

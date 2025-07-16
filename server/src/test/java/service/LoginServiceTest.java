@@ -22,7 +22,7 @@ public class LoginServiceTest {
         loginService = new LoginService(dataAccess);
 
         // Create a user directly in the fake DB
-        UserData user = new UserData("user1", "pass1", "user1@example.com");
+        UserData user = new UserData("user", "pass", "user1@example.com");
         try {
             dataAccess.addUser(user);
         } catch (Exception e) {

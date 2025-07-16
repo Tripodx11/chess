@@ -10,6 +10,10 @@ public class KingMovesCalculator implements PieceMoveCalculator {
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition position, ChessGame.TeamColor color) {
         Collection<ChessMove> validMoves = new ArrayList<>();
         int[][] directions = {{1,-1}, {1,0}, {1,1}, {0,-1}, {0,1}, {-1,-1}, {-1,0}, {-1,1}};
+        return getChessMoves(board, position, color, validMoves, directions);
+    }
+
+    static Collection<ChessMove> getChessMoves(ChessBoard board, ChessPosition position, ChessGame.TeamColor color, Collection<ChessMove> validMoves, int[][] directions) {
         int startRow = position.getRow();
         int startCol = position.getColumn();
 
