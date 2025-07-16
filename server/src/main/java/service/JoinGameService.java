@@ -20,7 +20,6 @@ public class JoinGameService {
 
         //check for 400 error for bad data inputted
         String color = request.getColor();
-        color = color.trim();
         if (request.getAuthToken() == null || request.getAuthToken().isEmpty() || color == null || color.isEmpty()
                 || !"white".equalsIgnoreCase(color) && !"black".equalsIgnoreCase(color) ||request.getGameID() < 0) {
             return new JoinGameResult("bad request");
