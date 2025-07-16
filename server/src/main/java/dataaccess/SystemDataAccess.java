@@ -13,6 +13,7 @@ public class SystemDataAccess implements DataAccess {
     private final Map<String, UserData> userData = new HashMap<>();
     private final Map<String, AuthData> authData = new HashMap<>();
     private final Map<Integer, GameData> gameData = new HashMap<>();
+    private int gameID = 1;
 
     //clear method
     @Override
@@ -62,8 +63,14 @@ public class SystemDataAccess implements DataAccess {
         return gameData.get(gameID);
     }
 
+
+    //unique methods for game logic
     public Map<Integer, GameData> getAllGameData() {
         return gameData;
+    }
+
+    public int updateGameID() {
+        return gameID++;
     }
 
 

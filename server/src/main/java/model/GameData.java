@@ -4,8 +4,8 @@ public class GameData {
 
     //create vars for data
     public final int gameID;
-    public final String whiteUsername;
-    public final String blackUsername;
+    public String whiteUsername;
+    public String blackUsername;
     public final String gameName;
 
     //constructor
@@ -31,4 +31,13 @@ public class GameData {
     public String getGameName() {
         return gameName;
     }
+
+    public void setWhiteUsername(String username) {
+        whiteUsername = username;
+    }
+
+    public void setBlackUsername(String username) {
+        blackUsername = username;
+    }
+
 }

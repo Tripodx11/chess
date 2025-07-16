@@ -20,8 +20,9 @@ public interface DataAccess {
     public AuthData getAuthTokenUN(String authToken);
     public GameData getGameData(int gameID);
 
-    //gets all game data
+    //unique game methods
     public Map<Integer, GameData> getAllGameData();
+    public int updateGameID();
 
     //remove methods
     public void removeAuthData (String authToken);
