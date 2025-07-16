@@ -14,7 +14,7 @@ public class CreateGameService {
         dataAccess = data;
     }
 
-    public CreateGameResult logout(CreateGameRequest request) {
+    public CreateGameResult createGame(CreateGameRequest request) {
 
         //check for 400 error
         if (request.getAuthToken() == null || request.getAuthToken().isEmpty() || request.getGameName() == null || request.getGameName().isEmpty()) {
