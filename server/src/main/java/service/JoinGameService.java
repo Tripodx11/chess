@@ -40,6 +40,13 @@ public class JoinGameService {
             return new JoinGameResult("unauthorized");
         }
 
+        //403 error with color already being taken
+        if ("white".equalsIgnoreCase(color) && existingGameData.getWhiteUsername() != null) {
+            return new JoinGameResult("already taken");
+        } else if ("black".equalsIgnoreCase(color) && existingGameData.getBlackUsername() != null) {
+            return new JoinGameResult("already taken");
+        }
+
         //join game and return that it worked or it didn't
         try {
             if ("white".equalsIgnoreCase(color)) {
