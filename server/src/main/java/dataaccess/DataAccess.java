@@ -8,22 +8,22 @@ import java.util.Map;
 
 public interface DataAccess {
 
-    public void clear();
+    void clear();
 
     //methods for adding data to models
-    public void addUser (UserData data) throws DataAccessException;
-    public void addAuth (AuthData data) throws DataAccessException;
-    public void addGame (GameData data) throws DataAccessException;
+    void addUser (UserData data) throws DataAccessException;
+    void addAuth (AuthData data) throws DataAccessException;
+    void addGame (GameData data) throws DataAccessException;
 
     //methods for getting data from keys
-    public UserData getUserData(String username);
-    public AuthData getAuthTokenUN(String authToken);
-    public GameData getGameData(int gameID);
+    UserData getUserData(String username);
+    AuthData getAuthTokenUN(String authToken);
+    GameData getGameData(int gameID);
 
     //unique game methods
-    public Map<Integer, GameData> getAllGameData();
-    public int updateGameID();
+    Map<Integer, GameData> getAllGameData();
+    int updateGameID();
 
     //remove methods
-    public void removeAuthData (String authToken);
+    void removeAuthData (String authToken);
 }
