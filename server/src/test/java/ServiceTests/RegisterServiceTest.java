@@ -1,4 +1,4 @@
-package ServerTests;
+package ServiceTests;
 
 import dataaccess.*;
 import org.junit.jupiter.api.*;
@@ -15,7 +15,7 @@ public class RegisterServiceTest {
 
     @BeforeEach
     public void setup() {
-        dataAccess = new SystemDataAccess(); // in-memory fake DB
+        dataAccess = new SystemDataAccess();
         service = new RegisterService(dataAccess);
     }
 
@@ -28,7 +28,7 @@ public class RegisterServiceTest {
         assertNotNull(result);
         assertEquals("user", result.getUsername());
         assertNotNull(result.getAuthToken());
-        assertNull(result.getMessage());  // ✅ Should not be an error
+        assertNull(result.getMessage());
     }
 
     @Test

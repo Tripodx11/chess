@@ -1,4 +1,4 @@
-package ServerTests;
+package ServiceTests;
 
 import dataaccess.*;
 import model.*;
@@ -35,9 +35,9 @@ public class ClearServiceTest {
             service.clear();
 
             // Assert data is cleared
-            assertThrows(DataAccessException.class, () -> dataAccess.getUserData("user"));
-            assertThrows(DataAccessException.class, () -> dataAccess.getAuthTokenUN("token"));
-            assertThrows(DataAccessException.class, () -> dataAccess.getGameData(1234));
+            assertNull(dataAccess.getUserData("user"));
+            assertNull(dataAccess.getAuthTokenUN("token"));
+            assertNull(dataAccess.getGameData(1234));
 
         } catch (DataAccessException e) {
             fail("Clear threw an exception: " + e.getMessage());

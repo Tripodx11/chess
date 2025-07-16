@@ -16,7 +16,7 @@ public class SystemDataAccess implements DataAccess {
 
     //clear method
     @Override
-    public void clear() throws DataAccessException {
+    public void clear(){
         userData.clear();
         authData.clear();
         gameData.clear();
@@ -50,24 +50,15 @@ public class SystemDataAccess implements DataAccess {
 
 
     //getting data methods
-    public UserData getUserData(String username) throws DataAccessException {
-        if (!userData.containsKey(username)) {
-            throw new DataAccessException("User not found");
-        }
+    public UserData getUserData(String username){
         return userData.get(username);
     }
 
-    public AuthData getAuthTokenUN(String authToken) throws DataAccessException {
-        if (!authData.containsKey(authToken)) {
-            throw new DataAccessException("Invalid auth token");
-        }
+    public AuthData getAuthTokenUN(String authToken){
         return authData.get(authToken);
     }
 
-    public GameData getGameData(int gameID) throws DataAccessException {
-        if (!gameData.containsKey(gameID)) {
-            throw new DataAccessException("Invalid Game ID");
-        }
+    public GameData getGameData(int gameID){
         return gameData.get(gameID);
     }
 

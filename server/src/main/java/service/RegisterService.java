@@ -22,13 +22,9 @@ public class RegisterService {
             return new RegisterAndLoginResult("bad request");
         }
 
-        try {
-            UserData existingUser = dataAccess.getUserData(request.getUsername());
-            if (existingUser != null) {
-                return new RegisterAndLoginResult("already taken");
-            }
-        } catch (DataAccessException e) {
-            //this means the username was not found and we continue
+        UserData existingUser = dataAccess.getUserData(request.getUsername());
+        if (existingUser != null) {
+            return new RegisterAndLoginResult("already taken");
         }
 
         try {
