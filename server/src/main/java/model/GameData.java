@@ -9,8 +9,8 @@ public class GameData {
     public final String gameName;
 
     //constructor
-    public GameData(int ID, String whiteUN, String blackUN, String name) {
-        gameID = ID;
+    public GameData(int id, String whiteUN, String blackUN, String name) {
+        gameID = id;
         whiteUsername = whiteUN;
         blackUsername = blackUN;
         gameName = name;

@@ -32,10 +32,6 @@ public class ChessPosition {
         return col;
     }
 
-//    public int setRow(int newRow) {
-//        row = newRow;
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) {

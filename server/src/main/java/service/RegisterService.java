@@ -18,7 +18,8 @@ public class RegisterService {
     public RegisterAndLoginResult register(RegisterRequest request) throws DataAccessException {
 
         //check for 400 error
-        if (request.getUsername() == null || request.getUsername().isEmpty() || request.getPassword() == null || request.getPassword().isEmpty() || request.getEmail() == null || request.getEmail().isEmpty()) {
+        if (request.getUsername() == null || request.getUsername().isEmpty() || request.getPassword() == null
+                || request.getPassword().isEmpty() || request.getEmail() == null || request.getEmail().isEmpty()) {
             return new RegisterAndLoginResult("bad request");
         }
 

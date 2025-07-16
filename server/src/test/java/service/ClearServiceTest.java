@@ -1,9 +1,8 @@
-package ServiceTests;
+package service;
 
 import dataaccess.*;
 import model.*;
 import org.junit.jupiter.api.*;
-import service.ClearService;
 
 import static org.junit.jupiter.api.Assertions.*;
 

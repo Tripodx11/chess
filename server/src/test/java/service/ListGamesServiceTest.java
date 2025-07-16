@@ -1,4 +1,4 @@
-package ServiceTests;
+package service;
 
 import dataaccess.DataAccess;
 import dataaccess.SystemDataAccess;
@@ -6,7 +6,6 @@ import model.AuthData;
 import model.GameData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.ListGamesService;
 import service.requests.LogoutAndListGamesRequest;
 import service.results.ListGamesResult;
 import java.util.List;

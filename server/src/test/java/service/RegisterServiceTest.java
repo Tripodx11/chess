@@ -1,8 +1,7 @@
-package ServiceTests;
+package service;
 
 import dataaccess.*;
 import org.junit.jupiter.api.*;
-import service.*;
 import service.requests.RegisterRequest;
 import service.results.RegisterAndLoginResult;
 

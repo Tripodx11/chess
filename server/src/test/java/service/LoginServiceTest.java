@@ -1,4 +1,4 @@
-package ServiceTests;
+package service;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
@@ -6,7 +6,6 @@ import dataaccess.SystemDataAccess;
 import model.UserData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.LoginService;
 import service.requests.LoginRequest;
 import service.results.RegisterAndLoginResult;
 

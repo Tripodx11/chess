@@ -1,4 +1,4 @@
-package ServiceTests;
+package service;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
@@ -7,7 +7,6 @@ import model.AuthData;
 import model.GameData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.CreateGameService;
 import service.requests.CreateGameRequest;
 import service.results.CreateGameResult;
 
