@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Create game service test built and tests passed">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/CreateGameHandler.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got Create game handler built and added the code to the server for it. Untested">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/JoinGameHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/JoinGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/results/JoinGameResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/JoinGameServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +63,7 @@
     "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
     "JUnit.CreateGameServiceTest.executor": "Debug",
     "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
+    "JUnit.JoinGameServiceTest.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.executor": "Debug",
@@ -80,7 +85,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CreateGameServiceTest.testCreateGameInvalidToken">
+  <component name="RunManager" selected="JUnit.JoinGameServiceTest">
     <configuration name="CreateGameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -108,6 +113,21 @@
       <option name="MAIN_CLASS_NAME" value="ServiceTests.CreateGameServiceTest" />
       <option name="METHOD_NAME" value="testCreateGameInvalidToken" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JoinGameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServiceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServiceTests" />
+      <option name="MAIN_CLASS_NAME" value="ServiceTests.JoinGameServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,28 +162,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ServerTests" />
-      <option name="MAIN_CLASS_NAME" value="ServiceTests.RegisterServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.JoinGameServiceTest" />
         <item itemvalue="JUnit.CreateGameServiceTest.testCreateGameInvalidToken" />
         <item itemvalue="JUnit.CreateGameServiceTest" />
         <item itemvalue="JUnit.LogoutServiceTest" />
         <item itemvalue="JUnit.LoginServiceTest" />
-        <item itemvalue="JUnit.RegisterServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +189,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="27604000" />
+      <workItem from="1752612118027" duration="29601000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -314,7 +319,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752691851153</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Got Create game handler built and added the code to the server for it. Untested">
+      <option name="closed" value="true" />
+      <created>1752692761655</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1752692761655</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +348,7 @@
     <MESSAGE value="Logout is funcitoning as it should as well as Login from front to finish. Only needed to adjust the code in Logout handler to accept the header auth token and not the body" />
     <MESSAGE value="Got initial Create game service built out. Untested" />
     <MESSAGE value="Create game service test built and tests passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create game service test built and tests passed" />
+    <MESSAGE value="Got Create game handler built and added the code to the server for it. Untested" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Create game handler built and added the code to the server for it. Untested" />
   </component>
 </project>
