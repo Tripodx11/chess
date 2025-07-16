@@ -1,13 +1,21 @@
-package service;
+package service.results;
 
 public class RegisterResult {
 
     private String username;
     private String authToken;
+    private String message;
 
     public RegisterResult (String un, String auth) {
         username = un;
         authToken = auth;
+        message = null;
+    }
+
+    public RegisterResult (String message) {
+        this.message = message;
+        username = null;
+        authToken = null;
     }
 
     public String getUsername() {
@@ -16,5 +24,9 @@ public class RegisterResult {
 
     public String getAuthToken() {
         return authToken;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

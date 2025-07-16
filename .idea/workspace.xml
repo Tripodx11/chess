@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got clear fully implemented with a test file of my own">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/AuthTokenGen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Created request, result, and service for register along with an auth token gen function. Untested.">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServerTests/RegisterServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/results/RegisterResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,10 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "JUnit.ClearServiceTest.executor": "Debug",
-    "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
+    "JUnit.ClearServiceTest.testClearSuccess.executor": "Run",
+    "JUnit.RegisterServiceTest.executor": "Run",
+    "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
+    "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -75,14 +80,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ClearServiceTest">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -114,11 +112,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServerTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServerTests" />
+      <option name="MAIN_CLASS_NAME" value="ServerTests.RegisterServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterServiceTest.testRegisterDuplicateUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServerTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServerTests" />
+      <option name="MAIN_CLASS_NAME" value="ServerTests.RegisterServiceTest" />
+      <option name="METHOD_NAME" value="testRegisterDuplicateUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterServiceTest.testRegisterSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServerTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ServerTests" />
+      <option name="MAIN_CLASS_NAME" value="ServerTests.RegisterServiceTest" />
+      <option name="METHOD_NAME" value="testRegisterSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClearServiceTest" />
         <item itemvalue="JUnit.ClearServiceTest.testClearSuccess" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RegisterServiceTest" />
+        <item itemvalue="JUnit.RegisterServiceTest.testRegisterSuccess" />
+        <item itemvalue="JUnit.RegisterServiceTest.testRegisterDuplicateUsername" />
+        <item itemvalue="JUnit.ClearServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +186,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="11649000" />
+      <workItem from="1752612118027" duration="15085000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -189,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752621711263</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Created request, result, and service for register along with an auth token gen function. Untested.">
+      <option name="closed" value="true" />
+      <created>1752624126906</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1752624126906</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +256,7 @@
     <MESSAGE value="Finished writing the initial clear implementation for the model and data access packages. Untested." />
     <MESSAGE value="Finished writing the initial clear implementation for each step. Untested." />
     <MESSAGE value="Got clear fully implemented with a test file of my own" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got clear fully implemented with a test file of my own" />
+    <MESSAGE value="Created request, result, and service for register along with an auth token gen function. Untested." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created request, result, and service for register along with an auth token gen function. Untested." />
   </component>
 </project>
