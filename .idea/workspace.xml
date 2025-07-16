@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that.">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/requests/LogoutRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/results/LogoutResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LogoutServiceTest.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/ServiceTests/LoginServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +77,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.LogoutServiceTest">
+  <component name="RunManager">
     <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -189,7 +181,7 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="23962000" />
+      <workItem from="1752612118027" duration="24343000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -271,7 +263,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752630495938</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Got Logout Service funcioning based on my test. Going to work on the handler and server">
+      <option name="closed" value="true" />
+      <created>1752689121909</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752689121909</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register">
+      <option name="closed" value="true" />
+      <created>1752689153169</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1752689153169</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +295,8 @@
     <MESSAGE value="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done" />
     <MESSAGE value="Mid way through implementing login service funtionality" />
     <MESSAGE value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
+    <MESSAGE value="Got Logout Service funcioning based on my test. Going to work on the handler and server" />
+    <MESSAGE value="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register" />
   </component>
 </project>

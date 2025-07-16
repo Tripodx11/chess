@@ -22,7 +22,8 @@ public class LogoutHandler implements Route {
     public Object handle(Request request, Response response) {
 
         try {
-            LogoutRequest logoutRequest = gson.fromJson(request.body(), LogoutRequest.class);
+            String authToken = request.headers("authorization");
+            LogoutRequest logoutRequest = new LogoutRequest(authToken);
             LogoutService logoutService = new LogoutService(dataAccess);
             LogoutResult result = logoutService.logout(logoutRequest);
 
