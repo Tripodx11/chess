@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader.">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="More debugging for auto grader">
+      <change afterPath="$PROJECT_DIR$/server/db/MySqlUserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessMove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -86,7 +84,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -182,7 +180,8 @@
       <updated>1752277452754</updated>
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
-      <workItem from="1752612118027" duration="37034000" />
+      <workItem from="1752612118027" duration="37545000" />
+      <workItem from="1753148842830" duration="348000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -376,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752701472041</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Debugged some more code quality issues and fixed Login Service Test">
+      <option name="closed" value="true" />
+      <created>1752702326303</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1752702326303</updated>
+    </task>
+    <task id="LOCAL-00026" summary="More debugging for auto grader">
+      <option name="closed" value="true" />
+      <created>1752702503616</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1752702503616</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +420,8 @@
     <MESSAGE value="Got List games handler and server built out. Untested." />
     <MESSAGE value="Tested everything against the course tests and fixed one bug and it all passed!" />
     <MESSAGE value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
+    <MESSAGE value="Debugged some more code quality issues and fixed Login Service Test" />
+    <MESSAGE value="More debugging for auto grader" />
+    <option name="LAST_COMMIT_MESSAGE" value="More debugging for auto grader" />
   </component>
 </project>
