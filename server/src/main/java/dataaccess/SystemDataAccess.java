@@ -59,7 +59,7 @@ public class SystemDataAccess implements DataAccess {
         return authData.get(authToken);
     }
 
-    public GameData getGameData(int gameID){
+    public GameData getGameData(int gameID) {
         return gameData.get(gameID);
     }
 

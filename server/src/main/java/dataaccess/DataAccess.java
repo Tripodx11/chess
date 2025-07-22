@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface DataAccess {
 
-    void clear();
+    void clear() throws DataAccessException;
 
     //methods for adding data to models
     void addUser (UserData data) throws DataAccessException;
@@ -16,7 +16,7 @@ public interface DataAccess {
     void addGame (GameData data) throws DataAccessException;
 
     //methods for getting data from keys
-    UserData getUserData(String username);
+    UserData getUserData(String username) throws DataAccessException;
     AuthData getAuthTokenUN(String authToken);
     GameData getGameData(int gameID);
 

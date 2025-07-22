@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added constructor to MySQLDataAccess" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added stubs tp MySQLDataAccess">
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/passoff/server/MySQLDataAccessTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +44,7 @@
     <option name="loggerId" value="Slf4j" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -49,45 +55,61 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ClearServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ClearServiceTest.testClearSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CreateGameServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.JoinGameServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.KingMoveTests.kingMiddleOfBoard.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.ListGamesServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.LoginServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.LogoutServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RegisterServiceTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RegisterServiceTest.testRegisterSuccess.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.StandardAPITests.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.StandardAPITests.joinGameBadColor.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.game in shared.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.piecemoves in shared.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.ClearServiceTest.executor": "Run",
+    "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
+    "JUnit.CreateGameServiceTest.executor": "Debug",
+    "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
+    "JUnit.JoinGameServiceTest.executor": "Run",
+    "JUnit.KingMoveTests.executor": "Debug",
+    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
+    "JUnit.KnightMoveTests.executor": "Debug",
+    "JUnit.ListGamesServiceTest.executor": "Debug",
+    "JUnit.LoginServiceTest.executor": "Debug",
+    "JUnit.LogoutServiceTest.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.executor": "Debug",
+    "JUnit.RegisterServiceTest.executor": "Debug",
+    "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
+    "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
+    "JUnit.StandardAPITests.executor": "Debug",
+    "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
+    "JUnit.game in shared.executor": "Run",
+    "JUnit.piecemoves in shared.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.game in shared">
+}]]></component>
+  <component name="RunManager" selected="JUnit.DatabaseTests">
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -99,22 +121,6 @@
       <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
       <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.KingMoveTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KingMoveTests.kingMiddleOfBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piecemoves.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piecemoves" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piecemoves.KingMoveTests" />
-      <option name="METHOD_NAME" value="kingMiddleOfBoard" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,6 +140,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MySQLDataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="game in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="TEST_OBJECT" value="directory" />
@@ -142,21 +163,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="piecemoves in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/shared/src/test/java/passoff/chess/piecemoves" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTests" />
+        <item itemvalue="JUnit.MySQLDataAccessTests" />
         <item itemvalue="JUnit.game in shared" />
         <item itemvalue="JUnit.KnightMoveTests" />
         <item itemvalue="JUnit.KingMoveTests" />
-        <item itemvalue="JUnit.KingMoveTests.kingMiddleOfBoard" />
-        <item itemvalue="JUnit.piecemoves in shared" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +193,7 @@
       <workItem from="1752612118027" duration="37545000" />
       <workItem from="1753148842830" duration="406000" />
       <workItem from="1753219149398" duration="183000" />
-      <workItem from="1753219623778" duration="4932000" />
+      <workItem from="1753219623778" duration="7980000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -422,14 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753225114102</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added stubs tp MySQLDataAccess">
+      <option name="closed" value="true" />
+      <created>1753226221780</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1753226221780</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished writing the initial clear implementation for each step. Untested." />
     <MESSAGE value="Got clear fully implemented with a test file of my own" />
     <MESSAGE value="Created request, result, and service for register along with an auth token gen function. Untested." />
     <MESSAGE value="Got register functioning along with my test file. Added the functionality for service to handler and actual server. Register is done" />
@@ -454,6 +474,7 @@
     <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
     <MESSAGE value="Deleted a file in the directory" />
     <MESSAGE value="Added constructor to MySQLDataAccess" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added constructor to MySQLDataAccess" />
+    <MESSAGE value="Added stubs tp MySQLDataAccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added stubs tp MySQLDataAccess" />
   </component>
 </project>
