@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far.">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/dataaccess/DatabaseManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/passoff/server/DatabaseTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/resources/db.properties" beforeDir="false" />
-    </list>
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added constructor to MySQLDataAccess" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -187,7 +180,7 @@
       <workItem from="1752612118027" duration="37545000" />
       <workItem from="1753148842830" duration="406000" />
       <workItem from="1753219149398" duration="183000" />
-      <workItem from="1753219623778" duration="4574000" />
+      <workItem from="1753219623778" duration="4932000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -405,15 +398,37 @@
       <option name="project" value="LOCAL" />
       <updated>1753149244285</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far.">
+      <option name="closed" value="true" />
+      <created>1753224844725</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1753224844725</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Deleted a file in the directory">
+      <option name="closed" value="true" />
+      <created>1753224881629</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1753224881629</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Added constructor to MySQLDataAccess">
+      <option name="closed" value="true" />
+      <created>1753225114102</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1753225114102</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added all needed classes for the data access and creation for now as far as I can tell. Working on their specifics" />
-    <MESSAGE value="Finished writing the initial clear implementation for the model and data access packages. Untested." />
     <MESSAGE value="Finished writing the initial clear implementation for each step. Untested." />
     <MESSAGE value="Got clear fully implemented with a test file of my own" />
     <MESSAGE value="Created request, result, and service for register along with an auth token gen function. Untested." />
@@ -437,6 +452,8 @@
     <MESSAGE value="More debugging for auto grader" />
     <MESSAGE value="Added initial user dao. Barebones" />
     <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
-    <option name="LAST_COMMIT_MESSAGE" value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
+    <MESSAGE value="Deleted a file in the directory" />
+    <MESSAGE value="Added constructor to MySQLDataAccess" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added constructor to MySQLDataAccess" />
   </component>
 </project>
