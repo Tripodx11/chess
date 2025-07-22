@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="More debugging for auto grader">
-      <change afterPath="$PROJECT_DIR$/server/db/MySqlUserDAO.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far.">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/4-database/dataaccess/DatabaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/4-database/passoff/server/DatabaseTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter-code/4-database/resources/db.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Python Script" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,44 +56,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "JUnit.ClearServiceTest.executor": "Run",
-    "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
-    "JUnit.CreateGameServiceTest.executor": "Debug",
-    "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
-    "JUnit.JoinGameServiceTest.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Debug",
-    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
-    "JUnit.KnightMoveTests.executor": "Debug",
-    "JUnit.ListGamesServiceTest.executor": "Debug",
-    "JUnit.LoginServiceTest.executor": "Debug",
-    "JUnit.LogoutServiceTest.executor": "Debug",
-    "JUnit.RegisterServiceTest.executor": "Debug",
-    "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
-    "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
-    "JUnit.StandardAPITests.executor": "Debug",
-    "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
-    "JUnit.game in shared.executor": "Run",
-    "JUnit.piecemoves in shared.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClearServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClearServiceTest.testClearSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CreateGameServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JoinGameServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.KingMoveTests.kingMiddleOfBoard.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ListGamesServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LoginServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LogoutServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RegisterServiceTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.RegisterServiceTest.testRegisterSuccess.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StandardAPITests.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.StandardAPITests.joinGameBadColor.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.game in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.piecemoves in shared.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="JUnit.game in shared">
     <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
@@ -181,7 +185,9 @@
       <workItem from="1752277454342" duration="2584000" />
       <workItem from="1752542420290" duration="3344000" />
       <workItem from="1752612118027" duration="37545000" />
-      <workItem from="1753148842830" duration="348000" />
+      <workItem from="1753148842830" duration="406000" />
+      <workItem from="1753219149398" duration="183000" />
+      <workItem from="1753219623778" duration="4574000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -391,14 +397,21 @@
       <option name="project" value="LOCAL" />
       <updated>1752702503616</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added initial user dao. Barebones">
+      <option name="closed" value="true" />
+      <created>1753149244285</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1753149244285</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server." />
     <MESSAGE value="Added all needed classes for the data access and creation for now as far as I can tell. Working on their specifics" />
     <MESSAGE value="Finished writing the initial clear implementation for the model and data access packages. Untested." />
     <MESSAGE value="Finished writing the initial clear implementation for each step. Untested." />
@@ -422,6 +435,8 @@
     <MESSAGE value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
     <MESSAGE value="Debugged some more code quality issues and fixed Login Service Test" />
     <MESSAGE value="More debugging for auto grader" />
-    <option name="LAST_COMMIT_MESSAGE" value="More debugging for auto grader" />
+    <MESSAGE value="Added initial user dao. Barebones" />
+    <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
+    <option name="LAST_COMMIT_MESSAGE" value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
   </component>
 </project>
