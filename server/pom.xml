@@ -125,6 +125,11 @@
             <version>0.4</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>edu.byu.cs240</groupId>
+            <artifactId>shared</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 

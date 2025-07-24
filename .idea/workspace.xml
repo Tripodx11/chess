@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got most of add and get auth data built out. Untested">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/passoff/server/DatabaseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/CreateGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ListGamesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoff/server/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/passoff/server/MySQLDataAccessTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/CreateGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/CreateGameServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/JoinGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/JoinGameServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ListGamesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ListGamesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/LogoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/LogoutServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/passoff/server/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +61,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "JUnit.ClearServiceTest.executor": "Run",
-    "JUnit.ClearServiceTest.testClearSuccess.executor": "Debug",
+    "JUnit.ClearServiceTest.testClearSuccess.executor": "Run",
     "JUnit.CreateGameServiceTest.executor": "Debug",
     "JUnit.CreateGameServiceTest.testCreateGameInvalidToken.executor": "Run",
     "JUnit.DatabaseTests.executor": "Debug",
@@ -79,10 +72,11 @@
     "JUnit.ListGamesServiceTest.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
-    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Run",
+    "JUnit.MySQLDataAccessTests.addAndGetUserPositive.executor": "Run",
     "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
-    "JUnit.MySQLDataAccessTests.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.executor": "Run",
     "JUnit.MySQLDataAccessTests.getAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.getUserNegative.executor": "Debug",
     "JUnit.RegisterServiceTest.executor": "Debug",
@@ -98,6 +92,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/teddy/College/CS 240/chessNew",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,49 +105,64 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.MySQLDataAccessTests.addAndGetGamePositive">
+    <configuration name="ClearServiceTest.testClearSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.ClearServiceTest" />
+      <option name="METHOD_NAME" value="testClearSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLDataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MySQLDataAccessTests.addAndGetGamePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
+          <option name="PATTERN" value="dataaccess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
       <option name="METHOD_NAME" value="addAndGetGamePositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySQLDataAccessTests.addAuthNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySQLDataAccessTests.addAndGetUserPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
+          <option name="PATTERN" value="dataaccess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="addAuthNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySQLDataAccessTests.addAuthPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="addAuthPositive" />
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="METHOD_NAME" value="addAndGetUserPositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,29 +172,13 @@
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
+          <option name="PATTERN" value="dataaccess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
       <option name="METHOD_NAME" value="getAuthNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySQLDataAccessTests.getUserNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="getUserNegative" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,10 +187,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.MySQLDataAccessTests.addAndGetGamePositive" />
+        <item itemvalue="JUnit.MySQLDataAccessTests" />
+        <item itemvalue="JUnit.MySQLDataAccessTests.addAndGetUserPositive" />
+        <item itemvalue="JUnit.ClearServiceTest.testClearSuccess" />
         <item itemvalue="JUnit.MySQLDataAccessTests.getAuthNegative" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.addAuthNegative" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.addAuthPositive" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.getUserNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -221,6 +215,7 @@
       <workItem from="1753148842830" duration="406000" />
       <workItem from="1753219149398" duration="183000" />
       <workItem from="1753219623778" duration="16270000" />
+      <workItem from="1753329181307" duration="954000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -519,6 +514,16 @@
     <MESSAGE value="Got Add user going along with clear and get user and wrote two tests for add user" />
     <MESSAGE value="Got most of add and get auth data built out. Untested" />
     <option name="LAST_COMMIT_MESSAGE" value="Got most of add and get auth data built out. Untested" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chess$MySQLDataAccessTests.ic" NAME="MySQLDataAccessTests Coverage Results" MODIFIED="1753319048079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
