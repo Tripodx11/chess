@@ -16,6 +16,14 @@ public class MySQLDataAccessTests {
 
     private DataAccess dao;
 
+    @Test
+    public void clearPositive() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        dao.clear();
+        assertNull(dao.getUserData("user"));
+    }
+
     @BeforeEach
     public void setup() throws DataAccessException {
         dao = new MySQLDataAccess();
@@ -165,7 +173,7 @@ public class MySQLDataAccessTests {
     }
 
     @Test
-    public void updateGameIDPositive() {
+    public void updateGameIDTest() {
         int id = dao.updateGameID();
         assertEquals(1, id);
     }
@@ -212,7 +220,8 @@ public class MySQLDataAccessTests {
         UserData user = new UserData("user", "pass", "email");
         dao.addUser(user);
 
-        DataAccessException thrown = assertThrows(DataAccessException.class, () -> dao.updateGameUsername(10, ChessGame.TeamColor.BLACK, user.getUsername()));
+        DataAccessException thrown = assertThrows(DataAccessException.class,
+                () -> dao.updateGameUsername(10, ChessGame.TeamColor.BLACK, user.getUsername()));
         assert(thrown.getMessage().contains("No game with gameID"));
     }
 

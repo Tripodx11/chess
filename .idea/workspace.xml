@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got get all game data working and tests passed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="All tests are passing here">
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +86,7 @@
     "JUnit.RegisterServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
+    "JUnit.StandardAPITests.clearData.executor": "Debug",
     "JUnit.StandardAPITests.executor": "Debug",
     "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
     "JUnit.StandardAPITests.listGamesEmpty.executor": "Debug",
@@ -122,7 +115,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StandardAPITests">
+  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.clearPositive">
     <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -138,7 +131,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySQLDataAccessTests.getAllGameDataNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySQLDataAccessTests.clearPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -148,7 +141,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
       <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="getAllGameDataNegative" />
+      <option name="METHOD_NAME" value="clearPositive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -203,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MySQLDataAccessTests.clearPositive" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
         <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.StandardAPITests.listGamesEmpty" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.getAllGameDataNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +227,7 @@
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
       <workItem from="1753375430550" duration="2457000" />
-      <workItem from="1753381345018" duration="8440000" />
+      <workItem from="1753381345018" duration="8762000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -532,15 +525,29 @@
       <option name="project" value="LOCAL" />
       <updated>1753387485579</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Got other unique game data methods working and now gettting data base tests to pass">
+      <option name="closed" value="true" />
+      <created>1753393702877</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1753393702877</updated>
+    </task>
+    <task id="LOCAL-00039" summary="All tests are passing here">
+      <option name="closed" value="true" />
+      <created>1753393770092</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1753393770092</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register" />
-    <MESSAGE value="Logout is funcitoning as it should as well as Login from front to finish. Only needed to adjust the code in Logout handler to accept the header auth token and not the body" />
     <MESSAGE value="Got initial Create game service built out. Untested" />
     <MESSAGE value="Create game service test built and tests passed" />
     <MESSAGE value="Got Create game handler built and added the code to the server for it. Untested" />
@@ -564,7 +571,9 @@
     <MESSAGE value="Fixed Game data test" />
     <MESSAGE value="Got Game Add and get working as well as tests" />
     <MESSAGE value="Got get all game data working and tests passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got get all game data working and tests passed" />
+    <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
+    <MESSAGE value="All tests are passing here" />
+    <option name="LAST_COMMIT_MESSAGE" value="All tests are passing here" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
