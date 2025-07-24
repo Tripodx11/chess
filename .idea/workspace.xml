@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Dude I don't even know. A lot of issues that still aren't fixed. Working on them.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,9 +68,9 @@
     "JUnit.ListGamesServiceTest.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
-    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Run",
+    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAndGetUserPositive.executor": "Run",
-    "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Run",
+    "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.executor": "Run",
     "JUnit.MySQLDataAccessTests.getAuthNegative.executor": "Run",
@@ -87,13 +88,13 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/teddy/College/CS 240/chessNew",
+    "last_opened_file_path": "C:/Users/teddy/College/CS 240/chess",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
@@ -216,6 +217,7 @@
       <workItem from="1753219149398" duration="183000" />
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
+      <workItem from="1753375430550" duration="2457000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -530,6 +532,16 @@
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

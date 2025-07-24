@@ -168,6 +168,8 @@ public class MySQLDataAccess implements DataAccess{
 
         } catch (SQLException ex) {
             throw new DataAccessException("Unable to get game data: ", ex);
+        } catch (Exception e) {
+            throw new DataAccessException("exception: ", e);
         }
     }
 

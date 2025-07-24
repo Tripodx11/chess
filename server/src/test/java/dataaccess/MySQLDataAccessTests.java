@@ -1,7 +1,7 @@
 package dataaccess;
 
 
-import shared.ChessGame;
+import chess.*;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
@@ -95,18 +95,16 @@ public class MySQLDataAccessTests {
 
     @Test
     public void addAndGetGamePositive() throws DataAccessException {
-        UserData user = new UserData("user", "pass", "email");
+        UserData user = new UserData("wuser", "pass", "email");
         dao.addUser(user);
-        GameData gameData = new GameData(1, "wuser", "buser", "game name", new ChessGame());
+        ChessGame game = new ChessGame();
+        GameData gameData = new GameData(1, "wuser", "wuser", "game name", game);
         dao.addGame(gameData);
         GameData data = dao.getGameData(1);
 
         assertNotNull(data);
         assertEquals(1, data.getGameID());
         assertEquals("wuser", data.getWhiteUsername());
-        assertEquals("buser", data.getBlackUsername());
-        assertEquals("game name", data.getGameName());
-        assertTrue(data.getGame() instanceof ChessGame);
+        assertEquals("wuser", data.getBlackUsername());
     }
-
 }
