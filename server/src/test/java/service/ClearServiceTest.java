@@ -1,5 +1,6 @@
 package service;
 
+import chess.ChessGame;
 import dataaccess.*;
 import model.*;
 import org.junit.jupiter.api.*;
@@ -23,7 +24,7 @@ public class ClearServiceTest {
             // Add dummy data
             dataAccess.addUser(new UserData("user", "pass", "email"));
             dataAccess.addAuth(new AuthData("token", "user"));
-            dataAccess.addGame(new GameData(1234, "white user", "black user", "testGame"));
+            dataAccess.addGame(new GameData(1234, "white user", "black user", "testGame", new ChessGame()));
 
             // Assert data was added
             assertNotNull(dataAccess.getUserData("user"));

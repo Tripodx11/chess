@@ -1,6 +1,8 @@
 package service;
 
+import chess.ChessGame;
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
 import dataaccess.SystemDataAccess;
 import model.AuthData;
 import model.GameData;
@@ -30,14 +32,14 @@ public class ListGamesServiceTest {
         }
 
         try {
-            dataAccess.addGame(new GameData(1, null, null, "Test Game"));
+            dataAccess.addGame(new GameData(1, null, null, "Test Game", new ChessGame()));
         } catch (Exception e) {
             fail("Failed to setup game");
         }
     }
 
     @Test
-    public void testListGamesSuccess() {
+    public void testListGamesSuccess() throws DataAccessException {
         LogoutAndListGamesRequest request = new LogoutAndListGamesRequest(authToken);
         ListGamesResult result = listGamesService.listGames(request);
 
@@ -49,7 +51,7 @@ public class ListGamesServiceTest {
     }
 
     @Test
-    public void testListGamesUnauthorized() {
+    public void testListGamesUnauthorized() throws DataAccessException {
         LogoutAndListGamesRequest request = new LogoutAndListGamesRequest("bad token");
         ListGamesResult result = listGamesService.listGames(request);
 

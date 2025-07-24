@@ -1,5 +1,6 @@
 package service;
 
+import chess.ChessGame;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
@@ -32,7 +33,7 @@ public class CreateGameService {
         //add game and return that it worked or it didn't
         try {
             int gameID = dataAccess.updateGameID();
-            dataAccess.addGame(new GameData(gameID, null, null, request.getGameName()));
+            dataAccess.addGame(new GameData(gameID, null, null, request.getGameName(), new ChessGame()));
             return new CreateGameResult(gameID);
         } catch (Exception e) {
             return new CreateGameResult("internal issues: " + e.getMessage());

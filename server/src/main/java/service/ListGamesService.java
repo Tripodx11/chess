@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
 import service.requests.LogoutAndListGamesRequest;
@@ -17,7 +18,7 @@ public class ListGamesService {
         dataAccess = data;
     }
 
-    public ListGamesResult listGames(LogoutAndListGamesRequest request) {
+    public ListGamesResult listGames(LogoutAndListGamesRequest request) throws DataAccessException {
 
         //check for 400 error
         if (request.getAuthToken() == null || request.getAuthToken().isEmpty()) {

@@ -32,7 +32,7 @@ public class LogoutServiceTest {
     }
 
     @Test
-    public void testLogoutSuccess() {
+    public void testLogoutSuccess() throws DataAccessException {
         LogoutAndListGamesRequest request = new LogoutAndListGamesRequest(token);
         LogoutResult result = logoutService.logout(request);
 
@@ -41,7 +41,7 @@ public class LogoutServiceTest {
     }
 
     @Test
-    public void testLogoutInvalidToken() {
+    public void testLogoutInvalidToken() throws DataAccessException {
         LogoutAndListGamesRequest request = new LogoutAndListGamesRequest("bad token test");
         LogoutResult result = logoutService.logout(request);
 

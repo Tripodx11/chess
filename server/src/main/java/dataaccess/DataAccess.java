@@ -18,7 +18,7 @@ public interface DataAccess {
     //methods for getting data from keys
     UserData getUserData(String username) throws DataAccessException;
     AuthData getAuthTokenUN(String authToken) throws DataAccessException;
-    GameData getGameData(int gameID);
+    GameData getGameData(int gameID) throws DataAccessException;
 
     //unique game methods
     Map<Integer, GameData> getAllGameData();

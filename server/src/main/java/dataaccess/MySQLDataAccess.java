@@ -1,5 +1,7 @@
 package dataaccess;
 
+import chess.ChessGame;
+import com.google.gson.Gson;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
@@ -25,7 +27,7 @@ public class MySQLDataAccess implements DataAccess{
         } catch (SQLException ex) {
             throw new DataAccessException("Failed to clear database: ", ex);
         }
-    };
+    }
 
     //methods for adding data to models
     public void addUser (UserData data) throws DataAccessException {
@@ -47,7 +49,7 @@ public class MySQLDataAccess implements DataAccess{
             }
             throw new DataAccessException("Unable to add user", ex);
         }
-    };
+    }
 
     public void addAuth (AuthData data) throws DataAccessException {
         String sql = "INSERT INTO auth_tokens (authToken, username) VALUES (?, ?)";
@@ -61,15 +63,36 @@ public class MySQLDataAccess implements DataAccess{
 
         } catch (SQLException ex) {
             if (ex.getMessage().contains("Duplicate")) {
-                throw new DataAccessException("Auth Token already exists");
+                throw new DataAccessException("Auth Token already exists", ex);
             }
             throw new DataAccessException("Unable to authenticate user", ex);
         }
-    };
+    }
 
     public void addGame (GameData data) throws DataAccessException {
-        throw new UnsupportedOperationException("Not implemented yet");
-    };
+        String sql = "INSERT INTO games (gameID, whiteUsername, blackUsername, gameName, game) VALUES (?, ?, ?, ?, ?)";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+
+            Gson gson = new Gson();
+            String jsonGame = gson.toJson(data.getGame());
+
+            stmt.setInt(1, data.getGameID());
+            stmt.setString(2, data.getWhiteUsername());
+            stmt.setString(3, data.getBlackUsername());
+            stmt.setString(4, data.getGameName());
+            stmt.setString(5, jsonGame);
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            if (ex.getMessage().contains("Duplicate")) {
+                throw new DataAccessException("Game already exists", ex);
+            }
+            throw new DataAccessException("Unable to authenticate user", ex);
+        }
+    }
+
 
     //methods for getting data from keys
     public UserData getUserData(String username) throws DataAccessException {
@@ -96,7 +119,7 @@ public class MySQLDataAccess implements DataAccess{
         } catch (SQLException ex) {
             throw new DataAccessException("Unable to get user data: ", ex);
         }
-    };
+    }
 
     public AuthData getAuthTokenUN(String authToken) throws DataAccessException {
         String sql = "SELECT authToken, username FROM auth_tokens WHERE authToken = ?";
@@ -110,7 +133,6 @@ public class MySQLDataAccess implements DataAccess{
                 if (resultSet.next()) {
                     String user = resultSet.getString("username");
                     String auth = resultSet.getString("authToken");
-
                     return new AuthData(auth, user);
                 } else {
                     return null;
@@ -119,24 +141,45 @@ public class MySQLDataAccess implements DataAccess{
 
         } catch (SQLException ex) {
             throw new DataAccessException("Unable to get auth data: ", ex);
-        } catch (DataAccessException e) {
-            throw new RuntimeException(e);
         }
-    };
+    }
 
-    public GameData getGameData(int gameID) {
-        return null;
-    };
+    public GameData getGameData(int gameID) throws DataAccessException {
+        String sql = "SELECT gameID, whiteUsername, blackUsername, gameName, game FROM games WHERE gameID = ?";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, gameID);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    Gson gson = new Gson();
+                    int id = resultSet.getInt("gameID");
+                    String whiteUsername = resultSet.getString("whiteUsername");
+                    String blackUsername = resultSet.getString("blackUsername");
+                    String gameName = resultSet.getString("gameName");
+                    ChessGame game = gson.fromJson(resultSet.getString("game"), ChessGame.class);
+                    return new GameData(id, whiteUsername, blackUsername, gameName, game);
+                } else {
+                    return null;
+                }
+            }
+
+        } catch (SQLException ex) {
+            throw new DataAccessException("Unable to get game data: ", ex);
+        }
+    }
 
     //unique game methods
     public Map<Integer, GameData> getAllGameData() {
         return null;
-    };
+    }
 
     public int updateGameID() {
         return -2;
-    };
+    }
 
     //remove methods
-    public void removeAuthData (String authToken) {};
+    public void removeAuthData (String authToken) {}
 }

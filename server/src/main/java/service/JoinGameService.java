@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
 import service.requests.CreateGameRequest;
@@ -16,7 +17,7 @@ public class JoinGameService {
         dataAccess = data;
     }
 
-    public JoinGameResult joinGame(JoinGameRequest request) {
+    public JoinGameResult joinGame(JoinGameRequest request) throws DataAccessException {
 
         //check for 400 error for bad data inputted
         String color = request.getColor();

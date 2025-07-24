@@ -1,5 +1,6 @@
 package service;
 
+import chess.ChessGame;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import dataaccess.SystemDataAccess;
@@ -34,7 +35,7 @@ public class JoinGameServiceTest {
         }
 
         gameID = 1;
-        GameData gameData = new GameData(gameID, null, null, "test game");
+        GameData gameData = new GameData(gameID, null, null, "test game", new ChessGame());
         try {
             dataAccess.addGame(gameData);
         } catch (Exception e) {
@@ -43,7 +44,7 @@ public class JoinGameServiceTest {
     }
 
     @Test
-    public void testJoinGameSuccess() {
+    public void testJoinGameSuccess() throws DataAccessException {
         JoinGameRequest request = new JoinGameRequest(authToken, "white", gameID);
         JoinGameResult result = joinGameService.joinGame(request);
 
@@ -53,7 +54,7 @@ public class JoinGameServiceTest {
     }
 
     @Test
-    public void testJoinGameBadColor() {
+    public void testJoinGameBadColor() throws DataAccessException {
         JoinGameRequest request = new JoinGameRequest(authToken, "bad color", gameID);
         JoinGameResult result = joinGameService.joinGame(request);
 

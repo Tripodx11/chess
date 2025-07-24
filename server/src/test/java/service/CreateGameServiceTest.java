@@ -33,7 +33,7 @@ public class CreateGameServiceTest {
     }
 
     @Test
-    public void testCreateGameSuccess() {
+    public void testCreateGameSuccess() throws DataAccessException {
         CreateGameRequest request = new CreateGameRequest(token, "My Game");
         CreateGameResult result = createGameService.createGame(request);
 
@@ -45,7 +45,7 @@ public class CreateGameServiceTest {
     }
 
     @Test
-    public void testCreateGameInvalidToken() {
+    public void testCreateGameInvalidToken() throws DataAccessException {
         CreateGameRequest request = new CreateGameRequest("bad test token", "My Game");
         CreateGameResult result = createGameService.createGame(request);
 

@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
 import model.AuthData;
 import service.requests.LogoutAndListGamesRequest;
 import service.results.LogoutResult;
@@ -13,7 +14,7 @@ public class LogoutService {
         dataAccess = data;
     }
 
-    public LogoutResult logout(LogoutAndListGamesRequest request) {
+    public LogoutResult logout(LogoutAndListGamesRequest request) throws DataAccessException {
 
         //check for 400 error
         if (request.getAuthToken() == null || request.getAuthToken().isEmpty()) {
