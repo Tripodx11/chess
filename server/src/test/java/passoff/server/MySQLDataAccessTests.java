@@ -16,26 +16,25 @@ public class MySQLDataAccessTests {
     @BeforeEach
     public void setup() throws DataAccessException {
         dao = new MySQLDataAccess();
-        dao.clear(); // Clean DB before each test
+        dao.clear();
     }
 
     @Test
     public void addUser_positive() throws DataAccessException {
-        UserData user = new UserData("testuser", "password123", "test@example.com");
+        UserData user = new UserData("user", "pass", "email");
         dao.addUser(user);
 
-        UserData fetched = dao.getUserData("testuser");
+        UserData fetched = dao.getUserData("user");
 
         assertNotNull(fetched);
-        assertEquals("testuser", fetched.getUsername());
-        assertEquals("test@example.com", fetched.getEmail());
-        // Do NOT assert password equality since it's hashed
+        assertEquals("user", fetched.getUsername());
+        assertEquals("email", fetched.getEmail());
     }
 
     @Test
     public void addUser_duplicateUsername_negative() throws DataAccessException {
-        UserData user1 = new UserData("dupeuser", "pass1", "dupe1@example.com");
-        UserData user2 = new UserData("dupeuser", "pass2", "dupe2@example.com");
+        UserData user1 = new UserData("user1", "pass1", "email1");
+        UserData user2 = new UserData("user1", "pass2", "email2");
 
         dao.addUser(user1);
 

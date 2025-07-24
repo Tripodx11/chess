@@ -1,6 +1,7 @@
 package service;
 
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
 import service.requests.CreateGameRequest;
@@ -14,7 +15,7 @@ public class CreateGameService {
         dataAccess = data;
     }
 
-    public CreateGameResult createGame(CreateGameRequest request) {
+    public CreateGameResult createGame(CreateGameRequest request) throws DataAccessException {
 
         //check for 400 error
         if (request.getAuthToken() == null || request.getAuthToken().isEmpty() || request.getGameName() == null || request.getGameName().isEmpty()) {
