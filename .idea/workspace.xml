@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="All tests are passing here">
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed things for the autograder" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +70,7 @@
     "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addGameNegative.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.clearPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.executor": "Run",
     "JUnit.MySQLDataAccessTests.getAllGameDataNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.getAllGameDataPositive.executor": "Debug",
@@ -115,7 +114,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.clearPositive">
+  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.clearNegative">
     <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -127,6 +126,22 @@
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLDataAccessTests.clearNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="METHOD_NAME" value="clearNegative" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,29 +193,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.listGamesEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="listGamesEmpty" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MySQLDataAccessTests.clearNegative" />
         <item itemvalue="JUnit.MySQLDataAccessTests.clearPositive" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.StandardAPITests.clearData" />
         <item itemvalue="JUnit.DatabaseTests" />
-        <item itemvalue="JUnit.StandardAPITests.listGamesEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +226,7 @@
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
       <workItem from="1753375430550" duration="2457000" />
-      <workItem from="1753381345018" duration="8762000" />
+      <workItem from="1753381345018" duration="9148000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -541,14 +540,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753393770092</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Changed things for the autograder">
+      <option name="closed" value="true" />
+      <created>1753394165787</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1753394165787</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got initial Create game service built out. Untested" />
     <MESSAGE value="Create game service test built and tests passed" />
     <MESSAGE value="Got Create game handler built and added the code to the server for it. Untested" />
     <MESSAGE value="Got Join game service and test built. Test passed" />
@@ -573,7 +579,8 @@
     <MESSAGE value="Got get all game data working and tests passed" />
     <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
     <MESSAGE value="All tests are passing here" />
-    <option name="LAST_COMMIT_MESSAGE" value="All tests are passing here" />
+    <MESSAGE value="Changed things for the autograder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed things for the autograder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

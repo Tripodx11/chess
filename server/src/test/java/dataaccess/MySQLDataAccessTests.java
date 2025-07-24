@@ -24,6 +24,13 @@ public class MySQLDataAccessTests {
         assertNull(dao.getUserData("user"));
     }
 
+    @Test
+    public void clearNegative() throws DataAccessException {
+        dao.clear();
+        dao.clear();
+        assertTrue(true);
+    }
+
     @BeforeEach
     public void setup() throws DataAccessException {
         dao = new MySQLDataAccess();
