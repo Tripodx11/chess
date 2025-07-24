@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Dude I don't even know. A lot of issues that still aren't fixed. Working on them.">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Fixed Game data test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +67,11 @@
     "JUnit.ListGamesServiceTest.executor": "Debug",
     "JUnit.LoginServiceTest.executor": "Debug",
     "JUnit.LogoutServiceTest.executor": "Debug",
-    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.addAndGetGamePositive.executor": "Run",
     "JUnit.MySQLDataAccessTests.addAndGetUserPositive.executor": "Run",
     "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.addGameNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.executor": "Run",
     "JUnit.MySQLDataAccessTests.getAuthNegative.executor": "Run",
     "JUnit.MySQLDataAccessTests.getUserNegative.executor": "Debug",
@@ -105,17 +105,17 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.addAndGetGamePositive">
-    <configuration name="MySQLDataAccessTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.addGameNegative">
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
+          <option name="PATTERN" value="passoff.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.DatabaseTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,22 +137,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySQLDataAccessTests.addAndGetUserPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="addAndGetUserPositive" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MySQLDataAccessTests.addAuthNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -164,6 +148,22 @@
       <option name="PACKAGE_NAME" value="dataaccess" />
       <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
       <option name="METHOD_NAME" value="addAuthNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLDataAccessTests.addGameNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="METHOD_NAME" value="addGameNegative" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MySQLDataAccessTests.addGameNegative" />
         <item itemvalue="JUnit.MySQLDataAccessTests.addAndGetGamePositive" />
+        <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.MySQLDataAccessTests.addAuthNegative" />
         <item itemvalue="JUnit.MySQLDataAccessTests.getAuthNegative" />
-        <item itemvalue="JUnit.MySQLDataAccessTests" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.addAndGetUserPositive" />
       </list>
     </recent_temporary>
   </component>
@@ -218,6 +218,7 @@
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
       <workItem from="1753375430550" duration="2457000" />
+      <workItem from="1753381345018" duration="1744000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -491,14 +492,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753330467823</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fixed Game data test">
+      <option name="closed" value="true" />
+      <created>1753381525943</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1753381525943</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Mid way through implementing login service funtionality" />
     <MESSAGE value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
     <MESSAGE value="Got Logout Service funcioning based on my test. Going to work on the handler and server" />
     <MESSAGE value="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register" />
@@ -523,7 +531,8 @@
     <MESSAGE value="Got Add user going along with clear and get user and wrote two tests for add user" />
     <MESSAGE value="Got most of add and get auth data built out. Untested" />
     <MESSAGE value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
+    <MESSAGE value="Fixed Game data test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Game data test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -532,16 +541,6 @@
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java</url>
-          <line>156</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

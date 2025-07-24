@@ -106,5 +106,19 @@ public class MySQLDataAccessTests {
         assertEquals(1, data.getGameID());
         assertEquals("wuser", data.getWhiteUsername());
         assertEquals("wuser", data.getBlackUsername());
+        assertInstanceOf(ChessGame.class, data.getGame());
+    }
+
+    @Test
+    public void addGameNegative() throws DataAccessException {
+        UserData user = new UserData("wuser", "pass", "email");
+        dao.addUser(user);
+        ChessGame game = new ChessGame();
+        GameData gameData = new GameData(1, "wuser", "wuser", "game name", game);
+        dao.addGame(gameData);
+        GameData gameData2 = new GameData(1, "wuser", "wuser", "game name 2", game);
+
+        DataAccessException thrown = assertThrows(DataAccessException.class, () -> dao.addGame(gameData2));
+        assert(thrown.getMessage().contains("already exists"));
     }
 }
