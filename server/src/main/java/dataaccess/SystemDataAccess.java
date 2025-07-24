@@ -1,5 +1,6 @@
 package dataaccess;
 
+import chess.ChessGame;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
@@ -73,9 +74,26 @@ public class SystemDataAccess implements DataAccess {
         return gameID++;
     }
 
+    public void updateGameUsername(int gameID, ChessGame.TeamColor color, String username) throws DataAccessException {
+        GameData game = gameData.get(gameID);
+
+        if (game == null) {
+            throw new DataAccessException("Game not found");
+        }
+
+        if (color == ChessGame.TeamColor.WHITE) {
+            game.setWhiteUsername(username);
+        } else if (color == ChessGame.TeamColor.BLACK) {
+            game.setBlackUsername(username);
+        } else {
+            throw new DataAccessException("Invalid team color");
+        }
+    };
+
+
 
     //remove methods
-    public void removeAuthData (String authToken) {
+    public void removeAuthData (String authToken) throws DataAccessException {
         authData.remove(authToken);
     }
 

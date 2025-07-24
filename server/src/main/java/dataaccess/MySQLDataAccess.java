@@ -9,12 +9,11 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MySQLDataAccess implements DataAccess{
+    private int gameID = 1;
 
     public MySQLDataAccess() throws DataAccessException {
         DatabaseManager.createDatabase();
@@ -113,7 +112,7 @@ public class MySQLDataAccess implements DataAccess{
                     String pass = resultSet.getString("password");
                     String email = resultSet.getString("email");
 
-                    return new UserData(user, null, email);
+                    return new UserData(user, pass, email);
                 } else {
                     return null;
                 }
@@ -185,7 +184,7 @@ public class MySQLDataAccess implements DataAccess{
 
         try (var conn = DatabaseManager.getConnection();
              var stmt = conn.prepareStatement(sql);
-             ResultSet resultSet = stmt.executeQuery()) {
+             ResultSet resultSet = stmt.executeQuery();) {
 
             while (resultSet.next()) {
                 Gson gson = new Gson();
@@ -195,21 +194,55 @@ public class MySQLDataAccess implements DataAccess{
                 String black = resultSet.getString("blackUsername");
 
                 ChessGame game = gson.fromJson(resultSet.getString("game"), ChessGame.class);
-
                 GameData gameData = new GameData(id, white, black, name, game);
                 games.put(gameData.getGameID(), gameData);
             }
 
         } catch (SQLException e) {
-            throw new DataAccessException("Failed to list games", e);
+            throw new DataAccessException("Failed to get all game data", e);
         }
         return games;
     }
 
     public int updateGameID() {
-        return -2;
+        return gameID++;
+    }
+
+    public void updateGameUsername(int gameID, ChessGame.TeamColor color, String username) throws DataAccessException {
+        String column = (color == ChessGame.TeamColor.WHITE) ? "whiteUsername" : "blackUsername";
+        String sql = "UPDATE games SET " + column + " = ? WHERE gameID = ?";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, username);
+            stmt.setInt(2, gameID);
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new DataAccessException("No game with gameID: " + gameID);
+            }
+
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to update game player", e);
+        }
     }
 
     //remove methods
-    public void removeAuthData (String authToken) {}
+    public void removeAuthData(String authToken) throws DataAccessException {
+        String sql = "DELETE FROM auth_tokens WHERE authToken = ?";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, authToken);
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows == 0) {
+                throw new DataAccessException("No auth token found to delete");
+            }
+
+        } catch (SQLException ex) {
+            throw new DataAccessException("Failed to remove auth token", ex);
+        }
+    }
 }

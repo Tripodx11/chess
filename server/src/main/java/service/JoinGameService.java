@@ -1,5 +1,6 @@
 package service;
 
+import chess.ChessGame;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
@@ -49,11 +50,9 @@ public class JoinGameService {
 
         //join game and return that it worked or it didn't
         try {
-            if ("white".equalsIgnoreCase(color)) {
-                existingGameData.setWhiteUsername(existingAuthData.getUsername());
-            } else if ("black".equalsIgnoreCase(color)) {
-                existingGameData.setBlackUsername(existingAuthData.getUsername());
-            }
+            ChessGame.TeamColor teamColor = "white".equalsIgnoreCase(color) ?
+                    ChessGame.TeamColor.WHITE : ChessGame.TeamColor.BLACK;
+            dataAccess.updateGameUsername(request.getGameID(), teamColor, existingAuthData.getUsername());
             return new JoinGameResult();
         } catch (Exception e) {
             return new JoinGameResult("internal issues: " + e.getMessage());

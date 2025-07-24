@@ -101,7 +101,7 @@ public class DatabaseManager {
             // Games table
             stmt.executeUpdate("""
             CREATE TABLE IF NOT EXISTS games (
-                gameID INT PRIMARY KEY AUTO_INCREMENT,
+                gameID INT PRIMARY KEY,
                 whiteUsername VARCHAR(64),
                 blackUsername VARCHAR(64),
                 gameName VARCHAR(64) NOT NULL,

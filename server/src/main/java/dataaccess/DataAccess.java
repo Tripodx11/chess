@@ -1,5 +1,6 @@
 package dataaccess;
 
+import chess.ChessGame;
 import model.AuthData;
 import model.GameData;
 import model.UserData;
@@ -23,7 +24,9 @@ public interface DataAccess {
     //unique game methods
     Map<Integer, GameData> getAllGameData() throws DataAccessException;
     int updateGameID();
+    void updateGameUsername(int gameID, ChessGame.TeamColor color, String username) throws DataAccessException;
+
 
     //remove methods
-    void removeAuthData (String authToken);
+    void removeAuthData (String authToken) throws DataAccessException ;
 }

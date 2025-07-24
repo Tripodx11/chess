@@ -1,13 +1,15 @@
 package server;
 
 import dataaccess.DataAccess;
+import dataaccess.DataAccessException;
+import dataaccess.MySQLDataAccess;
 import dataaccess.SystemDataAccess;
 import handler.*;
 import spark.*;
 
 public class Server {
 
-    public int run(int desiredPort) {
+    public int run(int desiredPort){
         Spark.port(desiredPort);
 
         Spark.staticFiles.location("web");
@@ -16,7 +18,17 @@ public class Server {
             return null;
         });
 
-        DataAccess dataAccess = new SystemDataAccess();
+        DataAccess dataAccess;
+        try {
+            // Swap this line to use either System or MySQL DAO
+            dataAccess = new MySQLDataAccess(); // persistent
+            // dataAccess = new SystemDataAccess(); // in-memory
+        } catch (DataAccessException e) {
+            System.err.println("Failed to initialize data access: " + e.getMessage());
+            Spark.stop();
+            return -1;
+        }
+
 
         // Register your endpoints and handle exceptions here.
         Spark.delete("/db", new ClearHandler(dataAccess));

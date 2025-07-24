@@ -156,4 +156,64 @@ public class MySQLDataAccessTests {
         assertEquals("game name 1", allGameData.get(1).getGameName());
         assertEquals("game name 2", allGameData.get(2).getGameName());
     }
+
+    @Test
+    public void getAllGameDataNegative() throws DataAccessException {
+        Map<Integer, GameData> allGameData = dao.getAllGameData();
+        assertNotNull(allGameData, "Expected an empty map, but got null");
+        assertTrue(allGameData.isEmpty(), "Expected no games, but found some");
+    }
+
+    @Test
+    public void updateGameIDPositive() {
+        int id = dao.updateGameID();
+        assertEquals(1, id);
+    }
+
+    @Test
+    public void removeAuthDataPositive() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        AuthData auth = new AuthData("token", "user");
+        dao.addAuth(auth);
+
+        AuthData data = dao.getAuthTokenUN("token");
+        assertNotNull(data);
+        assertEquals("user", data.getUsername());
+
+        dao.removeAuthData("token");
+        AuthData deleted = dao.getAuthTokenUN("token");
+        assertNull(deleted);
+    }
+    @Test
+    public void removeAuthDataNegative() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        DataAccessException thrown = assertThrows(DataAccessException.class, () -> dao.removeAuthData("bad token"));
+        assert(thrown.getMessage().contains("No auth token found to delete"));
+    }
+
+    @Test
+    public void testUpdateGameUsernamePositive() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        AuthData auth = new AuthData("token", "user");
+        dao.addAuth(auth);
+        ChessGame game = new ChessGame();
+        GameData gameData = new GameData(1, null, null, "Test Game", game);
+        dao.addGame(gameData);
+        dao.updateGameUsername(1, ChessGame.TeamColor.WHITE, user.getUsername());
+        GameData updated = dao.getGameData(1);
+        assertEquals("user", updated.getWhiteUsername());
+    }
+
+    @Test
+    public void testUpdateGameUsernameNegative() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+
+        DataAccessException thrown = assertThrows(DataAccessException.class, () -> dao.updateGameUsername(10, ChessGame.TeamColor.BLACK, user.getUsername()));
+        assert(thrown.getMessage().contains("No game with gameID"));
+    }
+
 }

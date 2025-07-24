@@ -2,8 +2,10 @@ package service;
 
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
+import dataaccess.MySQLDataAccess;
 import model.AuthData;
 import model.UserData;
+import org.mindrot.jbcrypt.BCrypt;
 import service.requests.LoginRequest;
 import service.results.RegisterAndLoginResult;
 
@@ -30,18 +32,23 @@ public class LoginService {
         }
 
         //check if password matches
-        if (!request.getPassword().equals(existingUser.getPassword())) {
-            return new RegisterAndLoginResult("unauthorized");
-        } else {
-            try {
-                String authToken = AuthTokenGen.generateToken();
-                AuthData authData = new AuthData(authToken, request.getUsername());
-                dataAccess.addAuth(authData);
-                return new RegisterAndLoginResult(request.getUsername(), authToken);
-            } catch (DataAccessException e) {
-                return new RegisterAndLoginResult("internal issues: " + e.getMessage());
+        if (dataAccess instanceof MySQLDataAccess) {
+            if (!BCrypt.checkpw(request.getPassword(), existingUser.getPassword())) {
+                return new RegisterAndLoginResult("unauthorized");
             }
+        } else {
+            if (!request.getPassword().equals(existingUser.getPassword())) {
+                return new RegisterAndLoginResult("unauthorized");
+            }
+        }
 
+        try {
+            String authToken = AuthTokenGen.generateToken();
+            AuthData authData = new AuthData(authToken, request.getUsername());
+            dataAccess.addAuth(authData);
+            return new RegisterAndLoginResult(request.getUsername(), authToken);
+        } catch (DataAccessException e) {
+            return new RegisterAndLoginResult("internal issues: " + e.getMessage());
         }
     }
 }
