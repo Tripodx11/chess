@@ -21,7 +21,7 @@ public interface DataAccess {
     GameData getGameData(int gameID) throws DataAccessException;
 
     //unique game methods
-    Map<Integer, GameData> getAllGameData();
+    Map<Integer, GameData> getAllGameData() throws DataAccessException;
     int updateGameID();
 
     //remove methods

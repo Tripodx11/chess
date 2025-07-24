@@ -9,6 +9,9 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 public class MySQLDataAccess implements DataAccess{
@@ -174,8 +177,33 @@ public class MySQLDataAccess implements DataAccess{
     }
 
     //unique game methods
-    public Map<Integer, GameData> getAllGameData() {
-        return null;
+
+    public Map<Integer, GameData> getAllGameData() throws DataAccessException {
+        Map<Integer, GameData> games = new HashMap<>();
+
+        String sql = "SELECT gameID, whiteUsername, blackUsername, gameName, game FROM games";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql);
+             ResultSet resultSet = stmt.executeQuery()) {
+
+            while (resultSet.next()) {
+                Gson gson = new Gson();
+                int id = resultSet.getInt("gameID");
+                String name = resultSet.getString("gameName");
+                String white = resultSet.getString("whiteUsername");
+                String black = resultSet.getString("blackUsername");
+
+                ChessGame game = gson.fromJson(resultSet.getString("game"), ChessGame.class);
+
+                GameData gameData = new GameData(id, white, black, name, game);
+                games.put(gameData.getGameID(), gameData);
+            }
+
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to list games", e);
+        }
+        return games;
     }
 
     public int updateGameID() {

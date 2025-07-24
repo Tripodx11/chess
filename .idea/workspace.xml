@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Fixed Game data test">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got Game Add and get working as well as tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySQLDataAccessTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +76,9 @@
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addGameNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.executor": "Run",
+    "JUnit.MySQLDataAccessTests.getAllGameDataPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.getAuthNegative.executor": "Run",
+    "JUnit.MySQLDataAccessTests.getGameNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.getUserNegative.executor": "Debug",
     "JUnit.RegisterServiceTest.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
@@ -105,7 +110,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.addGameNegative">
+  <component name="RunManager" selected="JUnit.MySQLDataAccessTests.getAllGameDataPositive">
     <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -137,22 +142,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySQLDataAccessTests.addAuthNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="addAuthNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MySQLDataAccessTests.addGameNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -169,7 +158,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySQLDataAccessTests.getAuthNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySQLDataAccessTests.getAllGameDataPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -179,7 +168,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
       <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
-      <option name="METHOD_NAME" value="getAuthNegative" />
+      <option name="METHOD_NAME" value="getAllGameDataPositive" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MySQLDataAccessTests.getGameNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySQLDataAccessTests" />
+      <option name="METHOD_NAME" value="getGameNegative" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MySQLDataAccessTests.getAllGameDataPositive" />
+        <item itemvalue="JUnit.MySQLDataAccessTests.getGameNegative" />
         <item itemvalue="JUnit.MySQLDataAccessTests.addGameNegative" />
         <item itemvalue="JUnit.MySQLDataAccessTests.addAndGetGamePositive" />
         <item itemvalue="JUnit.DatabaseTests" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.addAuthNegative" />
-        <item itemvalue="JUnit.MySQLDataAccessTests.getAuthNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +223,7 @@
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
       <workItem from="1753375430550" duration="2457000" />
-      <workItem from="1753381345018" duration="1744000" />
+      <workItem from="1753381345018" duration="3114000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -500,14 +505,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753381525943</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Got Game Add and get working as well as tests">
+      <option name="closed" value="true" />
+      <created>1753386089093</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1753386089094</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that." />
     <MESSAGE value="Got Logout Service funcioning based on my test. Going to work on the handler and server" />
     <MESSAGE value="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register" />
     <MESSAGE value="Logout is funcitoning as it should as well as Login from front to finish. Only needed to adjust the code in Logout handler to accept the header auth token and not the body" />
@@ -532,7 +544,8 @@
     <MESSAGE value="Got most of add and get auth data built out. Untested" />
     <MESSAGE value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
     <MESSAGE value="Fixed Game data test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Game data test" />
+    <MESSAGE value="Got Game Add and get working as well as tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Game Add and get working as well as tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

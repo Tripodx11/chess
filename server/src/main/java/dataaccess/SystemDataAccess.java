@@ -65,7 +65,7 @@ public class SystemDataAccess implements DataAccess {
 
 
     //unique methods for game logic
-    public Map<Integer, GameData> getAllGameData() {
+    public Map<Integer, GameData> getAllGameData() throws DataAccessException {
         return gameData;
     }
 

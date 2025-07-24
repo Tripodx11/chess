@@ -8,6 +8,8 @@ import model.UserData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MySQLDataAccessTests {
@@ -120,5 +122,38 @@ public class MySQLDataAccessTests {
 
         DataAccessException thrown = assertThrows(DataAccessException.class, () -> dao.addGame(gameData2));
         assert(thrown.getMessage().contains("already exists"));
+    }
+
+    @Test
+    public void getGameNegative() throws DataAccessException {
+        //bad token
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        GameData gameData = new GameData(1, "user", "user", "game name", new ChessGame());
+        dao.addGame(gameData);
+        GameData result = dao.getGameData(10);
+        assertNull(result);
+    }
+
+    @Test
+    public void getAllGameDataPositive() throws DataAccessException {
+        UserData user = new UserData("user", "pass", "email");
+        dao.addUser(user);
+        GameData gameData = new GameData(1, "user", "user", "game name 1", new ChessGame());
+        dao.addGame(gameData);
+        GameData gameData2 = new GameData(2, "user", "user", "game name 2", new ChessGame());
+        dao.addGame(gameData2);
+
+        Map<Integer, GameData> allGameData = dao.getAllGameData();
+
+        assertEquals(2, allGameData.size());
+        assertTrue(allGameData.containsKey(1));
+        assertTrue(allGameData.containsKey(2));
+        assertEquals("user", allGameData.get(1).getWhiteUsername());
+        assertEquals("user", allGameData.get(2).getWhiteUsername());
+        assertEquals("user", allGameData.get(1).getBlackUsername());
+        assertEquals("user", allGameData.get(2).getBlackUsername());
+        assertEquals("game name 1", allGameData.get(1).getGameName());
+        assertEquals("game name 2", allGameData.get(2).getGameName());
     }
 }
