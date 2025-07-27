@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed things for the autograder" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed things for the autograder again">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +72,7 @@
     "JUnit.MySQLDataAccessTests.addAuthNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addAuthPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.addGameNegative.executor": "Debug",
+    "JUnit.MySQLDataAccessTests.clearNegative.executor": "Debug",
     "JUnit.MySQLDataAccessTests.clearPositive.executor": "Debug",
     "JUnit.MySQLDataAccessTests.executor": "Run",
     "JUnit.MySQLDataAccessTests.getAllGameDataNegative.executor": "Debug",
@@ -226,7 +229,7 @@
       <workItem from="1753219623778" duration="16270000" />
       <workItem from="1753329181307" duration="2605000" />
       <workItem from="1753375430550" duration="2457000" />
-      <workItem from="1753381345018" duration="9148000" />
+      <workItem from="1753381345018" duration="10164000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -548,14 +551,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753394165787</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Changed things for the autograder again">
+      <option name="closed" value="true" />
+      <created>1753394368448</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1753394368448</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create game service test built and tests passed" />
     <MESSAGE value="Got Create game handler built and added the code to the server for it. Untested" />
     <MESSAGE value="Got Join game service and test built. Test passed" />
     <MESSAGE value="Got Join game handler and server built out. Untested" />
@@ -580,7 +590,8 @@
     <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
     <MESSAGE value="All tests are passing here" />
     <MESSAGE value="Changed things for the autograder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed things for the autograder" />
+    <MESSAGE value="Changed things for the autograder again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed things for the autograder again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
