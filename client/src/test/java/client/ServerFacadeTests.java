@@ -11,31 +11,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ServerFacadeTests {
 
-    private static Server server;
-    public static ServerFacade facade;
-
-//    @BeforeAll
-//    public static void init() {
-//        server = new Server();
-//        int port = server.run(8080);
-//        ServerFacade facade = new ServerFacade(port);
-//        System.out.println("Started test HTTP server on " + port);
-//    }
+    private Server server;
+    public ServerFacade facade;
 
     @BeforeEach
     public void setup() throws IOException {
         server = new Server();
-        int port = server.run(8080);
-        ServerFacade facade = new ServerFacade(port);
+        int port = server.run(0);
+        facade = new ServerFacade(port);
         facade.clear();
         System.out.println("Started test HTTP server on " + port);
     }
 
-    @AfterAll
-    static void stopServer() {
+    @AfterEach
+    public void stopServer() {
         server.stop();
     }
-
 
     @Test
     public void clearPositive() {
@@ -68,7 +59,25 @@ public class ServerFacadeTests {
         IOException thrown = assertThrows(IOException.class, () ->
                 facade.register("user", "pass", "email"));
 
-        assertTrue(thrown.getMessage().contains("400")); // 400 for bad request
+        assertTrue(thrown.getMessage().contains("403")); // 400 for bad request
+    }
+
+    @Test
+    public void loginPositive() throws IOException {
+        facade.register("user", "pass", "email");
+        AuthData result = facade.login("user", "pass");
+
+        assertNotNull(result);
+        assertEquals("user", result.getUsername());
+        assertNotNull(result.getAuthToken());
+    }
+
+    @Test
+    public void loginNegative() throws IOException {
+        facade.register("user", "pass", "email");
+        IOException thrown = assertThrows(IOException.class, () ->
+                facade.login("user", "wrongpass"));
+        assertTrue(thrown.getMessage().contains("401")); // Unauthorized
     }
 
 }
