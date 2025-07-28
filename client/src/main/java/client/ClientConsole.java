@@ -157,11 +157,17 @@ public class ClientConsole {
         }
 
         try {
-            int id = Integer.parseInt(input[1]);
-            facade.join(authToken, input[2], id);
+            int inputID = Integer.parseInt(input[1]);
+            if (inputID < 0 || inputID >= cachedGames.size()) {
+                System.out.println("Invalid game index.");
+                return;
+            }
+            int sysID = cachedGames.get(inputID).getGameID();
+
+            facade.join(authToken, input[2], sysID);
             System.out.println("Join game successful");
         } catch (Exception e) {
-            System.out.println("Registration failed: " + e.getMessage());
+            System.out.println("Join game failed: " + e.getMessage());
         }
     }
 
