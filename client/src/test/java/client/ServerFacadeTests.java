@@ -116,4 +116,25 @@ public class ServerFacadeTests {
                 facade.list("token"));
     }
 
+    @Test
+    public void joinPositive() throws IOException {
+        AuthData auth = facade.register("user", "pass", "email");
+        CreateGameResult game = facade.create(auth.getAuthToken(), "game");
+
+        // Attempt to join as white player
+        assertDoesNotThrow(() -> {
+            facade.join(auth.getAuthToken(), "WHITE", game.getGameID());
+        });
+    }
+
+    @Test
+    public void joinNegative() throws IOException {
+        // bad color
+        AuthData auth = facade.register("user", "pass", "email");
+        CreateGameResult game = facade.create(auth.getAuthToken(), "game");
+        assertThrows(IOException.class, () ->
+                facade.join(auth.getAuthToken(), "BLUE", game.getGameID()) // Invalid team color
+        );
+    }
+
 }

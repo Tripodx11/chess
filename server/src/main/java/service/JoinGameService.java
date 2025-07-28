@@ -20,9 +20,13 @@ public class JoinGameService {
 
     public JoinGameResult joinGame(JoinGameRequest request) throws DataAccessException {
 
-        //check for 400 error for bad data inputted
         String color = request.getColor();
-        if (request.getAuthToken() == null || request.getAuthToken().isEmpty() || color == null || color.isEmpty()
+        if (color == null || color.isEmpty()) {
+            return new JoinGameResult();
+        }
+
+        //check for 400 error for bad data inputted
+        if (request.getAuthToken() == null || request.getAuthToken().isEmpty()
                 || !"white".equalsIgnoreCase(color) && !"black".equalsIgnoreCase(color) ||request.getGameID() < 0) {
             return new JoinGameResult("bad request");
         }

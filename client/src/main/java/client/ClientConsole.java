@@ -1,9 +1,11 @@
 package client;
 
+import chess.ChessPiece;
 import model.AuthData;
 import model.GameData;
 import service.results.CreateGameResult;
 import service.results.ListGamesResult;
+import ui.EscapeSequences;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +174,46 @@ public class ClientConsole {
     }
 
     private void observeHelper(String[] input) {
+        if (input.length != 2) {
+            System.out.println("Did not meet usage form: observe <ID>");
+            return;
+        }
 
+        try {
+            int inputID = Integer.parseInt(input[1]);
+            if (inputID < 0 || inputID >= cachedGames.size()) {
+                System.out.println("Invalid game index.");
+                return;
+            }
+            int sysID = cachedGames.get(inputID).getGameID();
+
+            facade.join(authToken, null, sysID);
+            System.out.println("Observe game successful");
+        } catch (Exception e) {
+            System.out.println("Observe game failed: " + e.getMessage());
+        }
     }
+
+    private String getPieceSymbol(ChessPiece piece) {
+        return switch (piece.getTeamColor()) {
+            case WHITE -> switch (piece.getPieceType()) {
+                case KING -> EscapeSequences.WHITE_KING;
+                case QUEEN -> EscapeSequences.WHITE_QUEEN;
+                case ROOK -> EscapeSequences.WHITE_ROOK;
+                case BISHOP -> EscapeSequences.WHITE_BISHOP;
+                case KNIGHT -> EscapeSequences.WHITE_KNIGHT;
+                case PAWN -> EscapeSequences.WHITE_PAWN;
+            };
+            case BLACK -> switch (piece.getPieceType()) {
+                case KING -> EscapeSequences.BLACK_KING;
+                case QUEEN -> EscapeSequences.BLACK_QUEEN;
+                case ROOK -> EscapeSequences.BLACK_ROOK;
+                case BISHOP -> EscapeSequences.BLACK_BISHOP;
+                case KNIGHT -> EscapeSequences.BLACK_KNIGHT;
+                case PAWN -> EscapeSequences.BLACK_PAWN;
+            };
+        };
+    }
+
 
 }
