@@ -1,6 +1,9 @@
 package client;
 
+import chess.ChessBoard;
+import chess.ChessGame;
 import chess.ChessPiece;
+import chess.ChessPosition;
 import model.AuthData;
 import model.GameData;
 import service.results.CreateGameResult;
@@ -168,6 +171,7 @@ public class ClientConsole {
 
             facade.join(authToken, input[2], sysID);
             System.out.println("Join game successful");
+            drawWhiteBoard(cachedGames.get(inputID).getGame());
         } catch (Exception e) {
             System.out.println("Join game failed: " + e.getMessage());
         }
@@ -189,29 +193,67 @@ public class ClientConsole {
 
             facade.join(authToken, null, sysID);
             System.out.println("Observe game successful");
+            drawWhiteBoard(cachedGames.get(inputID).getGame());
         } catch (Exception e) {
             System.out.println("Observe game failed: " + e.getMessage());
         }
     }
 
+    public void drawWhiteBoard(ChessGame game) {
+        ChessBoard board = game.getBoard();
+
+        // letter labels
+        System.out.print("  " + "\u2003");
+        for (char letter = 'a'; letter <= 'h'; letter++) {
+            System.out.print( " " + letter + "\u2003");
+        }
+        System.out.println();
+
+        for (int row = 8; row >= 1; row--) {
+            System.out.print(" " + row + " ");
+
+            for (int col = 1; col <= 8; col++) {
+                ChessPosition position = new ChessPosition(row, col);
+                ChessPiece piece = board.getPiece(position);
+
+                // Checker pattern
+                boolean isGreen = (row + col) % 2 == 0;
+                String bgColor = isGreen ? SET_BG_COLOR_DARK_BROWN : SET_BG_COLOR_MEDIUM_BROWN;
+
+                String symbol = EMPTY;
+                if (piece != null) {
+                    symbol = getPieceSymbol(piece);
+                }
+
+                String fgColor = "";
+                if (piece != null) {
+                    fgColor = (piece.getTeamColor() == ChessGame.TeamColor.WHITE) ? SET_TEXT_COLOR_WHITE : SET_TEXT_COLOR_BLACK;
+                }
+                System.out.print(bgColor + fgColor + symbol + RESET_TEXT_COLOR);
+            }
+            System.out.print(RESET_BG_COLOR);
+            System.out.print(" " + row);
+
+            System.out.println(RESET_BG_COLOR); // End row
+        }
+
+        // letter labels
+        System.out.print("  " + "\u2003");
+        for (char letter = 'a'; letter <= 'h'; letter++) {
+            System.out.print( " " + letter + "\u2003");
+        }
+        System.out.println();
+    }
+
+
     private String getPieceSymbol(ChessPiece piece) {
-        return switch (piece.getTeamColor()) {
-            case WHITE -> switch (piece.getPieceType()) {
-                case KING -> EscapeSequences.WHITE_KING;
-                case QUEEN -> EscapeSequences.WHITE_QUEEN;
-                case ROOK -> EscapeSequences.WHITE_ROOK;
-                case BISHOP -> EscapeSequences.WHITE_BISHOP;
-                case KNIGHT -> EscapeSequences.WHITE_KNIGHT;
-                case PAWN -> EscapeSequences.WHITE_PAWN;
-            };
-            case BLACK -> switch (piece.getPieceType()) {
-                case KING -> EscapeSequences.BLACK_KING;
-                case QUEEN -> EscapeSequences.BLACK_QUEEN;
-                case ROOK -> EscapeSequences.BLACK_ROOK;
-                case BISHOP -> EscapeSequences.BLACK_BISHOP;
-                case KNIGHT -> EscapeSequences.BLACK_KNIGHT;
-                case PAWN -> EscapeSequences.BLACK_PAWN;
-            };
+        return switch (piece.getPieceType()) {
+            case KING -> BLACK_KING;
+            case QUEEN -> BLACK_QUEEN;
+            case ROOK -> BLACK_ROOK;
+            case BISHOP -> BLACK_BISHOP;
+            case KNIGHT -> BLACK_KNIGHT;
+            case PAWN -> BLACK_PAWN;
         };
     }
 

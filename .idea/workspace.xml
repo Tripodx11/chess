@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got join mostly written, working on tests">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got join working and tests passed. Observe is also up. Working on drawing the board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +121,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -248,15 +248,7 @@
       <workItem from="1753647177844" duration="1055000" />
       <workItem from="1753721482521" duration="5672000" />
       <workItem from="1753727199455" duration="6536000" />
-      <workItem from="1753735356220" duration="6064000" />
-    </task>
-    <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
-      <option name="closed" value="true" />
-      <created>1752543913041</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1752543913041</updated>
+      <workItem from="1753735356220" duration="9081000" />
     </task>
     <task id="LOCAL-00002" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -642,14 +634,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753740003176</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Got join working and tests passed. Observe is also up. Working on drawing the board">
+      <option name="closed" value="true" />
+      <created>1753741561205</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1753741561206</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed code quality in Phase 0 and 1 code. Changed file names to match grader." />
     <MESSAGE value="Debugged some more code quality issues and fixed Login Service Test" />
     <MESSAGE value="More debugging for auto grader" />
     <MESSAGE value="Added initial user dao. Barebones" />
@@ -674,7 +673,8 @@
     <MESSAGE value="Wrote loggedInHelpHelper and it is working" />
     <MESSAGE value="Got Create working and tests written and passed" />
     <MESSAGE value="Got join mostly written, working on tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got join mostly written, working on tests" />
+    <MESSAGE value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -685,6 +685,10 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chess$MySQLDataAccessTests.ic" NAME="MySQLDataAccessTests Coverage Results" MODIFIED="1753319048079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
