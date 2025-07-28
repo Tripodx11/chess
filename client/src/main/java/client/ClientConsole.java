@@ -38,8 +38,10 @@ public class ClientConsole {
                     case "help" -> loggedInHelpHelper();
                     case "logout" -> logoutHelper();
                     case "create" -> createHelper(inputList);
+                    case "list" -> listHelper();
                     case "join" -> joinHelper(inputList);
                     case "observe" -> observeHelper(inputList);
+                    case "quit" -> System.exit(0);
                     default -> System.out.println("Unknown command");
                 }
             }
@@ -95,7 +97,15 @@ public class ClientConsole {
     }
 
     private void loggedInHelpHelper() {
-
+        System.out.println();
+        System.out.println(SET_TEXT_COLOR_GREEN + "  help" + RESET_TEXT_COLOR + " - with possible commands");
+        System.out.println(SET_TEXT_COLOR_RED + "  logout" + RESET_TEXT_COLOR + " - when you are done");
+        System.out.println(SET_TEXT_COLOR_YELLOW + "  create <NAME>" + RESET_TEXT_COLOR + " - a game");
+        System.out.println(SET_TEXT_COLOR_WHITE + "  list" + RESET_TEXT_COLOR + " - games");
+        System.out.println(SET_TEXT_COLOR_MAGENTA + "  join <ID> [WHITE|BLACK]" + RESET_TEXT_COLOR + " - a game");
+        System.out.println(SET_TEXT_COLOR_BLUE + "  observe <ID>" + RESET_TEXT_COLOR + " - a game");
+        System.out.println(SET_TEXT_COLOR_LIGHT_GREY + "  quit" + RESET_TEXT_COLOR + " - playing chess");
+        System.out.println();
     }
 
     private void logoutHelper() {
@@ -103,6 +113,10 @@ public class ClientConsole {
     }
 
     private void createHelper(String[] input) {
+
+    }
+
+    private void listHelper() {
 
     }
 

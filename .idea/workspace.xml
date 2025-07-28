@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got register and loging and logout working. Getting server facade tests built out now">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got clear, register and login tests written and passed">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,7 @@
     "JUnit.RegisterServiceTest.testRegisterDuplicateUsername.executor": "Debug",
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
     "JUnit.ServerFacadeTests.executor": "Debug",
-    "JUnit.ServerFacadeTests.loginNegative.executor": "Debug",
+    "JUnit.ServerFacadeTests.loginNegative.executor": "Run",
     "JUnit.ServerFacadeTests.loginPositive.executor": "Debug",
     "JUnit.ServerFacadeTests.registerNegative.executor": "Debug",
     "JUnit.StandardAPITests.clearData.executor": "Debug",
@@ -122,7 +121,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ServerFacadeTests.loginNegative">
+  <component name="RunManager">
     <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -237,7 +236,7 @@
       <workItem from="1753381345018" duration="10164000" />
       <workItem from="1753647177844" duration="1055000" />
       <workItem from="1753721482521" duration="5672000" />
-      <workItem from="1753727199455" duration="3213000" />
+      <workItem from="1753727199455" duration="3870000" />
     </task>
     <task id="LOCAL-00001" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
       <option name="closed" value="true" />
@@ -599,14 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753729677184</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Got clear, register and login tests written and passed">
+      <option name="closed" value="true" />
+      <created>1753730629106</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1753730629106</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made a couple minor bug fixes to get Join game fully functioning" />
     <MESSAGE value="Got List games service and test running and test to pass" />
     <MESSAGE value="Got List games handler and server built out. Untested." />
     <MESSAGE value="Tested everything against the course tests and fixed one bug and it all passed!" />
@@ -631,7 +637,8 @@
     <MESSAGE value="Completed getting started instructions for Phase 5" />
     <MESSAGE value="Got quit and help working for client console. Working on register" />
     <MESSAGE value="Got register and loging and logout working. Getting server facade tests built out now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got register and loging and logout working. Getting server facade tests built out now" />
+    <MESSAGE value="Got clear, register and login tests written and passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got clear, register and login tests written and passed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
