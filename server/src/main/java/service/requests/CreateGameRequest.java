@@ -10,6 +10,11 @@ public class CreateGameRequest {
         gameName = name;
     }
 
+    public CreateGameRequest(String name) {
+        authToken = null;
+        gameName = name;
+    }
+
     public String getAuthToken() {
         return authToken;
     }

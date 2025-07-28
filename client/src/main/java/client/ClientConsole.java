@@ -1,7 +1,12 @@
 package client;
 
 import model.AuthData;
+import model.GameData;
+import service.results.CreateGameResult;
+import service.results.ListGamesResult;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static ui.EscapeSequences.*;
@@ -11,6 +16,7 @@ public class ClientConsole {
     private boolean loggedIn = false;
     private String authToken = null;
     private final ServerFacade facade;
+    private List<GameData> cachedGames = new ArrayList<>();
 
     public ClientConsole(ServerFacade facade) {
         this.facade = facade;
@@ -73,9 +79,6 @@ public class ClientConsole {
         } catch (Exception e) {
             System.out.println("Registration failed: " + e.getMessage());
         }
-
-
-
     }
 
     private void loginHelper(String[] input) {
@@ -113,15 +116,53 @@ public class ClientConsole {
     }
 
     private void createHelper(String[] input) {
+        if (input.length != 2) {
+            System.out.println("Did not meet usage form: create <NAME>");
+            return;
+        }
 
+        try {
+            CreateGameResult createGameResult = facade.create(authToken, input[1]);
+            System.out.println("Game creation successful. Game ID: " + createGameResult.getGameID());
+        } catch (Exception e) {
+            System.out.println("Registration failed: " + e.getMessage());
+        }
     }
 
     private void listHelper() {
 
+        try {
+            ListGamesResult listGamesResult = facade.list(authToken);
+            cachedGames = listGamesResult.getGames();
+
+            System.out.println("Current games");
+            for (int i = 0; i < cachedGames.size(); i++) {
+                GameData game = cachedGames.get(i);
+                String name = game.getGameName();
+                String whiteUser = game.getWhiteUsername() != null ? game.getWhiteUsername() : "[empty]";
+                String blackUser = game.getBlackUsername() != null ? game.getBlackUsername() : "[empty]";
+                System.out.printf("  %d: Game Name: %s, White User: %s, Black User: %s, System ID: %d%n",
+                        i, name, whiteUser, blackUser, game.getGameID());
+            }
+        } catch (Exception e) {
+            System.out.println("Failed to list games: " + e.getMessage());
+        }
+
     }
 
     private void joinHelper(String[] input) {
+        if (input.length != 3) {
+            System.out.println("Did not meet usage form: join <ID> [WHITE|BLACK]");
+            return;
+        }
 
+        try {
+            int id = Integer.parseInt(input[1]);
+            facade.join(authToken, input[2], id);
+            System.out.println("Join game successful");
+        } catch (Exception e) {
+            System.out.println("Registration failed: " + e.getMessage());
+        }
     }
 
     private void observeHelper(String[] input) {

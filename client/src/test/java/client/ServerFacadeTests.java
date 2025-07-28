@@ -3,6 +3,7 @@ package client;
 import model.*;
 import org.junit.jupiter.api.*;
 import server.Server;
+import service.results.*;
 
 import java.io.IOException;
 
@@ -78,6 +79,41 @@ public class ServerFacadeTests {
         IOException thrown = assertThrows(IOException.class, () ->
                 facade.login("user", "wrongpass"));
         assertTrue(thrown.getMessage().contains("401")); // Unauthorized
+    }
+
+    @Test
+    public void createPositive() throws IOException {
+        AuthData auth = facade.register("user", "pass", "email");
+        CreateGameResult result = facade.create(auth.getAuthToken(), "game");
+
+        assertNotNull(result);
+        assertTrue(result.getGameID() > 0);
+    }
+
+    @Test
+    public void createNegative() {
+        // No auth token
+        assertThrows(IOException.class, () -> {facade.create(null, "game");});
+    }
+
+    @Test
+    public void listPositive() throws IOException {
+        AuthData auth = facade.register("user", "pass", "email");
+        facade.create(auth.getAuthToken(), "game1");
+        facade.create(auth.getAuthToken(), "game2");
+
+        ListGamesResult result = facade.list(auth.getAuthToken());
+        assertNotNull(result);
+        assertEquals(2, result.getGames().size());
+        assertEquals("game1", result.getGames().get(0).getGameName());
+        assertEquals("game2", result.getGames().get(1).getGameName());
+    }
+
+    @Test
+    public void listNegative() {
+        // bad auth token
+        IOException thrown = assertThrows(IOException.class, () ->
+                facade.list("token"));
     }
 
 }
