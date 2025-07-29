@@ -186,6 +186,11 @@ public class ClientConsole {
             return;
         }
 
+        if (!input[2].toLowerCase().trim().equals("white") && !input[2].toLowerCase().trim().equals("black")) {
+            System.out.println("Invalid color");
+            return;
+        }
+
         try {
             int inputID = Integer.parseInt(input[1]) - 1;
             if (inputID < 0 || inputID >= cachedGames.size()) {
@@ -198,8 +203,13 @@ public class ClientConsole {
             facade.join(authToken, color, sysID);
             System.out.println("Join game successful");
             drawBoard(cachedGames.get(inputID).getGame(), color);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
-            System.out.println("Join game failed: " + e.getMessage());
+            if (e.getMessage().contains("403")) {
+                System.out.println("Color already taken");
+            }
+            System.out.println("Join game failed");
         }
     }
 
@@ -216,8 +226,10 @@ public class ClientConsole {
                 return;
             }
             drawBoard(cachedGames.get(inputID).getGame(), "white");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
-            System.out.println("Observe game failed: " + e.getMessage());
+            System.out.println("Observe game failed");
         }
     }
 
