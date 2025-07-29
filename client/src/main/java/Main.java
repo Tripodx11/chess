@@ -1,7 +1,7 @@
 import chess.*;
 import client.ClientConsole;
 import client.ServerFacade;
-import server.Server;
+
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ public class Main {
 //        var piece = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN);
 //        System.out.println("♕ 240 Chess Client: " + piece);
 
-        new Server().run(8080);
+
         ServerFacade facade = new ServerFacade(8080);
 
         try {
