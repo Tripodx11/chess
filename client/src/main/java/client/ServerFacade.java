@@ -1,10 +1,13 @@
 package client;
 
-import chess.ChessGame;
 import com.google.gson.Gson;
-import model.*;
-import service.requests.*;
-import service.results.*;
+import model.AuthData;
+import requests.CreateGameRequest;
+import requests.JoinGameRequest;
+import requests.LoginRequest;
+import requests.RegisterRequest;
+import results.CreateGameResult;
+import results.ListGamesResult;
 
 
 import java.io.IOException;

@@ -1,9 +1,10 @@
 package client;
 
-import model.*;
+import model.AuthData;
 import org.junit.jupiter.api.*;
+import results.CreateGameResult;
+import results.ListGamesResult;
 import server.Server;
-import service.results.*;
 
 import java.io.IOException;
 

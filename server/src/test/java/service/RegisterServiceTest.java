@@ -2,8 +2,8 @@ package service;
 
 import dataaccess.*;
 import org.junit.jupiter.api.*;
-import service.requests.RegisterRequest;
-import service.results.RegisterAndLoginResult;
+import requests.RegisterRequest;
+import results.RegisterAndLoginResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 

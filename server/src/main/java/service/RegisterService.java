@@ -4,8 +4,8 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
 import model.UserData;
-import service.requests.RegisterRequest;
-import service.results.RegisterAndLoginResult;
+import requests.RegisterRequest;
+import results.RegisterAndLoginResult;
 
 public class RegisterService {
 

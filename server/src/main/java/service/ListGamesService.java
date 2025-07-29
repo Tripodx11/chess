@@ -4,8 +4,8 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
-import service.requests.LogoutAndListGamesRequest;
-import service.results.ListGamesResult;
+import requests.LogoutAndListGamesRequest;
+import results.ListGamesResult;
 
 import java.util.ArrayList;
 import java.util.List;

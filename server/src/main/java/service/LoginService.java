@@ -6,8 +6,8 @@ import dataaccess.MySQLDataAccess;
 import model.AuthData;
 import model.UserData;
 import org.mindrot.jbcrypt.BCrypt;
-import service.requests.LoginRequest;
-import service.results.RegisterAndLoginResult;
+import requests.LoginRequest;
+import results.RegisterAndLoginResult;
 
 public class LoginService {
 

@@ -8,8 +8,8 @@ import model.AuthData;
 import model.GameData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.requests.JoinGameRequest;
-import service.results.JoinGameResult;
+import requests.JoinGameRequest;
+import results.JoinGameResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 

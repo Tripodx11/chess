@@ -1,14 +1,14 @@
-package service.results;
+package results;
 
-public class JoinGameResult {
+public class LogoutResult {
 
     private final String message;
 
-    public JoinGameResult() {
+    public LogoutResult() {
         message = null;
     }
 
-    public JoinGameResult(String m) {
+    public LogoutResult(String m) {
         message = m;
     }
 

@@ -6,9 +6,8 @@ import chess.ChessPiece;
 import chess.ChessPosition;
 import model.AuthData;
 import model.GameData;
-import service.results.CreateGameResult;
-import service.results.ListGamesResult;
-import ui.EscapeSequences;
+import results.CreateGameResult;
+import results.ListGamesResult;
 
 import java.util.*;
 

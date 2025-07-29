@@ -6,8 +6,8 @@ import dataaccess.SystemDataAccess;
 import model.AuthData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.requests.LogoutAndListGamesRequest;
-import service.results.LogoutResult;
+import requests.LogoutAndListGamesRequest;
+import results.LogoutResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 

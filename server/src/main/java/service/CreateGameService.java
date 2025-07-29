@@ -5,8 +5,8 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
 import model.GameData;
-import service.requests.CreateGameRequest;
-import service.results.CreateGameResult;
+import requests.CreateGameRequest;
+import results.CreateGameResult;
 
 public class CreateGameService {
 

@@ -1,7 +1,6 @@
-package service.results;
+package results;
 
 import model.GameData;
-import service.ListGamesService;
 
 import java.util.List;
 

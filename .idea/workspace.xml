@@ -4,11 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Made some UI adjustments for better experience">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/shared.iml" beforeDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Back to normal">
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/CreateGameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/JoinGameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/ListGamesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/ListGamesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/LoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/LogoutHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/handler/RegisterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/AuthData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/AuthData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/GameData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/GameData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/model/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/model/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/CreateGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ListGamesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/CreateGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/requests/CreateGameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/JoinGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/requests/JoinGameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/requests/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/LogoutAndListGamesRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/requests/LogoutAndListGamesRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/requests/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/requests/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/CreateGameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/results/CreateGameResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/JoinGameResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/results/JoinGameResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/ListGamesResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/results/ListGamesResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/LogoutResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/results/LogoutResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/results/RegisterAndLoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/results/RegisterAndLoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/CreateGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/CreateGameServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/JoinGameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/JoinGameServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ListGamesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ListGamesServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/LoginServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/LogoutServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/LogoutServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/RegisterServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/RegisterServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +125,7 @@
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
     "JUnit.ServerFacadeTests.createGameNegative.executor": "Debug",
     "JUnit.ServerFacadeTests.createGamePositive.executor": "Debug",
-    "JUnit.ServerFacadeTests.executor": "Debug",
+    "JUnit.ServerFacadeTests.executor": "Run",
     "JUnit.ServerFacadeTests.joinGameNegative.executor": "Run",
     "JUnit.ServerFacadeTests.joinGamePositive.executor": "Debug",
     "JUnit.ServerFacadeTests.listGamesNegative.executor": "Run",
@@ -103,7 +134,7 @@
     "JUnit.ServerFacadeTests.loginPositive.executor": "Debug",
     "JUnit.ServerFacadeTests.registerNegative.executor": "Debug",
     "JUnit.StandardAPITests.clearData.executor": "Debug",
-    "JUnit.StandardAPITests.executor": "Debug",
+    "JUnit.StandardAPITests.executor": "Run",
     "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
     "JUnit.StandardAPITests.listGamesEmpty.executor": "Debug",
     "JUnit.game in shared.executor": "Run",
@@ -234,15 +265,7 @@
       <workItem from="1753721482521" duration="5672000" />
       <workItem from="1753727199455" duration="6536000" />
       <workItem from="1753735356220" duration="15332000" />
-      <workItem from="1753753017697" duration="353000" />
-    </task>
-    <task id="LOCAL-00005" summary="Finished writing the initial clear implementation for each step. Untested.">
-      <option name="closed" value="true" />
-      <created>1752617554452</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1752617554452</updated>
+      <workItem from="1753753017697" duration="765000" />
     </task>
     <task id="LOCAL-00006" summary="Got clear fully implemented with a test file of my own">
       <option name="closed" value="true" />
@@ -628,14 +651,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753749826978</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Back to normal">
+      <option name="closed" value="true" />
+      <created>1753753554290</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1753753554291</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
     <MESSAGE value="Deleted a file in the directory" />
     <MESSAGE value="Added constructor to MySQLDataAccess" />
     <MESSAGE value="Added stubs tp MySQLDataAccess" />
@@ -660,7 +690,8 @@
     <MESSAGE value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
     <MESSAGE value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
     <MESSAGE value="Made some UI adjustments for better experience" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some UI adjustments for better experience" />
+    <MESSAGE value="Back to normal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Back to normal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

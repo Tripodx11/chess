@@ -6,8 +6,8 @@ import dataaccess.SystemDataAccess;
 import model.UserData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.requests.LoginRequest;
-import service.results.RegisterAndLoginResult;
+import requests.LoginRequest;
+import results.RegisterAndLoginResult;
 
 import static org.junit.jupiter.api.Assertions.*;
 

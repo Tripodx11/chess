@@ -1,4 +1,4 @@
-package service.requests;
+package requests;
 
 import java.util.Objects;
 

@@ -3,8 +3,8 @@ package service;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
-import service.requests.LogoutAndListGamesRequest;
-import service.results.LogoutResult;
+import requests.LogoutAndListGamesRequest;
+import results.LogoutResult;
 
 public class LogoutService {
 

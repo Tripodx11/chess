@@ -1,8 +1,4 @@
-package service.requests;
-
-import service.results.JoinGameResult;
-
-import java.util.Objects;
+package requests;
 
 public class JoinGameRequest {
 
