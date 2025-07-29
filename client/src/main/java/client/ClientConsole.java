@@ -36,7 +36,7 @@ public class ClientConsole {
 
             if (!loggedIn) {
                 switch (inputList[0]) {
-                    case "help" -> loggedOutHelpHelper();
+                    case "help" -> loggedOutHelpHelper(inputList);
                     case "register" -> registerHelper(inputList);
                     case "login" -> loginHelper(inputList);
                     case "quit" -> System.exit(0);
@@ -44,10 +44,10 @@ public class ClientConsole {
                 }
             } else {
                 switch (inputList[0]) {
-                    case "help" -> loggedInHelpHelper();
-                    case "logout" -> logoutHelper();
+                    case "help" -> loggedInHelpHelper(inputList);
+                    case "logout" -> logoutHelper(inputList);
                     case "create" -> createHelper(inputList);
-                    case "list" -> listHelper();
+                    case "list" -> listHelper(inputList);
                     case "join" -> joinHelper(inputList);
                     case "observe" -> observeHelper(inputList);
                     case "quit" -> System.exit(0);
@@ -58,7 +58,13 @@ public class ClientConsole {
 
     }
 
-    private void loggedOutHelpHelper() {
+    private void loggedOutHelpHelper(String[] input) {
+
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form: help");
+            return;
+        }
+
         System.out.println();
         System.out.println(SET_TEXT_COLOR_GREEN + "  register <USERNAME> <PASSWORD> <EMAIL>" + RESET_TEXT_COLOR + " - to create an account");
         System.out.println(SET_TEXT_COLOR_BLUE + "  login <USERNAME> <PASSWORD>" + RESET_TEXT_COLOR + " - to play chess");
@@ -70,7 +76,7 @@ public class ClientConsole {
     private void registerHelper(String[] input) {
 
         if (input.length != 4) {
-            System.out.println("Did not meet usage form: login <USERNAME> <PASSWORD>");
+            System.out.println("Did not meet usage form: register <USERNAME> <PASSWORD> <EMAIL>");
             return;
         }
 
@@ -80,14 +86,18 @@ public class ClientConsole {
             loggedIn = true;
             System.out.println("Registration successful. You are now logged in.");
         } catch (Exception e) {
-            System.out.println("Registration failed: " + e.getMessage());
+            if (e.getMessage().contains("403")) {
+                System.out.println("Username already taken");
+            } else {
+                System.out.println("Registration failed");
+            }
         }
     }
 
     private void loginHelper(String[] input) {
 
         if (input.length != 3) {
-            System.out.println("Did not meet usage form: register <USERNAME> <PASSWORD> <EMAIL>");
+            System.out.println("Did not meet usage form: login <USERNAME> <PASSWORD>");
             return;
         }
 
@@ -97,12 +107,20 @@ public class ClientConsole {
             loggedIn = true;
             System.out.println("Login successful. You are now logged in.");
         } catch (Exception e) {
-            System.out.println("Login failed: " + e.getMessage());
+            if (e.getMessage().contains("401")) {
+                System.out.println("Invalid credentials");
+            } else {
+                System.out.println("Registration failed");
+            }
         }
 
     }
 
-    private void loggedInHelpHelper() {
+    private void loggedInHelpHelper(String[] input) {
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form: help");
+            return;
+        }
         System.out.println();
         System.out.println(SET_TEXT_COLOR_GREEN + "  help" + RESET_TEXT_COLOR + " - with possible commands");
         System.out.println(SET_TEXT_COLOR_RED + "  logout" + RESET_TEXT_COLOR + " - when you are done");
@@ -114,7 +132,11 @@ public class ClientConsole {
         System.out.println();
     }
 
-    private void logoutHelper() {
+    private void logoutHelper(String[] input) {
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form: logout");
+            return;
+        }
         loggedIn = false;
     }
 
@@ -126,13 +148,19 @@ public class ClientConsole {
 
         try {
             CreateGameResult createGameResult = facade.create(authToken, input[1]);
-            System.out.println("Game creation successful. Game ID: " + createGameResult.getGameID());
+            ListGamesResult listGamesResult = facade.list(authToken);
+            cachedGames = listGamesResult.getGames();
+            System.out.println("Game creation successful. Game list updated.");
         } catch (Exception e) {
             System.out.println("Registration failed: " + e.getMessage());
         }
     }
 
-    private void listHelper() {
+    private void listHelper(String[] input) {
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form: list");
+            return;
+        }
 
         try {
             ListGamesResult listGamesResult = facade.list(authToken);
@@ -144,8 +172,8 @@ public class ClientConsole {
                 String name = game.getGameName();
                 String whiteUser = game.getWhiteUsername() != null ? game.getWhiteUsername() : "[empty]";
                 String blackUser = game.getBlackUsername() != null ? game.getBlackUsername() : "[empty]";
-                System.out.printf("  %d: Game Name: %s, White User: %s, Black User: %s, System ID: %d%n",
-                        i, name, whiteUser, blackUser, game.getGameID());
+                System.out.printf("  %d: Game Name: %s, White User: %s, Black User: %s \n",
+                        i+1, name, whiteUser, blackUser);
             }
         } catch (Exception e) {
             System.out.println("Failed to list games: " + e.getMessage());
@@ -160,9 +188,9 @@ public class ClientConsole {
         }
 
         try {
-            int inputID = Integer.parseInt(input[1]);
+            int inputID = Integer.parseInt(input[1]) - 1;
             if (inputID < 0 || inputID >= cachedGames.size()) {
-                System.out.println("Invalid game index.");
+                System.out.println("Invalid game index");
                 return;
             }
             int sysID = cachedGames.get(inputID).getGameID();
@@ -183,7 +211,7 @@ public class ClientConsole {
         }
 
         try {
-            int inputID = Integer.parseInt(input[1]);
+            int inputID = Integer.parseInt(input[1]) - 1;
             if (inputID < 0 || inputID >= cachedGames.size()) {
                 System.out.println("Invalid game index.");
                 return;
@@ -217,7 +245,7 @@ public class ClientConsole {
 
         // top file labels
         System.out.print("  " + "\u2003");
-        for (char file = fileStart; file != fileEnd; file += fileStep) {
+        for (char file = fileStart; file != fileEnd; file += (char) fileStep) {
             System.out.print(" " + file + "\u2003");
         }
         System.out.println();
@@ -252,7 +280,7 @@ public class ClientConsole {
 
         // letter labels
         System.out.print("  " + "\u2003");
-        for (char file = fileStart; file != fileEnd; file += fileStep) {
+        for (char file = fileStart; file != fileEnd; file += (char) fileStep) {
             System.out.print( " " + file + "\u2003");
         }
         System.out.println();
@@ -268,6 +296,4 @@ public class ClientConsole {
             case PAWN -> BLACK_PAWN;
         };
     }
-
-
 }

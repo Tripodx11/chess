@@ -57,7 +57,6 @@ public class ServerFacade {
 
     public AuthData login(String un, String pass) throws IOException {
         URL url = new URL(serverUrl + "/session");
-        System.out.println("did we make it here?" + url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestMethod("POST");

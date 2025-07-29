@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Sheesh got the board drawn right. Now I need to get the black board drawn right">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Holy. I finally got the board to draw right both ways. That was a nightmare">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,15 +248,7 @@
       <workItem from="1753647177844" duration="1055000" />
       <workItem from="1753721482521" duration="5672000" />
       <workItem from="1753727199455" duration="6536000" />
-      <workItem from="1753735356220" duration="12214000" />
-    </task>
-    <task id="LOCAL-00003" summary="Added all needed classes for the data access and creation for now as far as I can tell. Working on their specifics">
-      <option name="closed" value="true" />
-      <created>1752614424809</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1752614424809</updated>
+      <workItem from="1753735356220" duration="14058000" />
     </task>
     <task id="LOCAL-00004" summary="Finished writing the initial clear implementation for the model and data access packages. Untested.">
       <option name="closed" value="true" />
@@ -641,14 +634,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753744888104</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Holy. I finally got the board to draw right both ways. That was a nightmare">
+      <option name="closed" value="true" />
+      <created>1753747834402</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1753747834402</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="More debugging for auto grader" />
     <MESSAGE value="Added initial user dao. Barebones" />
     <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
     <MESSAGE value="Deleted a file in the directory" />
@@ -673,7 +673,8 @@
     <MESSAGE value="Got join mostly written, working on tests" />
     <MESSAGE value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
     <MESSAGE value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
+    <MESSAGE value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
