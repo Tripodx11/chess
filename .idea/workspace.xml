@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Made some UI adjustments for better experience">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/shared.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.All in shared.executor": "Run",
     "JUnit.ClearServiceTest.executor": "Run",
     "JUnit.ClearServiceTest.testClearSuccess.executor": "Run",
     "JUnit.CreateGameServiceTest.executor": "Debug",
@@ -92,7 +94,7 @@
     "JUnit.RegisterServiceTest.testRegisterSuccess.executor": "Debug",
     "JUnit.ServerFacadeTests.createGameNegative.executor": "Debug",
     "JUnit.ServerFacadeTests.createGamePositive.executor": "Debug",
-    "JUnit.ServerFacadeTests.executor": "Run",
+    "JUnit.ServerFacadeTests.executor": "Debug",
     "JUnit.ServerFacadeTests.joinGameNegative.executor": "Run",
     "JUnit.ServerFacadeTests.joinGamePositive.executor": "Debug",
     "JUnit.ServerFacadeTests.listGamesNegative.executor": "Run",
@@ -105,6 +107,7 @@
     "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
     "JUnit.StandardAPITests.listGamesEmpty.executor": "Debug",
     "JUnit.game in shared.executor": "Run",
+    "JUnit.java in shared.executor": "Run",
     "JUnit.piecemoves in shared.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -121,7 +124,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -130,7 +133,15 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.StandardAPITests">
+    <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <extension name="coverage">
@@ -142,38 +153,6 @@
       <option name="PACKAGE_NAME" value="client" />
       <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.joinGameNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="joinGameNegative" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.joinGamePositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="joinGamePositive" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,13 +188,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="java in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/shared/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.StandardAPITests.joinGameBadColor" />
         <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.ServerFacadeTests.joinGameNegative" />
-        <item itemvalue="JUnit.ServerFacadeTests.joinGamePositive" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
+        <item itemvalue="JUnit.All in shared" />
+        <item itemvalue="JUnit.java in shared" />
+        <item itemvalue="JUnit.StandardAPITests.joinGameBadColor" />
       </list>
     </recent_temporary>
   </component>
@@ -247,6 +234,7 @@
       <workItem from="1753721482521" duration="5672000" />
       <workItem from="1753727199455" duration="6536000" />
       <workItem from="1753735356220" duration="15332000" />
+      <workItem from="1753753017697" duration="353000" />
     </task>
     <task id="LOCAL-00005" summary="Finished writing the initial clear implementation for each step. Untested.">
       <option name="closed" value="true" />
