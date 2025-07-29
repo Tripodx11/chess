@@ -190,7 +190,7 @@ public class ClientConsole {
         try {
             int inputID = Integer.parseInt(input[1]) - 1;
             if (inputID < 0 || inputID >= cachedGames.size()) {
-                System.out.println("Invalid game index");
+                System.out.println("Invalid Game ID");
                 return;
             }
             int sysID = cachedGames.get(inputID).getGameID();
@@ -213,13 +213,9 @@ public class ClientConsole {
         try {
             int inputID = Integer.parseInt(input[1]) - 1;
             if (inputID < 0 || inputID >= cachedGames.size()) {
-                System.out.println("Invalid game index.");
+                System.out.println("Invalid Game ID");
                 return;
             }
-            int sysID = cachedGames.get(inputID).getGameID();
-
-            facade.join(authToken, null, sysID);
-            System.out.println("Observe game successful");
             drawBoard(cachedGames.get(inputID).getGame(), "white");
         } catch (Exception e) {
             System.out.println("Observe game failed: " + e.getMessage());
