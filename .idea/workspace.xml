@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got join working and tests passed. Observe is also up. Working on drawing the board">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Sheesh got the board drawn right. Now I need to get the black board drawn right">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/EscapeSequences.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,15 +247,7 @@
       <workItem from="1753647177844" duration="1055000" />
       <workItem from="1753721482521" duration="5672000" />
       <workItem from="1753727199455" duration="6536000" />
-      <workItem from="1753735356220" duration="9081000" />
-    </task>
-    <task id="LOCAL-00002" summary="Had a hard time getting the server running. Got it to work. Had to move around folders and set resources and root directories and what not. Also added package folders for the server.">
-      <option name="closed" value="true" />
-      <created>1752544936699</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1752544936699</updated>
+      <workItem from="1753735356220" duration="12214000" />
     </task>
     <task id="LOCAL-00003" summary="Added all needed classes for the data access and creation for now as far as I can tell. Working on their specifics">
       <option name="closed" value="true" />
@@ -642,14 +633,21 @@
       <option name="project" value="LOCAL" />
       <updated>1753741561206</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Sheesh got the board drawn right. Now I need to get the black board drawn right">
+      <option name="closed" value="true" />
+      <created>1753744888104</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1753744888104</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Debugged some more code quality issues and fixed Login Service Test" />
     <MESSAGE value="More debugging for auto grader" />
     <MESSAGE value="Added initial user dao. Barebones" />
     <MESSAGE value="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far." />
@@ -674,7 +672,8 @@
     <MESSAGE value="Got Create working and tests written and passed" />
     <MESSAGE value="Got join mostly written, working on tests" />
     <MESSAGE value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
+    <MESSAGE value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

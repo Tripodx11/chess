@@ -10,9 +10,7 @@ import service.results.CreateGameResult;
 import service.results.ListGamesResult;
 import ui.EscapeSequences;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 import static ui.EscapeSequences.*;
 
@@ -168,10 +166,11 @@ public class ClientConsole {
                 return;
             }
             int sysID = cachedGames.get(inputID).getGameID();
+            String color = input[2].toLowerCase(Locale.ROOT).trim();
 
-            facade.join(authToken, input[2], sysID);
+            facade.join(authToken, color, sysID);
             System.out.println("Join game successful");
-            drawWhiteBoard(cachedGames.get(inputID).getGame());
+            drawBoard(cachedGames.get(inputID).getGame(), color);
         } catch (Exception e) {
             System.out.println("Join game failed: " + e.getMessage());
         }
@@ -193,32 +192,46 @@ public class ClientConsole {
 
             facade.join(authToken, null, sysID);
             System.out.println("Observe game successful");
-            drawWhiteBoard(cachedGames.get(inputID).getGame());
+            drawBoard(cachedGames.get(inputID).getGame(), "white");
         } catch (Exception e) {
             System.out.println("Observe game failed: " + e.getMessage());
         }
     }
 
-    public void drawWhiteBoard(ChessGame game) {
+    public void drawBoard(ChessGame game, String color) {
         ChessBoard board = game.getBoard();
 
-        // letter labels
+        int rowStart = color.equals("white") ? 8 : 1;
+        int rowEnd = color.equals("white") ? 0 : 9;
+        int rowStep = color.equals("white") ? -1 : 1;
+
+        int colStart = color.equals("white") ? 1 : 8;
+        int colEnd = color.equals("white") ? 9 : 0;
+        int colStep = color.equals("white") ? 1 : -1;
+
+        char fileStart = color.equals("white") ? 'a' : 'h';
+        char fileEnd = color.equals("white") ? 'i' : '`';
+        int fileStep = color.equals("white") ? 1 : -1;
+
+        int checkerNum = color.equals("white") ? 0 : 1;
+
+        // top file labels
         System.out.print("  " + "\u2003");
-        for (char letter = 'a'; letter <= 'h'; letter++) {
-            System.out.print( " " + letter + "\u2003");
+        for (char file = fileStart; file != fileEnd; file += fileStep) {
+            System.out.print(" " + file + "\u2003");
         }
         System.out.println();
 
-        for (int row = 8; row >= 1; row--) {
+        for (int row = rowStart; row != rowEnd; row += rowStep) {
             System.out.print(" " + row + " ");
 
-            for (int col = 1; col <= 8; col++) {
+            for (int col = colStart; col != colEnd; col+=colStep) {
                 ChessPosition position = new ChessPosition(row, col);
                 ChessPiece piece = board.getPiece(position);
 
                 // Checker pattern
-                boolean isGreen = (row + col) % 2 == 0;
-                String bgColor = isGreen ? SET_BG_COLOR_DARK_BROWN : SET_BG_COLOR_MEDIUM_BROWN;
+                boolean isDark = (row + col) % 2 == 0;
+                String bgColor = isDark ? SET_BG_COLOR_DARK_BROWN : SET_BG_COLOR_MEDIUM_BROWN;
 
                 String symbol = EMPTY;
                 if (piece != null) {
@@ -239,12 +252,11 @@ public class ClientConsole {
 
         // letter labels
         System.out.print("  " + "\u2003");
-        for (char letter = 'a'; letter <= 'h'; letter++) {
-            System.out.print( " " + letter + "\u2003");
+        for (char file = fileStart; file != fileEnd; file += fileStep) {
+            System.out.print( " " + file + "\u2003");
         }
         System.out.println();
     }
-
 
     private String getPieceSymbol(ChessPiece piece) {
         return switch (piece.getPieceType()) {
