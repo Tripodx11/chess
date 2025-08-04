@@ -11,8 +11,9 @@ public class Main {
 //        var piece = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN);
 //        System.out.println("♕ 240 Chess Client: " + piece);
 
-
-        ServerFacade facade = new ServerFacade(8080);
+        ClientConsole client = new ClientConsole();
+        ServerFacade facade = new ServerFacade(8080, client);
+        client.setFacade(facade);
 
         try {
             facade.clear();
@@ -20,7 +21,7 @@ public class Main {
             System.out.println("Failed to clear database: " + e.getMessage());
         }
 
-        ClientConsole client = new ClientConsole(facade);
+
         client.run();
     }
 }

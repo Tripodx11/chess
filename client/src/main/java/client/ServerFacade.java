@@ -8,6 +8,8 @@ import requests.LoginRequest;
 import requests.RegisterRequest;
 import results.CreateGameResult;
 import results.ListGamesResult;
+import websocket.ServerMessageObserver;
+import websocket.WebSocketClientEndpoint;
 import websocket.commands.UserGameCommand;
 
 import javax.websocket.ContainerProvider;
@@ -21,9 +23,11 @@ public class ServerFacade {
 
     private final Gson gson = new Gson();
     private final String serverUrl;
+    private final ServerMessageObserver observer;
 
-    public ServerFacade(int port) {
+    public ServerFacade(int port, ServerMessageObserver observer) {
         this.serverUrl = "http://localhost:" + port;
+        this.observer = observer;
     }
 
     public void clear() throws IOException {

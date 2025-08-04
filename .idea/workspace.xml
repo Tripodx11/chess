@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Completed getting started for Phase 6">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/ServerMessageObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Python Script" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -236,15 +237,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="3375000" />
-    </task>
-    <task id="LOCAL-00011" summary="Got Logout Service funcioning based on my test. Going to work on the handler and server">
-      <option name="closed" value="true" />
-      <created>1752689121909</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1752689121909</updated>
+      <workItem from="1754324432725" duration="4213000" />
     </task>
     <task id="LOCAL-00012" summary="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register">
       <option name="closed" value="true" />
@@ -630,7 +623,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754319255898</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection">
+      <option name="closed" value="true" />
+      <created>1754328333428</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1754328333428</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +649,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got most of add and get auth data built out. Untested" />
     <MESSAGE value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
     <MESSAGE value="Fixed Game data test" />
     <MESSAGE value="Got Game Add and get working as well as tests" />
@@ -673,7 +673,8 @@
     <MESSAGE value="Removed server code from main in client" />
     <MESSAGE value="Adjusted some of the error codes in client console" />
     <MESSAGE value="Completed getting started for Phase 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed getting started for Phase 6" />
+    <MESSAGE value="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

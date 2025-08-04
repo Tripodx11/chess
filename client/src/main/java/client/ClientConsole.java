@@ -8,20 +8,28 @@ import model.AuthData;
 import model.GameData;
 import results.CreateGameResult;
 import results.ListGamesResult;
+import websocket.ServerMessageObserver;
+import websocket.messages.ServerMessage;
 
 import java.util.*;
 
 import static ui.EscapeSequences.*;
 
-public class ClientConsole {
+public class ClientConsole implements ServerMessageObserver {
 
     private boolean loggedIn = false;
     private String authToken = null;
     private final ServerFacade facade;
     private List<GameData> cachedGames = new ArrayList<>();
 
-    public ClientConsole(ServerFacade facade) {
+    public ClientConsole() {}
+
+    public void setFacade(ServerFacade facade) {
         this.facade = facade;
+    }
+
+    public void notify(ServerMessage message) {
+
     }
 
     public void run() {
