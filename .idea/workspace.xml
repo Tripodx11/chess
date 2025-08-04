@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/ServerMessageObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" afterDir="false" />
-    </list>
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Took out an error for a runnable save state" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +128,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ServerFacadeTests.clearPositive">
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <option name="PACKAGE_NAME" value="" />
@@ -157,6 +152,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerFacadeTests.clearPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="client" />
+      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
+      <option name="METHOD_NAME" value="clearPositive" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -172,22 +183,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.joinGameBadColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
-      <option name="METHOD_NAME" value="joinGameBadColor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="java in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="TEST_OBJECT" value="directory" />
@@ -198,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServerFacadeTests.clearPositive" />
         <item itemvalue="JUnit.All in shared" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.java in shared" />
-        <item itemvalue="JUnit.StandardAPITests.joinGameBadColor" />
       </list>
     </recent_temporary>
   </component>
@@ -237,23 +232,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="4213000" />
-    </task>
-    <task id="LOCAL-00012" summary="Got the handler and server going for logout. Going to test everything now on webpage with logout and login and register">
-      <option name="closed" value="true" />
-      <created>1752689153169</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1752689153169</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Logout is funcitoning as it should as well as Login from front to finish. Only needed to adjust the code in Logout handler to accept the header auth token and not the body">
-      <option name="closed" value="true" />
-      <created>1752689641746</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1752689641746</updated>
+      <workItem from="1754324432725" duration="4727000" />
     </task>
     <task id="LOCAL-00014" summary="Got initial Create game service built out. Untested">
       <option name="closed" value="true" />
@@ -631,7 +610,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754328333428</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Added ServerMessageObserver.java, WebSocketClientEndpoint.java, working on getting connect built out">
+      <option name="closed" value="true" />
+      <created>1754329283094</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1754329283094</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Took out an error for a runnable save state">
+      <option name="closed" value="true" />
+      <created>1754329329286</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1754329329286</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,8 +644,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
-    <MESSAGE value="Fixed Game data test" />
     <MESSAGE value="Got Game Add and get working as well as tests" />
     <MESSAGE value="Got get all game data working and tests passed" />
     <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
@@ -674,7 +667,9 @@
     <MESSAGE value="Adjusted some of the error codes in client console" />
     <MESSAGE value="Completed getting started for Phase 6" />
     <MESSAGE value="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection" />
+    <MESSAGE value="Added ServerMessageObserver.java, WebSocketClientEndpoint.java, working on getting connect built out" />
+    <MESSAGE value="Took out an error for a runnable save state" />
+    <option name="LAST_COMMIT_MESSAGE" value="Took out an error for a runnable save state" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -20,7 +20,8 @@ public class ServerFacadeTests {
     public void setup() throws IOException {
         server = new Server();
         int port = server.run(0);
-        facade = new ServerFacade(port);
+        ClientConsole client = new ClientConsole();
+        facade = new ServerFacade(port, client);
         facade.clear();
         System.out.println("Started test HTTP server on " + port);
     }
