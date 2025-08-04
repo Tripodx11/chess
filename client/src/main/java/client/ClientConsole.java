@@ -19,7 +19,7 @@ public class ClientConsole implements ServerMessageObserver {
 
     private boolean loggedIn = false;
     private String authToken = null;
-    private final ServerFacade facade;
+    private ServerFacade facade;
     private List<GameData> cachedGames = new ArrayList<>();
 
     public ClientConsole() {}
