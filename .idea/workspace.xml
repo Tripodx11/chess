@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Adjusted some of the error codes in client console">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Completed getting started for Phase 6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +132,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in shared">
+  <component name="RunManager">
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <option name="PACKAGE_NAME" value="" />
@@ -195,9 +197,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in shared" />
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.All in shared" />
         <item itemvalue="JUnit.java in shared" />
         <item itemvalue="JUnit.StandardAPITests.joinGameBadColor" />
       </list>
@@ -233,22 +235,8 @@
       <workItem from="1753735356220" duration="15332000" />
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
-    </task>
-    <task id="LOCAL-00009" summary="Mid way through implementing login service funtionality">
-      <option name="closed" value="true" />
-      <created>1752628841116</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1752628841116</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Got the login service handler and server functionality going. Untested for the webpage, going to wait to do log out for that.">
-      <option name="closed" value="true" />
-      <created>1752630495938</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1752630495938</updated>
+      <workItem from="1754319106072" duration="1838000" />
+      <workItem from="1754324432725" duration="3375000" />
     </task>
     <task id="LOCAL-00011" summary="Got Logout Service funcioning based on my test. Going to work on the handler and server">
       <option name="closed" value="true" />
@@ -626,14 +614,40 @@
       <option name="project" value="LOCAL" />
       <updated>1753755878771</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Completed getting started for Phase 6">
+      <option name="closed" value="true" />
+      <created>1754319240439</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1754319240440</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Completed getting started for Phase 6">
+      <option name="closed" value="true" />
+      <created>1754319255898</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1754319255898</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got Add user going along with clear and get user and wrote two tests for add user" />
     <MESSAGE value="Got most of add and get auth data built out. Untested" />
     <MESSAGE value="Dude I don't even know. A lot of issues that still aren't fixed. Working on them." />
     <MESSAGE value="Fixed Game data test" />
@@ -658,7 +672,8 @@
     <MESSAGE value="Moved packages to shared" />
     <MESSAGE value="Removed server code from main in client" />
     <MESSAGE value="Adjusted some of the error codes in client console" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted some of the error codes in client console" />
+    <MESSAGE value="Completed getting started for Phase 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed getting started for Phase 6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

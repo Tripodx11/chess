@@ -8,8 +8,10 @@ import requests.LoginRequest;
 import requests.RegisterRequest;
 import results.CreateGameResult;
 import results.ListGamesResult;
+import websocket.commands.UserGameCommand;
 
-
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -139,6 +141,28 @@ public class ServerFacade {
 
         if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
             throw new IOException("Failed to join game: " + connection.getResponseCode());
+        }
+    }
+
+    public void connectToGame(String auth, int gameID, boolean isObserver) {
+        try {
+            URI uri = new URI("ws://localhost:8080/ws"); // Adjust port if needed
+
+            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+
+            // Pass an observer or listener object that implements ServerMessageObserver
+            WebSocketClientEndpoint clientEndpoint = new WebSocketClientEndpoint(observer);
+
+            // This connects and binds the clientEndpoint as the listener
+            container.connectToServer(clientEndpoint, uri);
+
+            // Build and send the CONNECT command
+            UserGameCommand command = new UserGameCommand(UserGameCommand.CommandType.CONNECT, auth, gameID);
+            clientEndpoint.sendCommand(command);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to connect to WebSocket: " + e.getMessage());
         }
     }
 

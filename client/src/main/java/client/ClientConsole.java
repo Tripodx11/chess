@@ -203,6 +203,7 @@ public class ClientConsole {
             facade.join(authToken, color, sysID);
             System.out.println("Join game successful");
             drawBoard(cachedGames.get(inputID).getGame(), color);
+            gameplayMode(inputID, color, false);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
@@ -226,6 +227,7 @@ public class ClientConsole {
                 return;
             }
             drawBoard(cachedGames.get(inputID).getGame(), "white");
+            gameplayMode(inputID, "white", true);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
@@ -302,5 +304,42 @@ public class ClientConsole {
             case KNIGHT -> BLACK_KNIGHT;
             case PAWN -> BLACK_PAWN;
         };
+    }
+
+    private void gameplayMode(int gameID, String color, boolean isObserver) {
+        // websocket, commend, notifications, loop for game play, etc.
+        //connect to websocket
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("[GAMEPLAY_MODE] >>> ");
+            String input = scanner.nextLine().trim();
+            String[] inputList = input.split("\\s+");
+            switch (inputList[0]) {
+                case "help" -> gameplayHelpHelper(inputList);
+                case "redraw" -> drawBoard(cachedGames.get(gameID).getGame(), color);
+                //case "make move" -> loginHelper(inputList);
+                //case "show moves" -> loginHelper(inputList);
+                //case "resign" -> System.exit(0);
+                case "leave" -> {return;}
+                default -> System.out.println("Unknown command");
+            }
+        }
+    }
+
+    private void gameplayHelpHelper(String[] input) {
+
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form: help");
+            return;
+        }
+
+        System.out.println();
+        System.out.println(SET_TEXT_COLOR_GREEN + "  redraw " + RESET_TEXT_COLOR + " - to see current board");
+        System.out.println(SET_TEXT_COLOR_BLUE + "  make move <start position> <end position>" + RESET_TEXT_COLOR + " - to move a piece");
+        System.out.println(SET_TEXT_COLOR_YELLOW + "  show moves <position>" + RESET_TEXT_COLOR + " - of a piece");
+        System.out.println(SET_TEXT_COLOR_MAGENTA + "  resign" + RESET_TEXT_COLOR + " - to forfeit");
+        System.out.println(SET_TEXT_COLOR_RED + "  leave" + RESET_TEXT_COLOR + " - game");
+        System.out.println();
     }
 }
