@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got some little bugs fixed with notifcation things. All websocket tests are passing!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed to tyrus and not jetty." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -279,15 +277,7 @@
       <workItem from="1754319106072" duration="1838000" />
       <workItem from="1754324432725" duration="38442000" />
       <workItem from="1754431973288" duration="641000" />
-      <workItem from="1754433796577" duration="1155000" />
-    </task>
-    <task id="LOCAL-00030" summary="Added constructor to MySQLDataAccess">
-      <option name="closed" value="true" />
-      <created>1753225114102</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1753225114102</updated>
+      <workItem from="1754433796577" duration="1487000" />
     </task>
     <task id="LOCAL-00031" summary="Added stubs tp MySQLDataAccess">
       <option name="closed" value="true" />
@@ -673,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754431747218</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Changed to tyrus and not jetty.">
+      <option name="closed" value="true" />
+      <created>1754435230595</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1754435230595</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +689,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
     <MESSAGE value="Made some UI adjustments for better experience" />
     <MESSAGE value="Back to normal" />
     <MESSAGE value="Moved packages to shared" />
@@ -716,7 +713,8 @@
     <MESSAGE value="resign seems to be working" />
     <MESSAGE value="trying to get the game data username to update from leave" />
     <MESSAGE value="Highlight implemented and working with basic test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Highlight implemented and working with basic test" />
+    <MESSAGE value="Changed to tyrus and not jetty." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to tyrus and not jetty." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

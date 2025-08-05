@@ -3,7 +3,6 @@ package client;
 import chess.ChessMove;
 import com.google.gson.Gson;
 import model.AuthData;
-import org.eclipse.jetty.websocket.client.WebSocketClient;
 import requests.CreateGameRequest;
 import requests.JoinGameRequest;
 import requests.LoginRequest;
