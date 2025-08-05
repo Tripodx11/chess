@@ -205,7 +205,7 @@ public class MySQLDataAccess implements DataAccess{
     }
 
     public void updateGameData(GameData gameData) throws DataAccessException {
-        String sql = "UPDATE games SET game = ? WHERE gameID = ?";
+        String sql = "UPDATE games SET game = ?, whiteUsername = ?, blackUsername = ? WHERE gameID = ?";
 
         try (var conn = DatabaseManager.getConnection();
              var stmt = conn.prepareStatement(sql)) {
@@ -214,7 +214,9 @@ public class MySQLDataAccess implements DataAccess{
             String jsonGame = gson.toJson(gameData.getGame());
 
             stmt.setString(1, jsonGame);
-            stmt.setInt(2, gameData.getGameID());
+            stmt.setString(2, gameData.getWhiteUsername());
+            stmt.setString(3, gameData.getBlackUsername());
+            stmt.setInt(4, gameData.getGameID());
 
             int affectedRows = stmt.executeUpdate();
             if (affectedRows == 0) {
@@ -223,8 +225,6 @@ public class MySQLDataAccess implements DataAccess{
 
         } catch (SQLException e) {
             throw new DataAccessException("Failed to update game data", e);
-        } catch (DataAccessException e) {
-            throw new RuntimeException(e);
         }
     }
 

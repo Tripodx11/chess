@@ -48,7 +48,7 @@ public class ClientConsole implements ServerMessageObserver {
                     }
                 }
                 System.out.println(); // Single clean line before board
-                drawBoard(game, currentColor);
+                drawBoard(game, currentColor, null, null);
                 System.out.println(); // Space after board
 
                 //System.out.print("[GAMEPLAY_MODE] >>> ");
@@ -60,17 +60,6 @@ public class ClientConsole implements ServerMessageObserver {
                 System.out.println();
                 System.out.println("NOTIFICATION: " + msg);
                 System.out.print("[GAMEPLAY_MODE] >>> ");
-
-                if (msg.contains("left")) {
-                    String username = msg.split(" ")[0];
-                    for (GameData g : cachedGames) {
-                        if (g.getWhiteUsername() != null && g.getWhiteUsername().equals(username)) {
-                            g.setWhiteUsername(null);
-                        } else if (g.getBlackUsername() != null && g.getBlackUsername().equals(username)) {
-                            g.setBlackUsername(null);
-                        }
-                    }
-                }
             }
 
             case ERROR -> {
@@ -298,7 +287,7 @@ public class ClientConsole implements ServerMessageObserver {
         }
     }
 
-    public void drawBoard(ChessGame game, String color) {
+    public void drawBoard(ChessGame game, String color, Set<ChessPosition> highlights, ChessPosition selected) {
         ChessBoard board = game.getBoard();
 
         int rowStart = color.equals("white") ? 8 : 1;
@@ -330,8 +319,15 @@ public class ClientConsole implements ServerMessageObserver {
                 ChessPiece piece = board.getPiece(position);
 
                 // Checker pattern
-                boolean isDark = (row + col) % 2 == 0;
-                String bgColor = isDark ? SET_BG_COLOR_DARK_BROWN : SET_BG_COLOR_MEDIUM_BROWN;
+                String bgColor;
+                if (highlights != null && highlights.contains(position)) {
+                    bgColor = SET_BG_COLOR_GREEN;
+                } else if (selected != null && selected.equals(position)) {
+                    bgColor = SET_BG_COLOR_YELLOW;
+                } else {
+                    boolean isDark = (row + col) % 2 == 0;
+                    bgColor = isDark ? SET_BG_COLOR_DARK_BROWN : SET_BG_COLOR_MEDIUM_BROWN;
+                }
 
                 String symbol = EMPTY;
                 if (piece != null) {
@@ -386,11 +382,14 @@ public class ClientConsole implements ServerMessageObserver {
                     System.out.print("[GAMEPLAY_MODE] >>> ");
                 }
                 case "redraw" -> {
-                    drawBoard(cachedGames.get(gameID-1).getGame(), color);
+                    drawBoard(cachedGames.get(gameID-1).getGame(), color, null, null);
                     System.out.print("[GAMEPLAY_MODE] >>> ");
                 }
                 case "move" -> gameplayMakeMoveHelper(inputList, gameID);
-                //case "show moves" -> loginHelper(inputList);
+                case "highlight" -> {
+                    highlightHelper(inputList, gameID);
+                    System.out.print("[GAMEPLAY_MODE] >>> ");
+                }
                 case "resign" -> {
                     resignHelper(inputList, gameID);
                     System.out.print("[GAMEPLAY_MODE] >>> ");
@@ -500,7 +499,7 @@ public class ClientConsole implements ServerMessageObserver {
 
     private int leaveHelper(String[] input, int gameID) {
         if (input.length != 1) {
-            System.out.println("Did not meet usage form:: leave");
+            System.out.println("Did not meet usage form: leave");
             System.out.print("[GAMEPLAY_MODE] >>> ");
             return 0;
         }
@@ -512,21 +511,37 @@ public class ClientConsole implements ServerMessageObserver {
         if (confirmation.equals("y") || confirmation.equals("yes")) {
             facade.leave(authToken, gameID);
             System.out.println("You have left the game.");
-            for (GameData g : cachedGames) {
-                if (g.getGameID() == gameID) {
-                    if (g.getWhiteUsername() != null && g.getWhiteUsername().equals(username)) {
-                        g.setWhiteUsername(null);
-                    } else if (g.getBlackUsername() != null && g.getBlackUsername().equals(username)) {
-                        g.setBlackUsername(null);
-                    }
-                    break;
-                }
-            }
+
             return 2;
         } else {
             System.out.println("Leaving game cancelled.");
             System.out.print("[GAMEPLAY_MODE] >>> ");
             return 1;
+        }
+    }
+
+    public void highlightHelper(String[] input, int gameID) {
+        if (input.length != 2) {
+            System.out.println("Did not meet usage form: highlight <position>");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
+            return;
+        }
+
+        try {
+            ChessPosition start = parsePosition(input[1]);
+            ChessGame game = cachedGames.get(gameID - 1).getGame();
+
+            List<ChessMove> validMoves = (List<ChessMove>) game.validMoves(start);
+            Set<ChessPosition> highlightSquares = new HashSet<>();
+            for (ChessMove move : validMoves) {
+                highlightSquares.add(move.getEndPosition());
+            }
+
+            drawBoard(game, currentColor, highlightSquares, start); // new overloaded method
+
+        } catch (Exception e) {
+            System.out.println("Invalid input or position. Use like: highlight e2");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
         }
     }
 }
