@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="In the middle of trying to get websocket handler built out to get web socket up">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Got Websocket Dispatcher built out for the most part. Now working on the handlers from that">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/websocket/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ConnectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,15 +241,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="11827000" />
-    </task>
-    <task id="LOCAL-00019" summary="Got Join game handler and server built out. Untested">
-      <option name="closed" value="true" />
-      <created>1752695436139</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1752695436139</updated>
+      <workItem from="1754324432725" duration="15440000" />
     </task>
     <task id="LOCAL-00020" summary="Made a couple minor bug fixes to get Join game fully functioning">
       <option name="closed" value="true" />
@@ -629,7 +627,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754354682431</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Got Websocket Dispatcher built out for the most part. Now working on the handlers from that">
+      <option name="closed" value="true" />
+      <created>1754354891918</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1754354891918</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changed things for the autograder" />
     <MESSAGE value="Changed things for the autograder again" />
     <MESSAGE value="Completed getting started instructions for Phase 5" />
     <MESSAGE value="Got quit and help working for client console. Working on register" />
@@ -672,7 +677,8 @@
     <MESSAGE value="Added notification message class. Pretty simple" />
     <MESSAGE value="Added error message class. Pretty simple again" />
     <MESSAGE value="In the middle of trying to get websocket handler built out to get web socket up" />
-    <option name="LAST_COMMIT_MESSAGE" value="In the middle of trying to get websocket handler built out to get web socket up" />
+    <MESSAGE value="Got Websocket Dispatcher built out for the most part. Now working on the handlers from that" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got Websocket Dispatcher built out for the most part. Now working on the handlers from that" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,6 +2,7 @@ package client;
 
 import com.google.gson.Gson;
 import model.AuthData;
+import org.eclipse.jetty.websocket.client.WebSocketClient;
 import requests.CreateGameRequest;
 import requests.JoinGameRequest;
 import requests.LoginRequest;
@@ -152,15 +153,16 @@ public class ServerFacade {
 
     public void connectToGame(String auth, int gameID, boolean isObserver) {
         try {
-            URI uri = new URI("ws://localhost:8080/ws"); // Adjust port if needed
+            URI uri = new URI("ws://localhost:8080/ws");
 
-            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+            // Jetty's websocket manager
+            WebSocketClient client = new WebSocketClient();
+            WebSocketClientEndpoint endpoint = new WebSocketClientEndpoint(observer); // Your listener
 
-            // Pass an observer or listener object that implements ServerMessageObserver
-            socket = new WebSocketClientEndpoint(observer);
+            client.start(); // Boot up Jetty's websocket engine
+            client.connect(endpoint, uri).get(); // Actually connect to the server
 
-            // This connects and binds the clientEndpoint as the listener
-            container.connectToServer(socket, uri);
+            this.socket = endpoint;
 
             // Build and send the CONNECT command
             UserGameCommand command = new UserGameCommand(UserGameCommand.CommandType.CONNECT, auth, gameID);
@@ -174,6 +176,10 @@ public class ServerFacade {
 
     public WebSocketClientEndpoint getSocket() {
         return this.socket;
+    }
+
+    public void setSocket(WebSocketClientEndpoint socket) {
+        this.socket = socket;
     }
 
 }

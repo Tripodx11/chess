@@ -1,13 +1,14 @@
 package websocket;
 
 import com.google.gson.Gson;
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ServerMessage;
 
-import javax.websocket.*;
 
-public class WebSocketClientEndpoint {
-    private Session session;
+public class WebSocketClientEndpoint extends WebSocketAdapter {
+
     private final Gson gson = new Gson();
     private final ServerMessageObserver observer;
 
@@ -15,34 +16,44 @@ public class WebSocketClientEndpoint {
         this.observer = observer;
     }
 
-    @OnOpen
-    public void onOpen(Session session) {
-        this.session = session;
-        System.out.println("WebSocket opened");
+    public void onWebSocketConnect(Session session) {
+        super.onWebSocketConnect(session);
+        System.out.println("WebSocket connected");
     }
 
-    @OnMessage
-    public void onMessage(String json) {
-        ServerMessage message = gson.fromJson(json, ServerMessage.class);
-        observer.notify(message);
-    }
+    @Override
+    public void onWebSocketText(String message) {
+        super.onWebSocketText(message);
 
-    @OnError
-    public void onError(Session session, Throwable throwable) {
-        System.err.println("WebSocket error: " + throwable.getMessage());
-    }
-
-    @OnClose
-    public void onClose(Session session, CloseReason reason) {
-        System.out.println("WebSocket closed: " + reason);
+        try {
+            ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
+            observer.notify(serverMessage);
+        } catch (Exception e) {
+            System.err.println("Failed to parse server message: " + e.getMessage());
+        }
     }
 
     public void sendCommand(UserGameCommand command) {
-        if (session != null && session.isOpen()) {
+        try {
             String json = gson.toJson(command);
-            session.getAsyncRemote().sendText(json);
-        } else {
-            System.err.println("WebSocket session not open");
+            if (isConnected()) {
+                getSession().getRemote().sendString(json);
+            } else {
+                System.err.println("WebSocket is not connected.");
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to send command: " + e.getMessage());
         }
     }
+
 }
+
+
+//public void sendCommand(UserGameCommand command) {
+//    if (session != null && session.isOpen()) {
+//        String json = gson.toJson(command);
+//        session.getAsyncRemote().sendText(json);
+//    } else {
+//        System.err.println("WebSocket session not open");
+//    }
+//}

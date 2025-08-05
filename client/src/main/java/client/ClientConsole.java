@@ -344,7 +344,16 @@ public class ClientConsole implements ServerMessageObserver {
     private void gameplayMode(int gameID, String color, boolean isObserver) {
         // websocket, commend, notifications, loop for game play, etc.
         //connect to websocket
+//        WebSocketClientEndpoint socket = new WebSocketClientEndpoint(this);
+//        facade.setSocket(socket);
+//        socket.connect();
+//        UserGameCommand connectCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT, authToken, gameID);
+//        socket.sendCommand(connectCommand);
+
+        facade.connectToGame(authToken, gameID, isObserver);
+
         Scanner scanner = new Scanner(System.in);
+
 
         while (true) {
             System.out.print("[GAMEPLAY_MODE] >>> ");
