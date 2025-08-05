@@ -29,4 +29,6 @@ public interface DataAccess {
 
     //remove methods
     void removeAuthData (String authToken) throws DataAccessException ;
+
+    void updateGameData(GameData game) throws DataAccessException;
 }

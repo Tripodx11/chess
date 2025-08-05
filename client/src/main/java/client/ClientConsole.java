@@ -36,20 +36,34 @@ public class ClientConsole implements ServerMessageObserver {
         switch (message.getServerMessageType()) {
             case LOAD_GAME -> {
                 LoadGameMessage load = (LoadGameMessage) message;
+                int gameID = load.getGameID();
                 ChessGame game = load.getGame();
-                drawBoard(game, currentColor); // 'color' should be tracked for display orientation
-                System.out.println("Board loaded from server.");
+
+                // Update cached game
+                for (GameData g : cachedGames) {
+                    if (g.getGameID() == gameID) {
+                        g.setGame(game);
+                        break;
+                    }
+                }
+                System.out.println(); // Single clean line before board
+                drawBoard(game, currentColor);
+                System.out.println(); // Space after board
+                //System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case NOTIFICATION -> {
                 NotificationMessage note = (NotificationMessage) message;
+                System.out.println("\n");
                 System.out.println("NOTIFICATION: " + note.getMessage());
-                System.out.print("[GAMEPLAY_MODE] >>> ");
+                //System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case ERROR -> {
                 ErrorMessage err = (ErrorMessage) message;
+                System.out.println("\n");
                 System.out.println("SERVER ERROR: " + err.getErrorMessage());
+                //System.out.print("[GAMEPLAY_MODE] >>> ");
             }
         }
 
@@ -351,7 +365,7 @@ public class ClientConsole implements ServerMessageObserver {
             String[] inputList = input.split("\\s+");
             switch (inputList[0]) {
                 case "help" -> gameplayHelpHelper(inputList);
-                case "redraw" -> drawBoard(cachedGames.get(gameID).getGame(), color);
+                case "redraw" -> drawBoard(cachedGames.get(gameID-1).getGame(), color);
                 case "move" -> gameplayMakeMoveHelper(inputList, gameID);
                 //case "show moves" -> loginHelper(inputList);
                 //case "resign" -> System.exit(0);
@@ -435,5 +449,4 @@ public class ClientConsole implements ServerMessageObserver {
         int col = file - 'a' + 1;
         return new ChessPosition(row, col);
     }
-
 }

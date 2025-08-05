@@ -204,6 +204,30 @@ public class MySQLDataAccess implements DataAccess{
         return games;
     }
 
+    public void updateGameData(GameData gameData) throws DataAccessException {
+        String sql = "UPDATE games SET game = ? WHERE gameID = ?";
+
+        try (var conn = DatabaseManager.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+
+            Gson gson = new Gson();
+            String jsonGame = gson.toJson(gameData.getGame());
+
+            stmt.setString(1, jsonGame);
+            stmt.setInt(2, gameData.getGameID());
+
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DataAccessException("No game with gameID: " + gameData.getGameID());
+            }
+
+        } catch (SQLException e) {
+            throw new DataAccessException("Failed to update game data", e);
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int updateGameID() {
         return gameID++;
     }

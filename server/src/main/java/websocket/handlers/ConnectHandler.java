@@ -43,7 +43,7 @@ public class ConnectHandler {
 
             connections.add(gameID, session, user.getUsername());
             ChessGame currentGameState = game.getGame(); // Pull the full game object from GameData
-            LoadGameMessage loadMessage = new LoadGameMessage(currentGameState);
+            LoadGameMessage loadMessage = new LoadGameMessage(currentGameState, gameID);
             connections.sendToSession(session, loadMessage);
 
             // Determine role

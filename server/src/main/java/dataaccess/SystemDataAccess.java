@@ -90,6 +90,14 @@ public class SystemDataAccess implements DataAccess {
         }
     };
 
+    @Override
+    public void updateGameData(GameData game) throws DataAccessException {
+        if (!gameData.containsKey(game.getGameID())) {
+            throw new DataAccessException("Game not found");
+        }
+        gameData.put(game.getGameID(), game); // Replace the old game with the updated one
+    }
+
 
 
     //remove methods
