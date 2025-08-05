@@ -49,8 +49,7 @@ public class ClientConsole implements ServerMessageObserver {
                 System.out.println(); // Single clean line before board
                 BoardRenderer.drawBoard(game, currentColor, null, null);
                 System.out.println(); // Space after board
-
-                //System.out.print("[GAMEPLAY_MODE] >>> ");
+                System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case NOTIFICATION -> {
@@ -290,7 +289,7 @@ public class ClientConsole implements ServerMessageObserver {
         try { Thread.sleep(100); } catch (InterruptedException ignored) {}
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("[GAMEPLAY_MODE] >>> ");
+        //System.out.print("[GAMEPLAY_MODE] >>> ");
         while (true) {
 //            System.out.print("[GAMEPLAY_MODE] >>> ");
             String input = scanner.nextLine().trim();
@@ -321,6 +320,7 @@ public class ClientConsole implements ServerMessageObserver {
                 }
                 default -> {
                     System.out.println("Unknown command");
+                    System.out.print("[GAMEPLAY_MODE] >>> ");
                 }
             }
         }
@@ -336,7 +336,7 @@ public class ClientConsole implements ServerMessageObserver {
         System.out.println();
         System.out.println(SET_TEXT_COLOR_GREEN + "  redraw " + RESET_TEXT_COLOR + " - to see current board");
         System.out.println(SET_TEXT_COLOR_BLUE + "  move <start position> <end position>" + RESET_TEXT_COLOR + " - to move a piece");
-        System.out.println(SET_TEXT_COLOR_YELLOW + "  show moves <position>" + RESET_TEXT_COLOR + " - of a piece");
+        System.out.println(SET_TEXT_COLOR_YELLOW + "  highlight <position>" + RESET_TEXT_COLOR + " - of a piece");
         System.out.println(SET_TEXT_COLOR_MAGENTA + "  resign" + RESET_TEXT_COLOR + " - to forfeit");
         System.out.println(SET_TEXT_COLOR_RED + "  leave" + RESET_TEXT_COLOR + " - game");
         System.out.println();
@@ -402,9 +402,12 @@ public class ClientConsole implements ServerMessageObserver {
             System.out.print("[GAMEPLAY_MODE] >>> ");
             return;
         }
-        System.out.println("test for resign method");
-        facade.resign(authToken, gameID);
-        System.out.println("You have resigned the game.");
+        try {
+            facade.resign(authToken, gameID);
+//            System.out.println("You have resigned the game.");
+        } catch (Exception e) {
+            System.out.println("Resign failed: " + e.getMessage());
+        }
 
     }
 
