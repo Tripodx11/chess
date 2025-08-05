@@ -10,6 +10,7 @@ import results.CreateGameResult;
 import results.ListGamesResult;
 import websocket.ServerMessageObserver;
 import websocket.messages.LoadGameMessage;
+import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
 import java.util.*;
@@ -32,13 +33,11 @@ public class ClientConsole implements ServerMessageObserver {
     public void notify(ServerMessage message) {
         switch (message.getServerMessageType()) {
             case LOAD_GAME -> {
-                // Downcast the message to its specific subclass
+
                 LoadGameMessage load = (LoadGameMessage) message;
 
-                // This contains the full game state from the server (board, turn, etc.)
                 ChessGame game = load.getGame();
 
-                // Cache the game or use it directly — here we just draw it
                 drawBoard(game, color); // 'color' should be tracked for display orientation
 
                 System.out.println("Board loaded from server.");
