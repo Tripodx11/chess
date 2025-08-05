@@ -49,6 +49,11 @@ public class MoveHandler {
             ChessMove move = command.getMove();
             ChessGame gameLogic = game.getGame(); // The actual ChessGame instance
 
+            if (game.getGame().isGameOver()) {
+                connections.sendToSession(session, new ErrorMessage("Game is over. No more moves can be made."));
+                return;
+            }
+
             ChessGame.TeamColor playerColor = null;
             if (user.getUsername().equals(game.getWhiteUsername())) {
                 playerColor = ChessGame.TeamColor.WHITE;
@@ -60,15 +65,8 @@ public class MoveHandler {
             }
 
             // Check if it's the user's turn
-            System.out.println(gameLogic.getTeamTurn());
-            System.out.println(playerColor);
             if (gameLogic.getTeamTurn() != playerColor) {
                 connections.sendToSession(session, new ErrorMessage("Error: It's not your turn."));
-                return;
-            }
-
-            if (game.getGame().isGameOver()) {
-                connections.sendToSession(session, new ErrorMessage("Game is over. No more moves can be made."));
                 return;
             }
 

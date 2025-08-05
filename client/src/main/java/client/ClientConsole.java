@@ -49,21 +49,22 @@ public class ClientConsole implements ServerMessageObserver {
                 System.out.println(); // Single clean line before board
                 drawBoard(game, currentColor);
                 System.out.println(); // Space after board
+
                 //System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case NOTIFICATION -> {
                 NotificationMessage note = (NotificationMessage) message;
-                System.out.println("\n");
+//                System.out.println();
                 System.out.println("NOTIFICATION: " + note.getMessage());
-                //System.out.print("[GAMEPLAY_MODE] >>> ");
+                System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case ERROR -> {
                 ErrorMessage err = (ErrorMessage) message;
-                System.out.println("\n");
+                //System.out.println();
                 System.out.println("SERVER ERROR: " + err.getErrorMessage());
-                //System.out.print("[GAMEPLAY_MODE] >>> ");
+                System.out.print("[GAMEPLAY_MODE] >>> ");
             }
         }
 
@@ -247,7 +248,7 @@ public class ClientConsole implements ServerMessageObserver {
 
             facade.join(authToken, color, sysID);
             System.out.println("Join game successful");
-            drawBoard(cachedGames.get(inputID).getGame(), color);
+//            drawBoard(cachedGames.get(inputID).getGame(), color);
             this.currentColor = color;
             gameplayMode(Integer.parseInt(input[1]), color, false);
         } catch (NumberFormatException e) {
@@ -272,7 +273,7 @@ public class ClientConsole implements ServerMessageObserver {
                 System.out.println("Invalid Game ID");
                 return;
             }
-            drawBoard(cachedGames.get(inputID).getGame(), "white");
+//            drawBoard(cachedGames.get(inputID).getGame(), "white");
             this.currentColor = "white";
             gameplayMode(Integer.parseInt(input[1]), currentColor, true);
         } catch (NumberFormatException e) {
@@ -359,18 +360,29 @@ public class ClientConsole implements ServerMessageObserver {
         try { Thread.sleep(100); } catch (InterruptedException ignored) {}
 
         Scanner scanner = new Scanner(System.in);
+        System.out.print("[GAMEPLAY_MODE] >>> ");
         while (true) {
-            System.out.print("[GAMEPLAY_MODE] >>> ");
+//            System.out.print("[GAMEPLAY_MODE] >>> ");
             String input = scanner.nextLine().trim();
             String[] inputList = input.split("\\s+");
             switch (inputList[0]) {
-                case "help" -> gameplayHelpHelper(inputList);
-                case "redraw" -> drawBoard(cachedGames.get(gameID-1).getGame(), color);
+                case "help" -> {
+                    gameplayHelpHelper(inputList);
+                    System.out.print("[GAMEPLAY_MODE] >>> ");
+                }
+                case "redraw" -> {
+                    drawBoard(cachedGames.get(gameID-1).getGame(), color);
+                    System.out.print("[GAMEPLAY_MODE] >>> ");
+                }
                 case "move" -> gameplayMakeMoveHelper(inputList, gameID);
                 //case "show moves" -> loginHelper(inputList);
-                //case "resign" -> System.exit(0);
+                case "resign" -> {
+                    resignHelper(inputList, gameID);
+                }
                 case "leave" -> {return;}
-                default -> System.out.println("Unknown command");
+                default -> {
+                    System.out.println("Unknown command");
+                }
             }
         }
     }
@@ -398,6 +410,7 @@ public class ClientConsole implements ServerMessageObserver {
             promotionPiece = parsePromotion(input[3]);
         } else if (input.length != 3) {
             System.out.println("Did not meet usage form: move <start position> <end position> (ex: move a2 a4)");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
             return;
         }
 
@@ -409,6 +422,7 @@ public class ClientConsole implements ServerMessageObserver {
 
         } catch (Exception e) {
             System.out.println("Invalid move format. Use positions like 'e2 e4'");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
         }
     }
 
@@ -430,13 +444,6 @@ public class ClientConsole implements ServerMessageObserver {
         }
     }
 
-//    private ChessPosition parsePosition(String input) {
-//        char file = input.charAt(0);
-//        int row = Character.getNumericValue(input.charAt(1));
-//        int col = file - 'a' + 1;
-//        return new ChessPosition(row, col);
-//    }
-
     private ChessPosition parsePosition(String input) throws IllegalArgumentException {
 
         char file = input.charAt(0);
@@ -448,5 +455,23 @@ public class ClientConsole implements ServerMessageObserver {
 
         int col = file - 'a' + 1;
         return new ChessPosition(row, col);
+    }
+
+    private void resignHelper(String[] input, int gameID) {
+        if (input.length != 1) {
+            System.out.println("Usage: resign");
+            return;
+        }
+
+        System.out.print("Are you sure you want to resign? (y/n): ");
+        Scanner scanner = new Scanner(System.in);
+        String confirmation = scanner.nextLine().trim().toLowerCase();
+
+        if (confirmation.equals("y") || confirmation.equals("yes")) {
+            facade.resign(authToken, gameID);
+            System.out.println("You have resigned the game.");
+        } else {
+            System.out.println("Resignation cancelled.");
+        }
     }
 }

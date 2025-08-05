@@ -21,7 +21,7 @@ public class WebSocketClientEndpoint extends WebSocketAdapter {
 
     public void onWebSocketConnect(Session session) {
         super.onWebSocketConnect(session);
-        System.out.println("WebSocket connected");
+//        System.out.println("WebSocket connected");
     }
 
     public void onWebSocketText(String message) {

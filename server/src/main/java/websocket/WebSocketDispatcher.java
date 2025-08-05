@@ -31,7 +31,7 @@ public class WebSocketDispatcher {
                 new MoveHandler(dataAccess, connections).handle(moveCommand, session);
             }
 //            case LEAVE -> new LeaveHandler(dataAccess).handle(command, session);
-//            case RESIGN -> new ResignHandler(dataAccess).handle(command, session);
+            case RESIGN -> new ResignHandler(dataAccess).handle(command, session);
             default -> System.err.println("Unknown command type: " + command.getCommandType());
         }
     }

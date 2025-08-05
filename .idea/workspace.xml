@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Ready to test make move">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Been debugging make move. Added update game to dao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/SystemDataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ConnectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ConnectHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/websocket/WebSocketClientEndpoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/LoadGameMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/LoadGameMessage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,15 +255,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="31319000" />
-    </task>
-    <task id="LOCAL-00025" summary="Debugged some more code quality issues and fixed Login Service Test">
-      <option name="closed" value="true" />
-      <created>1752702326303</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1752702326303</updated>
+      <workItem from="1754324432725" duration="33395000" />
     </task>
     <task id="LOCAL-00026" summary="More debugging for auto grader">
       <option name="closed" value="true" />
@@ -654,7 +641,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754420070824</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Been debugging make move. Added update game to dao">
+      <option name="closed" value="true" />
+      <created>1754425066030</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1754425066030</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,7 +667,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Wrote loggedInHelpHelper and it is working" />
     <MESSAGE value="Got Create working and tests written and passed" />
     <MESSAGE value="Got join mostly written, working on tests" />
     <MESSAGE value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
@@ -697,7 +691,8 @@
     <MESSAGE value="Holy shiz. The freaking web socket is working for the connect. It's also doing the notifying correct for the joining and observing." />
     <MESSAGE value="Got client console and server facade for move handler up" />
     <MESSAGE value="Ready to test make move" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready to test make move" />
+    <MESSAGE value="Been debugging make move. Added update game to dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="Been debugging make move. Added update game to dao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

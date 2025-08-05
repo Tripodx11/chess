@@ -187,6 +187,11 @@ public class ServerFacade {
         }
     }
 
+    public void resign(String auth, int gameID) {
+        UserGameCommand resignCommand = new UserGameCommand(UserGameCommand.CommandType.RESIGN, auth, gameID);
+        socket.sendCommand(resignCommand);
+    }
+
     public WebSocketClientEndpoint getSocket() {
         return this.socket;
     }
