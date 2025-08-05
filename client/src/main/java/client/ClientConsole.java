@@ -55,7 +55,7 @@ public class ClientConsole implements ServerMessageObserver {
 
             case NOTIFICATION -> {
                 NotificationMessage note = (NotificationMessage) message;
-//                System.out.println();
+                System.out.println();
                 System.out.println("NOTIFICATION: " + note.getMessage());
                 System.out.print("[GAMEPLAY_MODE] >>> ");
             }
@@ -378,6 +378,7 @@ public class ClientConsole implements ServerMessageObserver {
                 //case "show moves" -> loginHelper(inputList);
                 case "resign" -> {
                     resignHelper(inputList, gameID);
+                    System.out.print("[GAMEPLAY_MODE] >>> ");
                 }
                 case "leave" -> {return;}
                 default -> {
@@ -459,7 +460,7 @@ public class ClientConsole implements ServerMessageObserver {
 
     private void resignHelper(String[] input, int gameID) {
         if (input.length != 1) {
-            System.out.println("Usage: resign");
+            System.out.println("Did not meet usage form:: resign");
             return;
         }
 
