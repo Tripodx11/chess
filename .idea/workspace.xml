@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed to tyrus and not jetty." />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Changed to tyrus and not jetty">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/BoardRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -277,15 +282,7 @@
       <workItem from="1754319106072" duration="1838000" />
       <workItem from="1754324432725" duration="38442000" />
       <workItem from="1754431973288" duration="641000" />
-      <workItem from="1754433796577" duration="1487000" />
-    </task>
-    <task id="LOCAL-00031" summary="Added stubs tp MySQLDataAccess">
-      <option name="closed" value="true" />
-      <created>1753226221780</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1753226221780</updated>
+      <workItem from="1754433796577" duration="2118000" />
     </task>
     <task id="LOCAL-00032" summary="Got Add user going along with clear and get user and wrote two tests for add user">
       <option name="closed" value="true" />
@@ -671,7 +668,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754435230595</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Changed to tyrus and not jetty">
+      <option name="closed" value="true" />
+      <created>1754435330359</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1754435330359</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +694,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Made some UI adjustments for better experience" />
     <MESSAGE value="Back to normal" />
     <MESSAGE value="Moved packages to shared" />
     <MESSAGE value="Removed server code from main in client" />
@@ -714,7 +718,8 @@
     <MESSAGE value="trying to get the game data username to update from leave" />
     <MESSAGE value="Highlight implemented and working with basic test" />
     <MESSAGE value="Changed to tyrus and not jetty." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed to tyrus and not jetty." />
+    <MESSAGE value="Changed to tyrus and not jetty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed to tyrus and not jetty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

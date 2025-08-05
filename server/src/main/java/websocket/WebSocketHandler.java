@@ -11,7 +11,7 @@ import websocket.commands.UserGameCommand;
 @WebSocket
 public class WebSocketHandler {
 
-    private static final Gson gson = new Gson();
+    private static final Gson GSON = new Gson();
 
     @OnWebSocketConnect
     public void onConnect(Session session) {
@@ -27,9 +27,9 @@ public class WebSocketHandler {
             UserGameCommand command;
 
             if (type.equals("MAKE_MOVE")) {
-                command = gson.fromJson(message, MakeMoveCommand.class);
+                command = GSON.fromJson(message, MakeMoveCommand.class);
             } else {
-                command = gson.fromJson(message, UserGameCommand.class);  // catch CONNECT, RESIGN, LEAVE here
+                command = GSON.fromJson(message, UserGameCommand.class);
             }
 
             WebSocketDispatcher.handle(command, session);
