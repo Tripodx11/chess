@@ -6,6 +6,7 @@ import dataaccess.MySQLDataAccess;
 import dataaccess.SystemDataAccess;
 import handler.*;
 import spark.*;
+import websocket.WebSocketDispatcher;
 
 public class Server {
 
@@ -21,7 +22,9 @@ public class Server {
         DataAccess dataAccess;
         try {
             // Swap this line to use either System or MySQL DAO
-            dataAccess = new MySQLDataAccess(); // persistent
+            dataAccess = new MySQLDataAccess();
+            WebSocketDispatcher.initialize(dataAccess);
+// persistent
             // dataAccess = new SystemDataAccess(); // in-memory
         } catch (DataAccessException e) {
             System.err.println("Failed to initialize data access: " + e.getMessage());
