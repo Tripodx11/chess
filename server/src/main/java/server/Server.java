@@ -13,6 +13,7 @@ public class Server {
 
     public int run(int desiredPort){
         Spark.port(desiredPort);
+        Spark.webSocket("/ws", websocket.WebSocketHandler.class);
 
         Spark.staticFiles.location("web");
         Spark.get("/", (req, res) -> {
@@ -46,8 +47,6 @@ public class Server {
 
 
         //This line initializes the server and can be removed once you have a functioning endpoint
-        Spark.webSocket("/ws", websocket.WebSocketHandler.class);
-
         Spark.init();
 
         Spark.awaitInitialization();

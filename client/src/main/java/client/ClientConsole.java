@@ -44,6 +44,7 @@ public class ClientConsole implements ServerMessageObserver {
             case NOTIFICATION -> {
                 NotificationMessage note = (NotificationMessage) message;
                 System.out.println("NOTIFICATION: " + note.getMessage());
+                System.out.print("[GAMEPLAY_MODE] >>> ");
             }
 
             case ERROR -> {
@@ -51,6 +52,7 @@ public class ClientConsole implements ServerMessageObserver {
                 System.out.println("SERVER ERROR: " + err.getErrorMessage());
             }
         }
+
     }
 
     public void run() {
@@ -233,7 +235,7 @@ public class ClientConsole implements ServerMessageObserver {
             System.out.println("Join game successful");
             drawBoard(cachedGames.get(inputID).getGame(), color);
             this.currentColor = color;
-            gameplayMode(inputID, color, false);
+            gameplayMode(Integer.parseInt(input[1]), color, false);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
@@ -258,7 +260,7 @@ public class ClientConsole implements ServerMessageObserver {
             }
             drawBoard(cachedGames.get(inputID).getGame(), "white");
             this.currentColor = "white";
-            gameplayMode(inputID, "white", true);
+            gameplayMode(Integer.parseInt(input[1]), "white", true);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
@@ -339,18 +341,10 @@ public class ClientConsole implements ServerMessageObserver {
 
     private void gameplayMode(int gameID, String color, boolean isObserver) {
         // websocket, commend, notifications, loop for game play, etc.
-        //connect to websocket
-//        WebSocketClientEndpoint socket = new WebSocketClientEndpoint(this);
-//        facade.setSocket(socket);
-//        socket.connect();
-//        UserGameCommand connectCommand = new UserGameCommand(UserGameCommand.CommandType.CONNECT, authToken, gameID);
-//        socket.sendCommand(connectCommand);
-
         facade.connectToGame(authToken, gameID, isObserver);
+        try { Thread.sleep(100); } catch (InterruptedException ignored) {}
 
         Scanner scanner = new Scanner(System.in);
-
-
         while (true) {
             System.out.print("[GAMEPLAY_MODE] >>> ");
             String input = scanner.nextLine().trim();
