@@ -1,14 +1,14 @@
 package client;
 
-import chess.ChessBoard;
-import chess.ChessGame;
-import chess.ChessPiece;
-import chess.ChessPosition;
+import chess.*;
 import model.AuthData;
 import model.GameData;
 import results.CreateGameResult;
 import results.ListGamesResult;
 import websocket.ServerMessageObserver;
+import websocket.WebSocketClientEndpoint;
+import websocket.commands.MakeMoveCommand;
+import websocket.commands.UserGameCommand;
 import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
@@ -353,7 +353,7 @@ public class ClientConsole implements ServerMessageObserver {
             switch (inputList[0]) {
                 case "help" -> gameplayHelpHelper(inputList);
                 case "redraw" -> drawBoard(cachedGames.get(gameID).getGame(), color);
-                //case "make move" -> loginHelper(inputList);
+                case "move" -> gameplayMakeMoveHelper(inputList, gameID);
                 //case "show moves" -> loginHelper(inputList);
                 //case "resign" -> System.exit(0);
                 case "leave" -> {return;}
@@ -371,10 +371,39 @@ public class ClientConsole implements ServerMessageObserver {
 
         System.out.println();
         System.out.println(SET_TEXT_COLOR_GREEN + "  redraw " + RESET_TEXT_COLOR + " - to see current board");
-        System.out.println(SET_TEXT_COLOR_BLUE + "  make move <start position> <end position>" + RESET_TEXT_COLOR + " - to move a piece");
+        System.out.println(SET_TEXT_COLOR_BLUE + "  move <start position> <end position>" + RESET_TEXT_COLOR + " - to move a piece");
         System.out.println(SET_TEXT_COLOR_YELLOW + "  show moves <position>" + RESET_TEXT_COLOR + " - of a piece");
         System.out.println(SET_TEXT_COLOR_MAGENTA + "  resign" + RESET_TEXT_COLOR + " - to forfeit");
         System.out.println(SET_TEXT_COLOR_RED + "  leave" + RESET_TEXT_COLOR + " - game");
         System.out.println();
     }
+
+    private void gameplayMakeMoveHelper(String[] input, int gameID) {
+        if (input.length != 3) {
+            System.out.println("Did not meet usage form: move <start position> <end position> (ex: move a2 a4)");
+            return;
+        }
+
+        try {
+            ChessPosition startPos = parsePosition(input[1]);
+            ChessPosition endPos = parsePosition(input[2]);
+
+            ChessMove move = new ChessMove(startPos, endPos, null);
+
+            MakeMoveCommand moveCommand = new MakeMoveCommand(authToken, gameID, move);
+
+            facade.getSocket().sendCommand(moveCommand);
+
+        } catch (Exception e) {
+            System.out.println("Invalid move format. Use positions like 'e2 e4'");
+        }
+    }
+
+    private ChessPosition parsePosition(String input) {
+        char file = input.charAt(0);
+        int row = Character.getNumericValue(input.charAt(1));
+        int col = file - 'a' + 1;
+        return new ChessPosition(row, col);
+    }
+
 }

@@ -40,7 +40,9 @@ public class Server {
         Spark.get("/game", new ListGamesHandler(dataAccess));
 
 
-        //This line initializes the server and can be removed once you have a functioning endpoint 
+        //This line initializes the server and can be removed once you have a functioning endpoint
+        Spark.webSocket("/ws", websocket.WebSocketHandler.class);
+
         Spark.init();
 
         Spark.awaitInitialization();

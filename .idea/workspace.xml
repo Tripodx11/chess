@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added notification message class. Pretty simple">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/ErrorMessage.java" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added error message class. Pretty simple again">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MakeMoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,15 +240,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="9667000" />
-    </task>
-    <task id="LOCAL-00017" summary="Got Create game handler built and added the code to the server for it. Untested">
-      <option name="closed" value="true" />
-      <created>1752692761655</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1752692761655</updated>
+      <workItem from="1754324432725" duration="11511000" />
     </task>
     <task id="LOCAL-00018" summary="Got Join game service and test built. Test passed">
       <option name="closed" value="true" />
@@ -630,7 +626,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754352572454</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Added error message class. Pretty simple again">
+      <option name="closed" value="true" />
+      <created>1754352845449</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1754352845450</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -648,7 +652,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
     <MESSAGE value="All tests are passing here" />
     <MESSAGE value="Changed things for the autograder" />
     <MESSAGE value="Changed things for the autograder again" />
@@ -673,7 +676,8 @@
     <MESSAGE value="Took out an error for a runnable save state" />
     <MESSAGE value="Got notify up and load game message. Everything is untested right now" />
     <MESSAGE value="Added notification message class. Pretty simple" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added notification message class. Pretty simple" />
+    <MESSAGE value="Added error message class. Pretty simple again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error message class. Pretty simple again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

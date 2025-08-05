@@ -24,6 +24,8 @@ public class ServerFacade {
     private final Gson gson = new Gson();
     private final String serverUrl;
     private final ServerMessageObserver observer;
+    private WebSocketClientEndpoint socket;
+
 
     public ServerFacade(int port, ServerMessageObserver observer) {
         this.serverUrl = "http://localhost:" + port;
@@ -155,19 +157,23 @@ public class ServerFacade {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 
             // Pass an observer or listener object that implements ServerMessageObserver
-            WebSocketClientEndpoint clientEndpoint = new WebSocketClientEndpoint(observer);
+            socket = new WebSocketClientEndpoint(observer);
 
             // This connects and binds the clientEndpoint as the listener
-            container.connectToServer(clientEndpoint, uri);
+            container.connectToServer(socket, uri);
 
             // Build and send the CONNECT command
             UserGameCommand command = new UserGameCommand(UserGameCommand.CommandType.CONNECT, auth, gameID);
-            clientEndpoint.sendCommand(command);
+            socket.sendCommand(command);
 
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to connect to WebSocket: " + e.getMessage());
         }
+    }
+
+    public WebSocketClientEndpoint getSocket() {
+        return this.socket;
     }
 
 }
