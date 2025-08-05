@@ -15,12 +15,11 @@ public class WebSocketHandler {
 
     @OnWebSocketConnect
     public void onConnect(Session session) {
-        System.out.println("WebSocket opened: " + session);
+//        System.out.println("WebSocket opened: " + session);
     }
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
-        System.out.println("Received WebSocket message: " + message);
         try {
             JsonObject obj = JsonParser.parseString(message).getAsJsonObject();
             String type = obj.get("commandType").getAsString();

@@ -43,15 +43,25 @@ public class ResignHandler {
                 return;
             }
 
+            // Check if user is a player (white or black)
+            String resigningUser = user.getUsername();
+            String white = game.getWhiteUsername();
+            String black = game.getBlackUsername();
+
+            if (!resigningUser.equals(white) && !resigningUser.equals(black)) {
+                sendError(session, "Only players may resign from a game");
+                return;
+            }
+
+
             // Mark game as over
             game.getGame().setGameOver(true);
             dataAccess.updateGameData(game);
 
-            String resigningUser = user.getUsername();
             String resignMessage = resigningUser + " has resigned. Game over.";
 
             // Broadcast resignation to all *except* the resigning player
-            connections.broadcast(gameID, new NotificationMessage(resignMessage), session);
+            connections.broadcast(gameID, new NotificationMessage(resignMessage), null);
 
         } catch (DataAccessException e) {
             sendError(session, "Error: " + e.getMessage());

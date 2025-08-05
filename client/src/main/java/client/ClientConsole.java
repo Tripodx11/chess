@@ -483,18 +483,21 @@ public class ClientConsole implements ServerMessageObserver {
             System.out.print("[GAMEPLAY_MODE] >>> ");
             return;
         }
+        System.out.println("test for resign method");
+        facade.resign(authToken, gameID);
+        System.out.println("You have resigned the game.");
 
-        System.out.print("Are you sure you want to resign? (y/n): ");
-        Scanner scanner = new Scanner(System.in);
-        String confirmation = scanner.nextLine().trim().toLowerCase();
-
-        if (confirmation.equals("y") || confirmation.equals("yes")) {
-            facade.resign(authToken, gameID);
-            System.out.println("You have resigned the game.");
-        } else {
-            System.out.println("Resignation cancelled.");
-            System.out.print("[GAMEPLAY_MODE] >>> ");
-        }
+//        System.out.print("Are you sure you want to resign? (y/n): ");
+//        Scanner scanner = new Scanner(System.in);
+//        String confirmation = scanner.nextLine().trim().toLowerCase();
+//
+//        if (confirmation.equals("y") || confirmation.equals("yes")) {
+//            facade.resign(authToken, gameID);
+//            System.out.println("You have resigned the game.");
+//        } else {
+//            System.out.println("Resignation cancelled.");
+//            System.out.print("[GAMEPLAY_MODE] >>> ");
+//        }
     }
 
     private int leaveHelper(String[] input, int gameID) {
@@ -504,20 +507,25 @@ public class ClientConsole implements ServerMessageObserver {
             return 0;
         }
 
-        System.out.print("Are you sure you want to leave? (y/n): ");
-        Scanner scanner = new Scanner(System.in);
-        String confirmation = scanner.nextLine().trim().toLowerCase();
+        facade.leave(authToken, gameID);
+        System.out.println("You have left the game.");
 
-        if (confirmation.equals("y") || confirmation.equals("yes")) {
-            facade.leave(authToken, gameID);
-            System.out.println("You have left the game.");
+        return 2;
 
-            return 2;
-        } else {
-            System.out.println("Leaving game cancelled.");
-            System.out.print("[GAMEPLAY_MODE] >>> ");
-            return 1;
-        }
+//        System.out.print("Are you sure you want to leave? (y/n): ");
+//        Scanner scanner = new Scanner(System.in);
+//        String confirmation = scanner.nextLine().trim().toLowerCase();
+//
+//        if (confirmation.equals("y") || confirmation.equals("yes")) {
+//            facade.leave(authToken, gameID);
+//            System.out.println("You have left the game.");
+//
+//            return 2;
+//        } else {
+//            System.out.println("Leaving game cancelled.");
+//            System.out.print("[GAMEPLAY_MODE] >>> ");
+//            return 1;
+//        }
     }
 
     public void highlightHelper(String[] input, int gameID) {

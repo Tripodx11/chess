@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="trying to get the game data username to update from leave">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Highlight implemented and working with basic test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySQLDataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ResignHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ResignHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +109,14 @@
     "JUnit.StandardAPITests.executor": "Run",
     "JUnit.StandardAPITests.joinGameBadColor.executor": "Debug",
     "JUnit.StandardAPITests.listGamesEmpty.executor": "Debug",
+    "JUnit.WebSocketTests.executor": "Debug",
+    "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Debug",
+    "JUnit.WebSocketTests.invalidResignObserver.executor": "Debug",
+    "JUnit.WebSocketTests.joinAfterLeaveGame.executor": "Debug",
+    "JUnit.WebSocketTests.moveAfterResign.executor": "Debug",
+    "JUnit.WebSocketTests.multipleConcurrentGames.executor": "Debug",
+    "JUnit.WebSocketTests.validMove.executor": "Debug",
+    "JUnit.WebSocketTests.validResign.executor": "Debug",
     "JUnit.game in shared.executor": "Run",
     "JUnit.java in shared.executor": "Run",
     "JUnit.piecemoves in shared.executor": "Run",
@@ -134,7 +144,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client2">
+  <component name="RunManager" selected="JUnit.WebSocketTests">
     <configuration name="Client2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -142,46 +152,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.clearPositive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="clearPositive" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WebSocketTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -190,35 +161,91 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.StandardAPITests" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/shared/src/test/java" />
+    <configuration name="WebSocketTests.invalidMoveGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="invalidMoveGameOver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests.invalidResignObserver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="invalidResignObserver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests.joinAfterLeaveGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="joinAfterLeaveGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests.multipleConcurrentGames" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="multipleConcurrentGames" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Client2" />
-      <item itemvalue="JUnit.All in shared" />
-      <item itemvalue="JUnit.java in shared" />
-      <item itemvalue="JUnit.ServerFacadeTests" />
-      <item itemvalue="JUnit.ServerFacadeTests.clearPositive" />
-      <item itemvalue="JUnit.StandardAPITests" />
+      <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
+      <item itemvalue="JUnit.WebSocketTests.invalidResignObserver" />
+      <item itemvalue="JUnit.WebSocketTests.joinAfterLeaveGame" />
+      <item itemvalue="JUnit.WebSocketTests.multipleConcurrentGames" />
+      <item itemvalue="JUnit.WebSocketTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ServerFacadeTests.clearPositive" />
-        <item itemvalue="JUnit.All in shared" />
-        <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.java in shared" />
+        <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.WebSocketTests.multipleConcurrentGames" />
+        <item itemvalue="JUnit.WebSocketTests.joinAfterLeaveGame" />
+        <item itemvalue="JUnit.WebSocketTests.invalidResignObserver" />
+        <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
       </list>
     </recent_temporary>
   </component>
@@ -253,15 +280,8 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="38102000" />
-    </task>
-    <task id="LOCAL-00029" summary="Deleted a file in the directory">
-      <option name="closed" value="true" />
-      <created>1753224881629</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1753224881629</updated>
+      <workItem from="1754324432725" duration="38442000" />
+      <workItem from="1754431973288" duration="641000" />
     </task>
     <task id="LOCAL-00030" summary="Added constructor to MySQLDataAccess">
       <option name="closed" value="true" />
@@ -647,7 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754429360318</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Highlight implemented and working with basic test">
+      <option name="closed" value="true" />
+      <created>1754431747218</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1754431747218</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +693,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
     <MESSAGE value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
     <MESSAGE value="Made some UI adjustments for better experience" />
     <MESSAGE value="Back to normal" />
@@ -690,7 +717,8 @@
     <MESSAGE value="Make move is working. Some UI things with new lines but fine overall. Working on resign now" />
     <MESSAGE value="resign seems to be working" />
     <MESSAGE value="trying to get the game data username to update from leave" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to get the game data username to update from leave" />
+    <MESSAGE value="Highlight implemented and working with basic test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Highlight implemented and working with basic test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

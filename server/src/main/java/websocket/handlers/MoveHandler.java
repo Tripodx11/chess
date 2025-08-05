@@ -93,7 +93,7 @@ public class MoveHandler {
             String moveDescription = user.getUsername() + " moved from " +
                     formatPosition(move.getStartPosition()) + " to " + formatPosition(move.getEndPosition());
 
-            connections.broadcast(gameID, new NotificationMessage(moveDescription), null);
+            connections.broadcast(gameID, new NotificationMessage(moveDescription), session);
 
             ChessGame.TeamColor nextTurn = gameLogic.getTeamTurn();
 
