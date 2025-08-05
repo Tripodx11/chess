@@ -59,13 +59,3 @@ public class WebSocketClientEndpoint extends WebSocketAdapter {
     }
 
 }
-
-
-//public void sendCommand(UserGameCommand command) {
-//    if (session != null && session.isOpen()) {
-//        String json = gson.toJson(command);
-//        session.getAsyncRemote().sendText(json);
-//    } else {
-//        System.err.println("WebSocket session not open");
-//    }
-//}

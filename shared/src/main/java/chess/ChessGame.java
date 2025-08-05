@@ -8,6 +8,7 @@ public class ChessGame {
 
     private ChessBoard chessBoard;
     private ChessGame.TeamColor teamTurn;
+    private boolean gameOver = false;
 
     public ChessGame() {
         chessBoard = new ChessBoard();
@@ -200,5 +201,13 @@ public class ChessGame {
     @Override
     public int hashCode() {
         return Objects.hash(chessBoard, teamTurn);
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
     }
 }
