@@ -157,12 +157,10 @@ public class ServerFacade {
         try {
             URI uri = new URI("ws://localhost:8080/ws");
 
-            // Jetty's websocket manager
-            WebSocketClient client = new WebSocketClient();
-            WebSocketClientEndpoint endpoint = new WebSocketClientEndpoint(observer); // Your listener
+            WebSocketClientEndpoint endpoint = new WebSocketClientEndpoint(observer); // Your @ClientEndpoint
 
-            client.start(); // Boot up Jetty's websocket engine
-            client.connect(endpoint, uri).get(); // Actually connect to the server
+            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+            container.connectToServer(endpoint, uri);  // Connect using javax.websocket
 
             this.socket = endpoint;
 
