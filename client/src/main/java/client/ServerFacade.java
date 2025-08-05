@@ -1,5 +1,6 @@
 package client;
 
+import chess.ChessMove;
 import com.google.gson.Gson;
 import model.AuthData;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
@@ -11,6 +12,7 @@ import results.CreateGameResult;
 import results.ListGamesResult;
 import websocket.ServerMessageObserver;
 import websocket.WebSocketClientEndpoint;
+import websocket.commands.MakeMoveCommand;
 import websocket.commands.UserGameCommand;
 
 import javax.websocket.ContainerProvider;
@@ -167,6 +169,17 @@ public class ServerFacade {
             // Build and send the CONNECT command
             UserGameCommand command = new UserGameCommand(UserGameCommand.CommandType.CONNECT, auth, gameID);
             socket.sendCommand(command);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to connect to WebSocket: " + e.getMessage());
+        }
+    }
+
+    public void makeMove(String auth, int gameID, ChessMove move) {
+        try {
+            MakeMoveCommand moveCommand = new MakeMoveCommand(auth, gameID, move);
+            socket.sendCommand(moveCommand);
 
         } catch (Exception e) {
             e.printStackTrace();

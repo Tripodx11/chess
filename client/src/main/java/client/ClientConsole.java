@@ -260,7 +260,7 @@ public class ClientConsole implements ServerMessageObserver {
             }
             drawBoard(cachedGames.get(inputID).getGame(), "white");
             this.currentColor = "white";
-            gameplayMode(Integer.parseInt(input[1]), "white", true);
+            gameplayMode(Integer.parseInt(input[1]), currentColor, true);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
         } catch (Exception e) {
@@ -378,7 +378,11 @@ public class ClientConsole implements ServerMessageObserver {
     }
 
     private void gameplayMakeMoveHelper(String[] input, int gameID) {
-        if (input.length != 3) {
+        ChessPiece.PieceType promotionPiece = null;
+
+        if (input.length == 4) {
+            promotionPiece = parsePromotion(input[3]);
+        } else if (input.length != 3) {
             System.out.println("Did not meet usage form: move <start position> <end position> (ex: move a2 a4)");
             return;
         }
@@ -386,21 +390,48 @@ public class ClientConsole implements ServerMessageObserver {
         try {
             ChessPosition startPos = parsePosition(input[1]);
             ChessPosition endPos = parsePosition(input[2]);
-
-            ChessMove move = new ChessMove(startPos, endPos, null);
-
-            MakeMoveCommand moveCommand = new MakeMoveCommand(authToken, gameID, move);
-
-            facade.getSocket().sendCommand(moveCommand);
+            ChessMove move = new ChessMove(startPos, endPos, promotionPiece);
+            facade.makeMove(authToken, gameID, move);
 
         } catch (Exception e) {
             System.out.println("Invalid move format. Use positions like 'e2 e4'");
         }
     }
 
-    private ChessPosition parsePosition(String input) {
+    private ChessPiece.PieceType parsePromotion(String input) {
+        switch (input.toLowerCase()) {
+            case "queen" -> {
+                return ChessPiece.PieceType.QUEEN;
+            }
+            case "rook" -> {
+                return ChessPiece.PieceType.ROOK;
+            }
+            case "bishop" -> {
+                return ChessPiece.PieceType.BISHOP;
+            }
+            case "knight" -> {
+                return ChessPiece.PieceType.KNIGHT;
+            }
+            default -> throw new IllegalArgumentException("Invalid promotion piece: " + input);
+        }
+    }
+
+//    private ChessPosition parsePosition(String input) {
+//        char file = input.charAt(0);
+//        int row = Character.getNumericValue(input.charAt(1));
+//        int col = file - 'a' + 1;
+//        return new ChessPosition(row, col);
+//    }
+
+    private ChessPosition parsePosition(String input) throws IllegalArgumentException {
+
         char file = input.charAt(0);
         int row = Character.getNumericValue(input.charAt(1));
+
+        if (file < 'a' || file > 'h' || row < 1 || row > 8) {
+            throw new IllegalArgumentException();
+        }
+
         int col = file - 'a' + 1;
         return new ChessPosition(row, col);
     }
