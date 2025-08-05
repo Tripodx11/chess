@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Took out an error for a runnable save state">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/LoadGameMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Added notification message class. Pretty simple">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/ErrorMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -237,23 +236,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="9348000" />
-    </task>
-    <task id="LOCAL-00015" summary="Create game service test built and tests passed">
-      <option name="closed" value="true" />
-      <created>1752691823937</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1752691823937</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Create game service test built and tests passed">
-      <option name="closed" value="true" />
-      <created>1752691851153</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1752691851153</updated>
+      <workItem from="1754324432725" duration="9667000" />
     </task>
     <task id="LOCAL-00017" summary="Got Create game handler built and added the code to the server for it. Untested">
       <option name="closed" value="true" />
@@ -631,7 +614,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754329437260</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Got notify up and load game message. Everything is untested right now">
+      <option name="closed" value="true" />
+      <created>1754352345611</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1754352345611</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Added notification message class. Pretty simple">
+      <option name="closed" value="true" />
+      <created>1754352572454</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1754352572454</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,8 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got Game Add and get working as well as tests" />
-    <MESSAGE value="Got get all game data working and tests passed" />
     <MESSAGE value="Got other unique game data methods working and now gettting data base tests to pass" />
     <MESSAGE value="All tests are passing here" />
     <MESSAGE value="Changed things for the autograder" />
@@ -674,7 +671,9 @@
     <MESSAGE value="Got initial loop for gameplay mode working with help and redraw. Working on getting a websocket connection" />
     <MESSAGE value="Added ServerMessageObserver.java, WebSocketClientEndpoint.java, working on getting connect built out" />
     <MESSAGE value="Took out an error for a runnable save state" />
-    <option name="LAST_COMMIT_MESSAGE" value="Took out an error for a runnable save state" />
+    <MESSAGE value="Got notify up and load game message. Everything is untested right now" />
+    <MESSAGE value="Added notification message class. Pretty simple" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added notification message class. Pretty simple" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

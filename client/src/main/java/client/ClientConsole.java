@@ -9,6 +9,7 @@ import model.GameData;
 import results.CreateGameResult;
 import results.ListGamesResult;
 import websocket.ServerMessageObserver;
+import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
@@ -23,6 +24,7 @@ public class ClientConsole implements ServerMessageObserver {
     private String authToken = null;
     private ServerFacade facade;
     private List<GameData> cachedGames = new ArrayList<>();
+    private String currentColor;
 
     public ClientConsole() {}
 
@@ -38,7 +40,7 @@ public class ClientConsole implements ServerMessageObserver {
 
                 ChessGame game = load.getGame();
 
-                drawBoard(game, color); // 'color' should be tracked for display orientation
+                drawBoard(game, currentColor); // 'color' should be tracked for display orientation
 
                 System.out.println("Board loaded from server.");
             }
@@ -234,6 +236,7 @@ public class ClientConsole implements ServerMessageObserver {
             facade.join(authToken, color, sysID);
             System.out.println("Join game successful");
             drawBoard(cachedGames.get(inputID).getGame(), color);
+            this.currentColor = color;
             gameplayMode(inputID, color, false);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
@@ -258,6 +261,7 @@ public class ClientConsole implements ServerMessageObserver {
                 return;
             }
             drawBoard(cachedGames.get(inputID).getGame(), "white");
+            this.currentColor = "white";
             gameplayMode(inputID, "white", true);
         } catch (NumberFormatException e) {
             System.out.println("Invalid Game ID: must be a number");
