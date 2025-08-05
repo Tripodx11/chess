@@ -37,7 +37,7 @@ public class ConnectHandler {
 
             GameData game = dataAccess.getGameData(gameID);
             if (game == null) {
-                sendError(session, "Error: Invalid game ID.");
+                sendError(session, "Error: Invalid gameID.");
                 return;
             }
 

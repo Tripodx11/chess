@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Make move is working. Some UI things with new lines but fine overall. Working on resign now">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="resign seems to be working">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/LeaveHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/WebSocketDispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ResignHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ResignHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ConnectHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/ConnectHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,15 +256,7 @@
       <workItem from="1753753017697" duration="2856000" />
       <workItem from="1754318900697" duration="29000" />
       <workItem from="1754319106072" duration="1838000" />
-      <workItem from="1754324432725" duration="33730000" />
-    </task>
-    <task id="LOCAL-00027" summary="Added initial user dao. Barebones">
-      <option name="closed" value="true" />
-      <created>1753149244285</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1753149244285</updated>
+      <workItem from="1754324432725" duration="35544000" />
     </task>
     <task id="LOCAL-00028" summary="Got db.properties set up and directory set up as needed. Got Database manager up as well. Everything untested so far.">
       <option name="closed" value="true" />
@@ -646,7 +642,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754427008204</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="resign seems to be working">
+      <option name="closed" value="true" />
+      <created>1754427438207</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1754427438207</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +668,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Got join mostly written, working on tests" />
     <MESSAGE value="Got join working and tests passed. Observe is also up. Working on drawing the board" />
     <MESSAGE value="Sheesh got the board drawn right. Now I need to get the black board drawn right" />
     <MESSAGE value="Holy. I finally got the board to draw right both ways. That was a nightmare" />
@@ -689,7 +692,8 @@
     <MESSAGE value="Ready to test make move" />
     <MESSAGE value="Been debugging make move. Added update game to dao" />
     <MESSAGE value="Make move is working. Some UI things with new lines but fine overall. Working on resign now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make move is working. Some UI things with new lines but fine overall. Working on resign now" />
+    <MESSAGE value="resign seems to be working" />
+    <option name="LAST_COMMIT_MESSAGE" value="resign seems to be working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -25,6 +25,7 @@ public class ClientConsole implements ServerMessageObserver {
     private ServerFacade facade;
     private List<GameData> cachedGames = new ArrayList<>();
     private String currentColor;
+    private String username = null;
 
     public ClientConsole() {}
 
@@ -55,9 +56,21 @@ public class ClientConsole implements ServerMessageObserver {
 
             case NOTIFICATION -> {
                 NotificationMessage note = (NotificationMessage) message;
+                String msg = note.getMessage();
                 System.out.println();
-                System.out.println("NOTIFICATION: " + note.getMessage());
+                System.out.println("NOTIFICATION: " + msg);
                 System.out.print("[GAMEPLAY_MODE] >>> ");
+
+                if (msg.contains("left")) {
+                    String username = msg.split(" ")[0];
+                    for (GameData g : cachedGames) {
+                        if (g.getWhiteUsername() != null && g.getWhiteUsername().equals(username)) {
+                            g.setWhiteUsername(null);
+                        } else if (g.getBlackUsername() != null && g.getBlackUsername().equals(username)) {
+                            g.setBlackUsername(null);
+                        }
+                    }
+                }
             }
 
             case ERROR -> {
@@ -128,6 +141,7 @@ public class ClientConsole implements ServerMessageObserver {
         try {
             AuthData authData = facade.register(input[1], input[2], input[3]);
             this.authToken = authData.getAuthToken();
+            this.username = authData.getUsername();
             loggedIn = true;
             System.out.println("Registration successful. You are now logged in.");
         } catch (Exception e) {
@@ -149,6 +163,7 @@ public class ClientConsole implements ServerMessageObserver {
         try {
             AuthData authData = facade.login(input[1], input[2]);
             this.authToken = authData.getAuthToken();
+            this.username = authData.getUsername();
             loggedIn = true;
             System.out.println("Login successful. You are now logged in.");
         } catch (Exception e) {
@@ -380,7 +395,12 @@ public class ClientConsole implements ServerMessageObserver {
                     resignHelper(inputList, gameID);
                     System.out.print("[GAMEPLAY_MODE] >>> ");
                 }
-                case "leave" -> {return;}
+                case "leave" -> {
+                    int num = leaveHelper(inputList, gameID);
+                    if (num==2) {
+                        return;
+                    };
+                }
                 default -> {
                     System.out.println("Unknown command");
                 }
@@ -461,6 +481,7 @@ public class ClientConsole implements ServerMessageObserver {
     private void resignHelper(String[] input, int gameID) {
         if (input.length != 1) {
             System.out.println("Did not meet usage form:: resign");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
             return;
         }
 
@@ -473,6 +494,39 @@ public class ClientConsole implements ServerMessageObserver {
             System.out.println("You have resigned the game.");
         } else {
             System.out.println("Resignation cancelled.");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
+        }
+    }
+
+    private int leaveHelper(String[] input, int gameID) {
+        if (input.length != 1) {
+            System.out.println("Did not meet usage form:: leave");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
+            return 0;
+        }
+
+        System.out.print("Are you sure you want to leave? (y/n): ");
+        Scanner scanner = new Scanner(System.in);
+        String confirmation = scanner.nextLine().trim().toLowerCase();
+
+        if (confirmation.equals("y") || confirmation.equals("yes")) {
+            facade.leave(authToken, gameID);
+            System.out.println("You have left the game.");
+            for (GameData g : cachedGames) {
+                if (g.getGameID() == gameID) {
+                    if (g.getWhiteUsername() != null && g.getWhiteUsername().equals(username)) {
+                        g.setWhiteUsername(null);
+                    } else if (g.getBlackUsername() != null && g.getBlackUsername().equals(username)) {
+                        g.setBlackUsername(null);
+                    }
+                    break;
+                }
+            }
+            return 2;
+        } else {
+            System.out.println("Leaving game cancelled.");
+            System.out.print("[GAMEPLAY_MODE] >>> ");
+            return 1;
         }
     }
 }
