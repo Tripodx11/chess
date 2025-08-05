@@ -35,13 +35,9 @@ public class ClientConsole implements ServerMessageObserver {
     public void notify(ServerMessage message) {
         switch (message.getServerMessageType()) {
             case LOAD_GAME -> {
-
                 LoadGameMessage load = (LoadGameMessage) message;
-
                 ChessGame game = load.getGame();
-
                 drawBoard(game, currentColor); // 'color' should be tracked for display orientation
-
                 System.out.println("Board loaded from server.");
             }
 

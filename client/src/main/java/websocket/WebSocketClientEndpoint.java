@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 import websocket.commands.UserGameCommand;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
+import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
 
@@ -21,13 +24,22 @@ public class WebSocketClientEndpoint extends WebSocketAdapter {
         System.out.println("WebSocket connected");
     }
 
-    @Override
     public void onWebSocketText(String message) {
         super.onWebSocketText(message);
 
         try {
-            ServerMessage serverMessage = gson.fromJson(message, ServerMessage.class);
-            observer.notify(serverMessage);
+            // First: extract the message type only
+            ServerMessage temp = gson.fromJson(message, ServerMessage.class);
+            ServerMessage.ServerMessageType type = temp.getServerMessageType();
+
+            ServerMessage fullMessage = switch (type) {
+                case LOAD_GAME -> gson.fromJson(message, LoadGameMessage.class);
+                case NOTIFICATION -> gson.fromJson(message, NotificationMessage.class);
+                case ERROR -> gson.fromJson(message, ErrorMessage.class);
+            };
+
+            observer.notify(fullMessage);
+
         } catch (Exception e) {
             System.err.println("Failed to parse server message: " + e.getMessage());
         }

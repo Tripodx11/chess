@@ -9,22 +9,24 @@ import websocket.handlers.ConnectHandler;
 public class WebSocketDispatcher {
 
     private static DataAccess dataAccess;
+    private static ConnectionManager connections;
 
-    public static void initialize(DataAccess dao) {
+    public static void initialize(DataAccess dao, ConnectionManager manager) {
         dataAccess = dao;
+        connections = manager;
     }
 
-    public static void handle(UserGameCommand command, Session session) {
+    public static void handle(UserGameCommand command, Session session) throws DataAccessException {
         if (dataAccess == null) {
             System.err.println("WebSocketDispatcher not initialized with DAO");
             return;
         }
 
         switch (command.getCommandType()) {
-            case CONNECT -> new ConnectHandler(dataAccess).handle(command, session);
-            case MAKE_MOVE -> new MoveHandler(dataAccess).handle(command, session);
-            case LEAVE -> new LeaveHandler(dataAccess).handle(command, session);
-            case RESIGN -> new ResignHandler(dataAccess).handle(command, session);
+            case CONNECT -> new ConnectHandler(dataAccess, connections).handle(command, session);
+//            case MAKE_MOVE -> new MoveHandler(dataAccess).handle(command, session);
+//            case LEAVE -> new LeaveHandler(dataAccess).handle(command, session);
+//            case RESIGN -> new ResignHandler(dataAccess).handle(command, session);
             default -> System.err.println("Unknown command type: " + command.getCommandType());
         }
     }

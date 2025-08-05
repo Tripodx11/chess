@@ -6,6 +6,7 @@ import dataaccess.MySQLDataAccess;
 import dataaccess.SystemDataAccess;
 import handler.*;
 import spark.*;
+import websocket.ConnectionManager;
 import websocket.WebSocketDispatcher;
 
 public class Server {
@@ -23,7 +24,8 @@ public class Server {
         try {
             // Swap this line to use either System or MySQL DAO
             dataAccess = new MySQLDataAccess();
-            WebSocketDispatcher.initialize(dataAccess);
+            ConnectionManager connections = new ConnectionManager();
+            WebSocketDispatcher.initialize(dataAccess, connections);
 // persistent
             // dataAccess = new SystemDataAccess(); // in-memory
         } catch (DataAccessException e) {
