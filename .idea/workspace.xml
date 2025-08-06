@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Deleted commented code and refactor drawing board logic into a different class">
+    <list default="true" id="a7ef48aa-6d49-41f5-a417-94b783cc4d98" name="Changes" comment="Adjusted some UI things for TA passoff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/client/ClientConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/websocket/handlers/MoveHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +144,7 @@
       <recent name="dataaccess" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Observer">
+  <component name="RunManager" selected="JUnit.WebSocketTests">
     <configuration name="Client2" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -289,15 +290,7 @@
       <workItem from="1754319106072" duration="1838000" />
       <workItem from="1754324432725" duration="38442000" />
       <workItem from="1754431973288" duration="641000" />
-      <workItem from="1754433796577" duration="3391000" />
-    </task>
-    <task id="LOCAL-00033" summary="Got most of add and get auth data built out. Untested">
-      <option name="closed" value="true" />
-      <created>1753319973726</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1753319973726</updated>
+      <workItem from="1754433796577" duration="5175000" />
     </task>
     <task id="LOCAL-00034" summary="Dude I don't even know. A lot of issues that still aren't fixed. Working on them.">
       <option name="closed" value="true" />
@@ -683,7 +676,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754435967141</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Adjusted some UI things for TA passoff">
+      <option name="closed" value="true" />
+      <created>1754437319986</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1754437319986</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Moved packages to shared" />
     <MESSAGE value="Removed server code from main in client" />
     <MESSAGE value="Adjusted some of the error codes in client console" />
     <MESSAGE value="Completed getting started for Phase 6" />
@@ -726,7 +726,8 @@
     <MESSAGE value="Changed to tyrus and not jetty." />
     <MESSAGE value="Changed to tyrus and not jetty" />
     <MESSAGE value="Deleted commented code and refactor drawing board logic into a different class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted commented code and refactor drawing board logic into a different class" />
+    <MESSAGE value="Adjusted some UI things for TA passoff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted some UI things for TA passoff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

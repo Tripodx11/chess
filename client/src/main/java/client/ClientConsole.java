@@ -398,17 +398,25 @@ public class ClientConsole implements ServerMessageObserver {
 
     private void resignHelper(String[] input, int gameID) {
         if (input.length != 1) {
-            System.out.println("Did not meet usage form:: resign");
-            System.out.print("[GAMEPLAY_MODE] >>> ");
+            System.out.println("Did not meet usage form: resign");
             return;
         }
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Are you sure you want to resign? (yes/no): ");
+        String confirmation = scanner.nextLine().trim().toLowerCase();
+
+        if (!confirmation.equals("yes")) {
+            System.out.println("Resignation cancelled.");
+            return;
+        }
+
         try {
             facade.resign(authToken, gameID);
 //            System.out.println("You have resigned the game.");
         } catch (Exception e) {
             System.out.println("Resign failed: " + e.getMessage());
         }
-
     }
 
     private int leaveHelper(String[] input, int gameID) {

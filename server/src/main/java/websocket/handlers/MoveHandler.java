@@ -1,9 +1,6 @@
 package websocket.handlers;
 
-import chess.ChessGame;
-import chess.ChessMove;
-import chess.ChessPosition;
-import chess.InvalidMoveException;
+import chess.*;
 import dataaccess.DataAccess;
 import dataaccess.DataAccessException;
 import model.AuthData;
@@ -72,11 +69,15 @@ public class MoveHandler {
 
             // Check if move is legal
             Collection<ChessMove> legalMoves = gameLogic.validMoves(move.getStartPosition());
+            ChessPiece piece = gameLogic.getBoard().getPiece(move.getStartPosition());
             if (legalMoves.isEmpty()) {
                 connections.sendToSession(session, new ErrorMessage("Error: Illegal move."));
                 return;
             } else if (!legalMoves.contains(move)) {
                 connections.sendToSession(session, new ErrorMessage("Error: Illegal move."));
+                return;
+            } else if (piece.getTeamColor() != playerColor) {
+                connections.sendToSession(session, new ErrorMessage("Error: You can't move your opponent's piece."));
                 return;
             }
 
@@ -101,7 +102,7 @@ public class MoveHandler {
                 String winner = nextTurn == ChessGame.TeamColor.WHITE ? "Black" : "White";
                 game.getGame().setGameOver(true);
                 dataAccess.updateGameData(game);
-                connections.broadcast(gameID, new NotificationMessage("Checkmate! " + winner + " wins."), null);
+                connections.broadcast(gameID, new NotificationMessage("Checkmate! " + user.getUsername() + " wins."), null);
                 return;
             }
 
@@ -113,7 +114,7 @@ public class MoveHandler {
             }
 
             if (gameLogic.isInCheck(nextTurn)) {
-                connections.broadcast(gameID, new NotificationMessage(nextTurn + " is in check!"), null);
+                connections.broadcast(gameID, new NotificationMessage(user.getUsername() + " is in check!"), null);
             }
 
 
